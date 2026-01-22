@@ -12,47 +12,43 @@
 <meta property="og:title" content="Delta Support — Updates">
 <meta property="og:description" content="Release notes, announcements, and what’s new.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://downloaddelta.com/updates">
+<meta property="og:url" content="https://downloaddelta.com/deltaupdates.html">
 <meta property="og:image" content="https://downloaddelta.com/og-image.png">
 
 <style>
 :root{
-  --bg:#070707;
-  --panel:#0f0f0f;
-  --border:rgba(255,255,255,.07);
+  --bg:#050505;
+  --border:rgba(255,255,255,.08);
   --text:#f5f5f5;
-  --muted:#a1a1aa;
-  --accent:#7c3aed;
-  --shadow:0 0 50px rgba(0,0,0,.85);
+  --muted:#a3a3a3;
+  --red:#ef4444;
+  --red2:#b91c1c;
+  --shadow: 0 0 55px rgba(0,0,0,.85);
 }
 *{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
 body{
   margin:0;
   color:var(--text);
   background:
-    radial-gradient(900px 400px at 20% 0%, rgba(124,58,237,.16), transparent 60%),
+    radial-gradient(900px 420px at 20% 0%, rgba(239,68,68,.18), transparent 60%),
     radial-gradient(circle at top, #141414, var(--bg));
 }
-.wrap{ max-width:980px; margin:0 auto; padding:28px 18px 60px; }
+.wrap{ max-width:980px; margin:0 auto; padding:24px 16px 60px; }
 
 .topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  padding:14px 14px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:12px;
   border:1px solid var(--border);
   border-radius:18px;
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
   box-shadow: 0 0 25px rgba(0,0,0,.35);
   backdrop-filter: blur(10px);
 }
-
 .brand{ display:flex; align-items:center; gap:12px; }
 .emblem{
   width:42px; height:42px; border-radius:14px;
   border:1px solid var(--border);
-  background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.35), rgba(0,0,0,.3));
+  background: radial-gradient(circle at 30% 30%, rgba(239,68,68,.40), rgba(0,0,0,.25));
   display:grid; place-items:center;
 }
 .brand h1{ font-size:15px; margin:0; line-height:1.1; }
@@ -61,31 +57,33 @@ body{
 .nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
 .pill{
   text-decoration:none; color:var(--text); font-size:13px;
-  padding:10px 12px; border:1px solid var(--border);
-  border-radius:999px; background:rgba(255,255,255,.03);
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background: rgba(255,255,255,.03);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .pill:hover{
   transform: translateY(-1px);
-  border-color: rgba(255,255,255,.14);
-  box-shadow: 0 0 22px rgba(124,58,237,.12);
+  border-color: rgba(255,255,255,.16);
+  box-shadow: 0 0 22px rgba(239,68,68,.12);
 }
 
 .panel{
-  margin-top:18px;
-  padding:22px 20px;
+  margin-top:16px;
+  padding:20px;
   border-radius:22px;
   border:1px solid var(--border);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
   box-shadow: var(--shadow);
-  animation: rise .9s ease both;
+  animation: rise .85s ease both;
 }
 @keyframes rise{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
 
 .hTitle{ margin:0 0 8px; font-size:30px; }
 .hSub{ margin:0; color:var(--muted); line-height:1.7; font-size:14px; }
 
-.list{ margin-top:16px; display:grid; gap:12px; }
+.list{ margin-top:14px; display:grid; gap:12px; }
 .item{
   border:1px solid var(--border);
   border-radius:18px;
@@ -103,21 +101,26 @@ body{
   padding:6px 10px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.10);
-  background: rgba(124,58,237,.12);
-  color: #ddd6fe;
-  font-weight:650;
+  background: rgba(239,68,68,.14);
+  color: #fecaca;
+  font-weight:800;
 }
-.title{ margin:0 0 6px; font-size:16px; font-weight:750; }
+.badge.new{
+  background: rgba(239,68,68,.25);
+  border-color: rgba(239,68,68,.35);
+  color: white;
+}
+.title{ margin:0 0 6px; font-size:16px; font-weight:850; }
 .body{ margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
 
 .footer{
-  margin-top:18px;
-  padding:18px;
+  margin-top:16px;
+  padding:16px;
   text-align:center;
-  color:#737373;
+  color:#7a7a7a;
   font-size:12px;
 }
-a{ color:#c4b5fd; text-decoration:none; }
+a{ color:#fecaca; text-decoration:none; }
 a:hover{ text-decoration:underline; }
 </style>
 </head>
@@ -128,8 +131,8 @@ a:hover{ text-decoration:underline; }
       <div class="brand">
         <div class="emblem" aria-label="Delta Support emblem">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2L22 20H2L12 2Z" stroke="rgba(245,245,245,.9)" stroke-width="1.6"/>
-            <path d="M12 7.3L17.2 17H6.8L12 7.3Z" fill="rgba(124,58,237,.35)"/>
+            <path d="M12 2L22 20H2L12 2Z" stroke="rgba(245,245,245,.92)" stroke-width="1.6"/>
+            <path d="M12 7.3L17.2 17H6.8L12 7.3Z" fill="rgba(239,68,68,.35)"/>
           </svg>
         </div>
         <div>
@@ -140,7 +143,7 @@ a:hover{ text-decoration:underline; }
 
       <div class="nav">
         <a class="pill" href="/">Download</a>
-        <a class="pill" href="/updates">Updates</a>
+        <a class="pill" href="/deltaupdates.html">Updates</a>
         <a class="pill" href="https://discord.gg/XEyYCv3K" target="_blank" rel="noopener">Discord</a>
       </div>
     </div>
@@ -148,29 +151,33 @@ a:hover{ text-decoration:underline; }
     <div class="panel">
       <h2 class="hTitle">Updates</h2>
       <p class="hSub">
-        New builds and announcements get posted here first. For help, troubleshooting, and faster updates,
+        This page is where we post release notes and announcements. For faster updates and support,
         join the Discord: <a href="https://discord.gg/XEyYCv3K" target="_blank" rel="noopener">discord.gg/XEyYCv3K</a>.
       </p>
 
-      <div class="list">
-        <div class="item">
+      <div class="list" id="updatesList">
+        <!-- Each item uses data-date="YYYY-MM-DD" so NEW can be applied automatically -->
+
+        <div class="item" data-date="2026-01-22">
           <div class="meta">
             <span class="badge">v2.704</span>
+            <span class="badge newFlag" style="display:none;">NEW</span>
             <span>Posted: Jan 22, 2026</span>
           </div>
           <p class="title">Release v2.704 is live</p>
           <p class="body">
             Latest builds are now available on the download page for iOS and Android. If you run into install issues,
-            check the FAQ on the main page or open a ticket in the Discord.
+            check the FAQ on the main page or ask for help in the Discord.
           </p>
         </div>
 
-        <div class="item">
+        <div class="item" data-date="2026-01-22">
           <div class="meta">
             <span class="badge">Support</span>
-            <span>Ongoing</span>
+            <span class="badge newFlag" style="display:none;">NEW</span>
+            <span>Posted: Jan 22, 2026</span>
           </div>
-          <p class="title">Where to get help</p>
+          <p class="title">Welcome to Delta Support Updates</p>
           <p class="body">
             Welcome to Delta Support Updates. This server is dedicated to providing timely updates, reliable assistance,
             and a fair, respectful environment for every member. Our team is committed to supporting the community and ensuring
@@ -178,17 +185,6 @@ a:hover{ text-decoration:underline; }
           </p>
         </div>
 
-        <!-- Copy/paste this block for future updates -->
-        <!--
-        <div class="item">
-          <div class="meta">
-            <span class="badge">vX.XXX</span>
-            <span>Posted: Month Day, Year</span>
-          </div>
-          <p class="title">Short update title</p>
-          <p class="body">Write what changed, what users should do, and where to get help.</p>
-        </div>
-        -->
       </div>
 
       <div class="footer">
@@ -196,5 +192,26 @@ a:hover{ text-decoration:underline; }
       </div>
     </div>
   </div>
+
+<script>
+(function applyNewBadges(){
+  // Any post within last 7 days gets a NEW badge
+  const DAYS_NEW = 7;
+  const now = new Date();
+  const items = document.querySelectorAll(".item[data-date]");
+  items.forEach(item => {
+    const ds = item.getAttribute("data-date");
+    const d = new Date(ds + "T00:00:00");
+    if (isNaN(d.getTime())) return;
+
+    const diffDays = Math.floor((now - d) / (1000*60*60*24));
+    if (diffDays >= 0 && diffDays <= DAYS_NEW) {
+      const flag = item.querySelector(".newFlag");
+      if (flag) { flag.style.display = "inline-flex"; flag.classList.add("new"); }
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
