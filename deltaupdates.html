@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Delta Support — Updates</title>
+<meta name="description" content="Delta Support updates, announcements, and release notes. Stay informed on new builds and changes.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:title" content="Delta Support — Updates">
+<meta property="og:description" content="Release notes, announcements, and what’s new.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://downloaddelta.com/updates">
+<meta property="og:image" content="https://downloaddelta.com/og-image.png">
+
+<style>
+:root{
+  --bg:#070707;
+  --panel:#0f0f0f;
+  --border:rgba(255,255,255,.07);
+  --text:#f5f5f5;
+  --muted:#a1a1aa;
+  --accent:#7c3aed;
+  --shadow:0 0 50px rgba(0,0,0,.85);
+}
+*{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(900px 400px at 20% 0%, rgba(124,58,237,.16), transparent 60%),
+    radial-gradient(circle at top, #141414, var(--bg));
+}
+.wrap{ max-width:980px; margin:0 auto; padding:28px 18px 60px; }
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 14px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: 0 0 25px rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+}
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.emblem{
+  width:42px; height:42px; border-radius:14px;
+  border:1px solid var(--border);
+  background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.35), rgba(0,0,0,.3));
+  display:grid; place-items:center;
+}
+.brand h1{ font-size:15px; margin:0; line-height:1.1; }
+.brand p{ margin:0; font-size:12px; color:var(--muted); }
+
+.nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+.pill{
+  text-decoration:none; color:var(--text); font-size:13px;
+  padding:10px 12px; border:1px solid var(--border);
+  border-radius:999px; background:rgba(255,255,255,.03);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.pill:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.14);
+  box-shadow: 0 0 22px rgba(124,58,237,.12);
+}
+
+.panel{
+  margin-top:18px;
+  padding:22px 20px;
+  border-radius:22px;
+  border:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: var(--shadow);
+  animation: rise .9s ease both;
+}
+@keyframes rise{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
+
+.hTitle{ margin:0 0 8px; font-size:30px; }
+.hSub{ margin:0; color:var(--muted); line-height:1.7; font-size:14px; }
+
+.list{ margin-top:16px; display:grid; gap:12px; }
+.item{
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  background: rgba(0,0,0,.18);
+}
+.meta{
+  display:flex; flex-wrap:wrap; gap:10px;
+  align-items:center;
+  margin-bottom:8px;
+  color:var(--muted);
+  font-size:12px;
+}
+.badge{
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(124,58,237,.12);
+  color: #ddd6fe;
+  font-weight:650;
+}
+.title{ margin:0 0 6px; font-size:16px; font-weight:750; }
+.body{ margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
+
+.footer{
+  margin-top:18px;
+  padding:18px;
+  text-align:center;
+  color:#737373;
+  font-size:12px;
+}
+a{ color:#c4b5fd; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="emblem" aria-label="Delta Support emblem">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2L22 20H2L12 2Z" stroke="rgba(245,245,245,.9)" stroke-width="1.6"/>
+            <path d="M12 7.3L17.2 17H6.8L12 7.3Z" fill="rgba(124,58,237,.35)"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Delta Support</h1>
+          <p>Updates • release notes • announcements</p>
+        </div>
+      </div>
+
+      <div class="nav">
+        <a class="pill" href="/">Download</a>
+        <a class="pill" href="/updates">Updates</a>
+        <a class="pill" href="https://discord.gg/XEyYCv3K" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="hTitle">Updates</h2>
+      <p class="hSub">
+        New builds and announcements get posted here first. For help, troubleshooting, and faster updates,
+        join the Discord: <a href="https://discord.gg/XEyYCv3K" target="_blank" rel="noopener">discord.gg/XEyYCv3K</a>.
+      </p>
+
+      <div class="list">
+        <div class="item">
+          <div class="meta">
+            <span class="badge">v2.704</span>
+            <span>Posted: Jan 22, 2026</span>
+          </div>
+          <p class="title">Release v2.704 is live</p>
+          <p class="body">
+            Latest builds are now available on the download page for iOS and Android. If you run into install issues,
+            check the FAQ on the main page or open a ticket in the Discord.
+          </p>
+        </div>
+
+        <div class="item">
+          <div class="meta">
+            <span class="badge">Support</span>
+            <span>Ongoing</span>
+          </div>
+          <p class="title">Where to get help</p>
+          <p class="body">
+            Welcome to Delta Support Updates. This server is dedicated to providing timely updates, reliable assistance,
+            and a fair, respectful environment for every member. Our team is committed to supporting the community and ensuring
+            everyone receives equal treatment and helpful guidance. Join now to stay informed and connected.
+          </p>
+        </div>
+
+        <!-- Copy/paste this block for future updates -->
+        <!--
+        <div class="item">
+          <div class="meta">
+            <span class="badge">vX.XXX</span>
+            <span>Posted: Month Day, Year</span>
+          </div>
+          <p class="title">Short update title</p>
+          <p class="body">Write what changed, what users should do, and where to get help.</p>
+        </div>
+        -->
+      </div>
+
+      <div class="footer">
+        © 2026 Delta Support • <a href="/">Back to Download</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

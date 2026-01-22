@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ================= SEO ================= -->
-<title>Delta Executor Official Download (iOS & Android) v2.704</title>
-<meta name="description" content="Download Delta Executor v2.704 for iOS and Android. Official direct install, IPA, APK, and ARM32 downloads. Fast, safe, and updated.">
-<meta name="keywords" content="Delta Executor, Delta Executor download, Delta Executor iOS, Delta Executor Android, Delta Executor IPA, Delta Executor APK">
-<meta name="author" content="Delta Executor">
+<title>Delta Support — Official Download (iOS & Android) v2.704</title>
+<meta name="description" content="Delta Support official download page for iOS and Android (v2.704). Direct install, IPA, APK, and ARM32 downloads, plus updates and support.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Delta Executor Official Download v2.704">
-<meta property="og:description" content="Official Delta Executor downloads for iOS and Android. Direct install, IPA, APK, and ARM32 available.">
+<meta property="og:title" content="Delta Support — Official Download v2.704">
+<meta property="og:description" content="Official downloads for iOS and Android, plus updates and support.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://downloaddelta.com/">
 <meta property="og:image" content="https://downloaddelta.com/og-image.png">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Delta Executor Official Download">
-<meta name="twitter:description" content="Download Delta Executor v2.704 for iOS and Android.">
+<meta name="twitter:title" content="Delta Support — Official Download">
+<meta name="twitter:description" content="Official downloads for iOS and Android, plus updates and support.">
 <meta name="twitter:image" content="https://downloaddelta.com/og-image.png">
 
 <!-- Structured Data -->
@@ -30,194 +28,394 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Delta Executor",
+  "name": "Delta Support",
   "operatingSystem": "iOS, Android",
-  "applicationCategory": "DeveloperApplication",
+  "applicationCategory": "UtilitiesApplication",
   "softwareVersion": "2.704",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Delta Executor"
-  }
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Delta Support" }
 }
 </script>
 
-<!-- ================= STYLES ================= -->
 <style>
-:root {
-  --bg:#0a0a0a;
-  --card:#111;
+:root{
+  --bg:#070707;
+  --panel:#0f0f0f;
+  --panel2:#111;
+  --border:rgba(255,255,255,.07);
+  --text:#f5f5f5;
+  --muted:#a1a1aa;
   --accent:#7c3aed;
   --green:#22c55e;
-  --text:#f5f5f5;
-  --muted:#9ca3af;
+  --shadow:0 0 50px rgba(0,0,0,.85);
 }
 
-* {
-  box-sizing:border-box;
-  font-family:"Segoe UI",system-ui,sans-serif;
-}
-
-body {
+*{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+html,body{ height:100%; }
+body{
   margin:0;
-  min-height:100vh;
-  background:radial-gradient(circle at top,#1a1a1a,var(--bg));
   color:var(--text);
+  background:
+    radial-gradient(900px 400px at 20% 0%, rgba(124,58,237,.18), transparent 60%),
+    radial-gradient(700px 350px at 90% 20%, rgba(34,197,94,.10), transparent 60%),
+    radial-gradient(circle at top, #141414, var(--bg));
+  overflow-x:hidden;
+}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:28px 18px 60px;
+}
+
+.topbar{
   display:flex;
   align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 14px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: 0 0 25px rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
 }
 
-body::before {
-  content:"";
-  position:absolute;
-  width:120%;
-  height:120%;
-  background:radial-gradient(circle,rgba(124,58,237,.15),transparent 60%);
-  animation:pulse 6s infinite alternate;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width: 220px;
 }
 
-@keyframes pulse {
-  from { transform:scale(1); opacity:.6; }
-  to { transform:scale(1.2); opacity:1; }
+.emblem{
+  width:42px; height:42px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.35), rgba(0,0,0,.3));
+  display:grid;
+  place-items:center;
+  box-shadow: 0 0 30px rgba(124,58,237,.12);
 }
 
-.container {
-  position:relative;
-  z-index:1;
-  background:linear-gradient(180deg,#151515,#0f0f0f);
-  border-radius:20px;
-  padding:38px 32px;
-  width:100%;
-  max-width:480px;
-  box-shadow:0 0 45px rgba(0,0,0,.85);
-  animation:fadeIn 1.1s ease;
+.brand h1{
+  font-size:15px;
+  margin:0;
+  letter-spacing:.3px;
+  line-height:1.1;
 }
-
-@keyframes fadeIn {
-  from { opacity:0; transform:translateY(25px); }
-  to { opacity:1; transform:translateY(0); }
-}
-
-.logo {
-  text-align:center;
-  font-size:34px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-.logo span { color:var(--accent); }
-
-.subtitle {
-  text-align:center;
-  font-size:14px;
+.brand p{
+  margin:0;
+  font-size:12px;
   color:var(--muted);
-  margin:10px 0 26px;
 }
 
-.section {
+.nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.pill{
+  text-decoration:none;
+  color:var(--text);
+  font-size:13px;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:rgba(255,255,255,.03);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.pill:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.14);
+  box-shadow: 0 0 22px rgba(124,58,237,.12);
+}
+
+.hero{
+  margin-top:18px;
+  padding:26px 20px;
+  border-radius:22px;
+  border:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: var(--shadow);
+  animation: rise .9s ease both;
+}
+@keyframes rise{
+  from{ opacity:0; transform: translateY(18px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+.heroGrid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:18px;
+}
+@media (max-width: 860px){
+  .heroGrid{ grid-template-columns: 1fr; }
+}
+
+.hTitle{
+  font-size:34px;
+  margin:0 0 10px;
+  letter-spacing:.2px;
+}
+.hTitle span{ color: var(--accent); }
+.hSub{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14px;
+}
+
+.card{
+  border:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.15));
+  border-radius:18px;
+  padding:18px;
+}
+
+.sectionTitle{
+  margin:0 0 10px;
   font-size:13px;
   color:var(--muted);
-  margin:22px 0 8px;
+  letter-spacing:.2px;
+  text-transform:uppercase;
 }
 
-.btn {
+.btn{
   display:block;
   width:100%;
-  padding:15px;
-  margin-bottom:14px;
-  border-radius:14px;
-  text-align:center;
   text-decoration:none;
   color:white;
-  font-size:15px;
-  font-weight:600;
-  transition:.25s ease;
+  font-weight:650;
+  font-size:14px;
+  padding:14px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  user-select:none;
+}
+.btn + .btn{ margin-top:10px; }
+
+.btnPrimary{
+  background: linear-gradient(135deg, rgba(124,58,237,1), rgba(147,51,234,1));
+  box-shadow: 0 0 24px rgba(124,58,237,.35);
+}
+.btnPrimary:hover{
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 40px rgba(124,58,237,.6);
 }
 
-.btn-primary {
-  background:linear-gradient(135deg,var(--accent),#9333ea);
-  box-shadow:0 0 25px rgba(124,58,237,.5);
+.btnGreen{
+  background: linear-gradient(135deg, rgba(34,197,94,1), rgba(22,163,74,1));
+  box-shadow: 0 0 24px rgba(34,197,94,.25);
+}
+.btnGreen:hover{
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 40px rgba(34,197,94,.5);
 }
 
-.btn-primary:hover {
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:0 0 40px rgba(124,58,237,.9);
+.btnSoft{
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  box-shadow:none;
+}
+.btnSoft:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(255,255,255,.08);
 }
 
-.btn-green {
-  background:linear-gradient(135deg,var(--green),#16a34a);
-  box-shadow:0 0 25px rgba(34,197,94,.45);
-}
-
-.btn-green:hover {
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:0 0 40px rgba(34,197,94,.85);
-}
-
-.info {
-  margin-top:26px;
-  font-size:13px;
+.smallNote{
+  margin:12px 0 0;
   color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.grid2{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:18px;
+}
+@media (max-width: 860px){
+  .grid2{ grid-template-columns:1fr; }
+}
+
+.faqItem{
+  padding:14px 14px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.02);
+}
+.faqItem + .faqItem{ margin-top:10px; }
+
+.q{
+  margin:0 0 6px;
+  font-weight:700;
+  font-size:14px;
+}
+.a{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
   line-height:1.7;
 }
 
-.footer {
-  margin-top:26px;
+.footer{
+  margin-top:18px;
+  padding:18px;
   text-align:center;
+  color:#737373;
   font-size:12px;
-  color:#6b7280;
 }
 </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<div class="container">
-  <div class="logo">DELTA <span>EXECUTOR</span></div>
-  <div class="subtitle">Official Download • Version 2.704</div>
+    <!-- Top Bar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="emblem" aria-label="Delta Support emblem">
+          <!-- Inline emblem (no external files needed) -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2L22 20H2L12 2Z" stroke="rgba(245,245,245,.9)" stroke-width="1.6"/>
+            <path d="M12 7.3L17.2 17H6.8L12 7.3Z" fill="rgba(124,58,237,.35)"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Delta Support</h1>
+          <p>Official downloads • updates • help</p>
+        </div>
+      </div>
 
-  <div class="section">iOS Downloads</div>
+      <div class="nav">
+        <a class="pill" href="/">Download</a>
+        <a class="pill" href="/updates">Updates</a>
+        <a class="pill" href="https://discord.gg/XEyYCv3K" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
 
-  <a class="btn btn-primary"
-     href="itms-services:///?action=download-manifest&url=https://delta.bz/manifest.plist">
-     iOS Direct Install (Recommended)
-  </a>
+    <!-- Hero -->
+    <div class="hero">
+      <div class="heroGrid">
+        <div class="card">
+          <h2 class="hTitle">Get <span>Delta</span> fast, and stay up to date.</h2>
+          <p class="hSub">
+            This is the official Delta Support download page. Here you can grab the latest release (v2.704),
+            check what’s new on the Updates page, and join the server if you need help or want announcements the moment they drop.
+          </p>
 
-  <a class="btn btn-primary"
-     href="https://deltaexecutor.filesadda.com/Delta-iOS-v2.704.ipa">
-     Download iOS IPA (v2.704)
-  </a>
+          <p class="smallNote">
+            Tip: iOS direct install works best in Safari. Android installs may require enabling “Install unknown apps” in your settings.
+          </p>
+        </div>
 
-  <div class="section">Android Downloads</div>
+        <div class="card">
+          <div class="sectionTitle">Downloads • v2.704</div>
 
-  <a class="btn btn-green"
-     href="https://deltaexecutor.filesadda.com/Delta-v2.704-02.apk">
-     Android APK (v2.704)
-  </a>
+          <!-- iOS -->
+          <a class="btn btnPrimary"
+             href="itms-services:///?action=download-manifest&url=https://delta.bz/manifest.plist">
+            iOS Direct Install (Recommended)
+          </a>
 
-  <a class="btn btn-green"
-     href="https://deltaexecutor.filesadda.com/Delta-v2.704-02.apk">
-     Android ARM32 (v2.704)
-  </a>
+          <a class="btn btnPrimary"
+             href="https://deltaexecutor.filesadda.com/Delta-iOS-v2.704.ipa">
+            Download iOS IPA (v2.704)
+          </a>
 
-  <div class="info">
-    <strong>About Delta Executor</strong><br>
-    Delta Executor is a powerful multi-platform executor for iOS and Android.
-    This page provides the latest official version with direct install options,
-    including IPA, APK, and ARM32 builds.
+          <!-- Android -->
+          <a class="btn btnGreen"
+             href="https://deltaexecutor.filesadda.com/Delta-v2.704-02.apk">
+            Android APK (v2.704)
+          </a>
+
+          <a class="btn btnGreen"
+             href="https://deltaexecutor.filesadda.com/Delta-v2.704-02.apk">
+            Android ARM32 (v2.704)
+          </a>
+
+          <p class="smallNote">
+            Having trouble? Scroll down to the FAQ or join the Discord for support.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bio + Discord -->
+      <div class="grid2">
+        <div class="card">
+          <div class="sectionTitle">What is Delta Support?</div>
+          <p class="hSub" style="margin:0; font-size:14px;">
+            Delta Support is the home base for downloads, release notes, and community help.
+            If you’re looking for the latest builds, quick installation options, or real-time announcements,
+            you’re in the right place. We keep things simple: clear links, clear updates, and support that doesn’t waste your time.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="sectionTitle">Join the Discord</div>
+          <a class="btn btnSoft" href="https://discord.gg/XEyYCv3K" target="_blank" rel="noopener">
+            Join Delta Support Updates
+          </a>
+          <p class="smallNote" style="margin-top:10px;">
+            Welcome to Delta Support Updates. This server is dedicated to providing timely updates, reliable assistance,
+            and a fair, respectful environment for every member. Our team is committed to supporting the community and ensuring
+            everyone receives equal treatment and helpful guidance. Join now to stay informed and connected.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="grid2" style="margin-top:18px;">
+        <div class="card">
+          <div class="sectionTitle">FAQ</div>
+
+          <div class="faqItem">
+            <p class="q">Why does iOS direct install only work on certain browsers?</p>
+            <p class="a">Direct install is meant for iOS. Safari is usually the most reliable option for opening the install link.</p>
+          </div>
+
+          <div class="faqItem">
+            <p class="q">I installed it, but it won’t open on iOS. What now?</p>
+            <p class="a">If iOS blocks the app, you may need to trust the developer profile in your device settings. If you’re stuck, join the Discord and we’ll help.</p>
+          </div>
+
+          <div class="faqItem">
+            <p class="q">Android says “App not installed” or blocks it.</p>
+            <p class="a">Make sure “Install unknown apps” is enabled for your browser or file manager, then try again. Also confirm you downloaded the correct build for your device.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="sectionTitle">More answers</div>
+
+          <div class="faqItem">
+            <p class="q">Where do I see what changed in the latest version?</p>
+            <p class="a">Check the <a href="/updates" style="color:#c4b5fd; text-decoration:none;">Updates page</a> for notes and announcements.</p>
+          </div>
+
+          <div class="faqItem">
+            <p class="q">Is this the official download page?</p>
+            <p class="a">Yes — this page is maintained for official links, updates, and support info.</p>
+          </div>
+
+          <div class="faqItem">
+            <p class="q">Where do I get support?</p>
+            <p class="a">The Discord server is the quickest way to get help and stay updated.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        © 2026 Delta Support • <a href="/updates" style="color:#9ca3af; text-decoration:none;">Updates</a> •
+        <a href="https://discord.gg/XEyYCv3K" target="_blank" rel="noopener" style="color:#9ca3af; text-decoration:none;">Discord</a>
+      </div>
+    </div>
   </div>
-
-  <div class="footer">
-    Website under construction — direct downloads available.<br>
-    © 2026 Delta Executor. All rights reserved.
-  </div>
-</div>
-
 </body>
 </html>
