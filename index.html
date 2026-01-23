@@ -25,7 +25,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Delta Support",
-  "operatingSystem": "iOS, Android",
+  "operatingSystem": "iOS, Android, macOS",
   "applicationCategory": "UtilitiesApplication",
   "softwareVersion": "2.705",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -178,10 +178,9 @@ body{
 .grid2{
   margin-top:16px;
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap:16px;
 }
-@media (max-width: 900px){ .grid2{ grid-template-columns: 1fr; } }
 
 .faqItem{
   padding:14px;
@@ -260,6 +259,30 @@ a.inline:hover{ text-decoration:underline; }
   .mobileBtn.dark{ background: rgba(255,255,255,.06); }
 }
 
+/* ===== OS highlight ===== */
+.osBadge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(239,68,68,.25);
+  background: rgba(239,68,68,.10);
+  color:#fecaca;
+  font-weight:800;
+  font-size:12px;
+}
+.recommendedCard{
+  border-color: rgba(239,68,68,.35) !important;
+  box-shadow: 0 0 30px rgba(239,68,68,.18);
+}
+.recommendedBtn{
+  outline: 2px solid rgba(239,68,68,.55);
+  outline-offset: 2px;
+  box-shadow: 0 0 40px rgba(239,68,68,.25);
+}
+
 /* ===== Popup / Modal ===== */
 .modalOverlay{
   position: fixed;
@@ -282,9 +305,7 @@ a.inline:hover{ text-decoration:underline; }
   transform: translateY(8px);
   animation: pop .18s ease forwards;
 }
-@keyframes pop{
-  to{ transform: translateY(0); }
-}
+@keyframes pop{ to{ transform: translateY(0); } }
 .modalHeader{
   padding: 14px 16px;
   border-bottom: 1px solid rgba(255,255,255,.08);
@@ -293,18 +314,7 @@ a.inline:hover{ text-decoration:underline; }
   justify-content: space-between;
   gap: 10px;
 }
-.modalHeader strong{
-  font-size: 14px;
-  letter-spacing: .2px;
-}
-.modalClose{
-  background: transparent;
-  border: 1px solid rgba(255,255,255,.12);
-  color: var(--text);
-  border-radius: 12px;
-  padding: 8px 10px;
-  cursor: pointer;
-}
+.modalHeader strong{ font-size: 14px; letter-spacing: .2px; }
 .modalBody{
   padding: 14px 16px 16px;
   color: var(--muted);
@@ -324,7 +334,7 @@ a.inline:hover{ text-decoration:underline; }
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.12);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 900;
   font-size: 13px;
   cursor: pointer;
 }
@@ -333,7 +343,7 @@ a.inline:hover{ text-decoration:underline; }
   background: linear-gradient(135deg, var(--red), var(--red2));
   box-shadow: 0 0 26px rgba(239,68,68,.35);
 }
-.modalBtn.continue{
+.modalBtn.no{
   color: var(--text);
   background: rgba(255,255,255,.06);
 }
@@ -374,9 +384,10 @@ a.inline:hover{ text-decoration:underline; }
               This is the official Delta Support page for downloads, update notes, and community help.
               If you want announcements the moment they drop, the Discord is the fastest place to get them.
             </p>
+            <div class="osBadge" id="osBadge" style="display:none;"></div>
           </div>
 
-          <!-- Discord Ask (BEFORE DOWNLOADS) -->
+          <!-- Community -->
           <div class="card">
             <div class="sectionTitle">Community</div>
             <div class="discordBox">
@@ -411,32 +422,45 @@ a.inline:hover{ text-decoration:underline; }
 
         <!-- Downloads -->
         <div class="grid2">
-          <div class="card">
+          <div class="card" id="cardIOS">
             <div class="sectionTitle">iOS Downloads • v2.705</div>
 
-            <a class="btn btnRed"
+            <a class="btn btnRed downloadBtn" data-os="ios"
                href="itms-services:///?action=download-manifest&url=https://delta.bz/manifest.plist">
               iOS Direct Install (Recommended)
             </a>
 
-            <a class="btn btnRed"
-               id="iosIpaBtn"
+            <a class="btn btnRed downloadBtn" data-os="ios"
                href="https://deltaexecutor.filesadda.com/DeltaiOS-2.705.ipa">
               Download iOS IPA (v2.705)
             </a>
           </div>
 
-          <div class="card">
+          <div class="card" id="cardAndroid">
             <div class="sectionTitle">Android Downloads • v2.705</div>
 
-            <a class="btn btnRed"
+            <a class="btn btnRed downloadBtn" data-os="android"
                href="https://deltaexecutor.filesadda.com/Delta-2.705.apk">
               Android APK (v2.705)
             </a>
 
-            <a class="btn btnRed"
+            <a class="btn btnRed downloadBtn" data-os="android"
                href="https://deltaexecutor.filesadda.com/Delta-2.705.apk">
               Android ARM32 (v2.705)
+            </a>
+
+            <a class="btn btnRed downloadBtn" data-os="android"
+               href="https://www.mediafire.com/file/zfukogvf9y0pdes/Delta_X_VNG_V2.704.apk/file">
+              Android VNG (v2.704)
+            </a>
+          </div>
+
+          <div class="card" id="cardMac">
+            <div class="sectionTitle">macOS Download</div>
+
+            <a class="btn btnRed downloadBtn" data-os="mac"
+               href="https://www.mediafire.com/file/5phn6kvf9wz26ll/delta.dmg/file">
+              Download for macOS (.dmg)
             </a>
           </div>
         </div>
@@ -488,19 +512,18 @@ a.inline:hover{ text-decoration:underline; }
 
   </div>
 
-  <!-- ===== Popup Modal ===== -->
+  <!-- ===== Discord Popup Modal (YES / NO) ===== -->
   <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modalHeader">
         <strong id="modalTitle">Join our Discord server?</strong>
-        <button class="modalClose" id="modalClose" type="button">Close</button>
       </div>
       <div class="modalBody" id="modalBodyText">
-        Want to join Delta Support Updates for announcements and help?
+        Join Delta Support Updates for announcements and help.
       </div>
       <div class="modalActions">
-        <a class="modalBtn join" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Join Discord</a>
-        <button class="modalBtn continue" id="modalContinue" type="button">Continue</button>
+        <a class="modalBtn join" id="joinBtn" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Yes</a>
+        <button class="modalBtn no" id="noBtn" type="button">No</button>
       </div>
     </div>
   </div>
@@ -508,27 +531,83 @@ a.inline:hover{ text-decoration:underline; }
 <script>
 (function(){
   const DISCORD_INVITE = "https://discord.gg/deltaupdates";
-  const ipaBtn = document.getElementById("iosIpaBtn");
+
+  // ===== Popup limit: only twice per day =====
+  const POP_KEY = "ds_popup_v1";
+  function todayKey(){
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth()+1).padStart(2,"0");
+    const dd = String(d.getDate()).padStart(2,"0");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+  function getPopState(){
+    try{
+      const raw = localStorage.getItem(POP_KEY);
+      if(!raw) return { day: todayKey(), count: 0 };
+      const obj = JSON.parse(raw);
+      if(!obj || obj.day !== todayKey()) return { day: todayKey(), count: 0 };
+      return obj;
+    }catch{
+      return { day: todayKey(), count: 0 };
+    }
+  }
+  function setPopState(state){
+    localStorage.setItem(POP_KEY, JSON.stringify(state));
+  }
+  function canShowPopup(){
+    const st = getPopState();
+    return st.count < 2;
+  }
+  function markPopupShown(){
+    const st = getPopState();
+    st.count = (st.count || 0) + 1;
+    st.day = todayKey();
+    setPopState(st);
+  }
+
+  // ===== Modal controls =====
   const overlay = document.getElementById("modalOverlay");
-  const closeBtn = document.getElementById("modalClose");
-  const continueBtn = document.getElementById("modalContinue");
   const bodyText = document.getElementById("modalBodyText");
+  const noBtn = document.getElementById("noBtn");
+  const joinBtn = document.getElementById("joinBtn");
+
+  joinBtn.href = DISCORD_INVITE;
 
   let pendingUrl = null;
-  let stage = "before"; // "before" or "after"
+  let afterPopupTimer = null;
 
   function openModal(text){
+    if(!canShowPopup()) return;
     bodyText.textContent = text;
     overlay.style.display = "flex";
     overlay.setAttribute("aria-hidden", "false");
+    markPopupShown();
   }
   function closeModal(){
     overlay.style.display = "none";
     overlay.setAttribute("aria-hidden", "true");
   }
 
-  // Close handlers
-  closeBtn.addEventListener("click", closeModal);
+  noBtn.addEventListener("click", () => {
+    // if it was a download flow, continue download on "No"
+    if(pendingUrl){
+      const url = pendingUrl;
+      pendingUrl = null;
+      closeModal();
+      window.location.href = url;
+
+      // show "after download" popup (counts toward 2/day)
+      clearTimeout(afterPopupTimer);
+      afterPopupTimer = setTimeout(() => {
+        openModal("Download started. Join the Discord for updates and support?");
+      }, 900);
+      return;
+    }
+    closeModal();
+  });
+
+  // click outside closes (no download)
   overlay.addEventListener("click", (e) => {
     if(e.target === overlay) closeModal();
   });
@@ -536,40 +615,60 @@ a.inline:hover{ text-decoration:underline; }
     if(e.key === "Escape") closeModal();
   });
 
-  // IPA click -> popup BEFORE download
-  ipaBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    pendingUrl = ipaBtn.href;
-    stage = "before";
-    openModal("Do you want to join our Discord server before downloading?");
+  // ===== Show popup on page load (counts toward 2/day) =====
+  window.addEventListener("load", () => {
+    openModal("Join our Discord server for updates and support?");
   });
 
-  // Continue button behavior
-  continueBtn.addEventListener("click", () => {
-    if(!pendingUrl) return;
+  // ===== Intercept ALL download buttons: show popup BEFORE download =====
+  document.querySelectorAll(".downloadBtn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      // If popup quota is used up, just download normally
+      if(!canShowPopup()) return;
 
-    if(stage === "before"){
-      // Start download
-      closeModal();
-      window.location.href = pendingUrl;
-
-      // Show AFTER popup shortly after starting download
-      stage = "after";
-      setTimeout(() => {
-        openModal("Download started. Do you want to join our Discord server?");
-      }, 900);
-      return;
-    }
-
-    // stage === "after"
-    closeModal();
-    pendingUrl = null;
+      e.preventDefault();
+      pendingUrl = btn.href;
+      openModal("Join our Discord server before downloading?");
+    });
   });
 
-  // Keep invite correct if you ever change it later
-  document.querySelectorAll('a[href="https://discord.gg/deltaupdates"]').forEach(a => {
-    a.href = DISCORD_INVITE;
-  });
+  // ===== Auto-detect OS + highlight matching card/buttons =====
+  function detectOS(){
+    const ua = navigator.userAgent || "";
+    const platform = navigator.platform || "";
+    const touchMac = (platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    const isIOS = /iPhone|iPad|iPod/i.test(ua) || touchMac;
+    const isAndroid = /Android/i.test(ua);
+    const isMac = /Macintosh|Mac OS X/i.test(ua) && !isIOS;
+
+    if(isIOS) return "ios";
+    if(isAndroid) return "android";
+    if(isMac) return "mac";
+    return "other";
+  }
+
+  const os = detectOS();
+  const badge = document.getElementById("osBadge");
+  const cardIOS = document.getElementById("cardIOS");
+  const cardAndroid = document.getElementById("cardAndroid");
+  const cardMac = document.getElementById("cardMac");
+
+  const labelMap = { ios:"iOS detected", android:"Android detected", mac:"macOS detected", other:"Device detected" };
+  badge.style.display = "inline-flex";
+  badge.textContent = "✓ " + (labelMap[os] || "Device detected");
+
+  function highlight(sectionId, osKey){
+    const card = document.getElementById(sectionId);
+    if(!card) return;
+    card.classList.add("recommendedCard");
+    card.querySelectorAll('.downloadBtn[data-os="'+osKey+'"]').forEach(b => b.classList.add("recommendedBtn"));
+  }
+
+  if(os === "ios") highlight("cardIOS", "ios");
+  if(os === "android") highlight("cardAndroid", "android");
+  if(os === "mac") highlight("cardMac", "mac");
+
 })();
 </script>
 </body>
