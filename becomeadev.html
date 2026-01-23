@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Developer — Application</title>
+
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+
+<style>
+:root{
+  --bg:#050505;
+  --panel:#0b0b0b;
+  --border:rgba(255,255,255,.08);
+  --text:#f5f5f5;
+  --muted:#a3a3a3;
+  --red:#ef4444;
+  --red2:#b91c1c;
+}
+
+*{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(800px 400px at 20% 0%, rgba(239,68,68,.18), transparent 60%),
+    radial-gradient(circle at top, #141414, var(--bg));
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+
+.container{
+  width:100%;
+  max-width:760px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:rgba(0,0,0,.35);
+  padding:22px;
+}
+
+h1,h2{ margin:0 0 10px; }
+p{ color:var(--muted); line-height:1.6; font-size:14px; }
+
+.btn{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.1);
+  font-weight:800;
+  cursor:pointer;
+}
+.btn.red{
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:white;
+}
+.btn.gray{
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+}
+
+.hidden{ display:none; }
+
+.question{
+  margin-top:16px;
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:rgba(255,255,255,.03);
+}
+
+.answers label{
+  display:block;
+  margin-top:8px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.warning{
+  border:1px solid rgba(239,68,68,.35);
+  background:rgba(239,68,68,.08);
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:16px;
+}
+
+.score{
+  font-size:20px;
+  font-weight:900;
+  color:#fecaca;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- WARNING SCREEN -->
+<div id="warningScreen">
+  <h1>⚠️ Application Warning</h1>
+
+  <div class="warning">
+    <p>
+      This is a <b>one-time developer application</b>.
+      <br><br>
+      • If you <b>change tabs, minimize, or leave this page</b>, the application will end and you <b>cannot retake it</b>.  
+      <br>
+      • Any <b>signs of AI assistance</b>, copying, or external help may result in a <b>blacklist</b>.  
+      <br>
+      • Your results, behavior, and score are logged.
+    </p>
+  </div>
+
+  <p>
+    This test contains <b>15 HTML-related questions</b>.
+    Answer honestly and on your own.
+  </p>
+
+  <button class="btn red" onclick="startTest()">Start Application</button>
+</div>
+
+<!-- TEST SCREEN -->
+<div id="testScreen" class="hidden">
+  <h2 id="progress"></h2>
+  <div id="questionBox"></div>
+  <button class="btn gray" onclick="nextQuestion()">Next</button>
+</div>
+
+<!-- RESULT SCREEN -->
+<div id="resultScreen" class="hidden">
+  <h1>Application Submitted</h1>
+  <p class="score" id="scoreText"></p>
+  <p>Your results have been sent for review.</p>
+</div>
+
+</div>
+
+<script>
+const WEBHOOK = "https://discord.com/api/webhooks/1464366500738760887/jP8FA6F1m9-uh-KUnbh92vHH4Fiv28MbalyTAdXFbip4xgr7K5ltvhH3EounmdoRhIW7";
+
+const questions = [
+  { q:"What does HTML stand for?", a:["Hyper Text Markup Language","High Text Machine Language","Hyper Tool Markup"], c:0 },
+  { q:"Which tag creates a hyperlink?", a:["<a>","<link>","<href>"], c:0 },
+  { q:"Which tag is used for images?", a:["<img>","<image>","<pic>"], c:0 },
+  { q:"What does the <head> section contain?", a:["Metadata","Visible content","Scripts only"], c:0 },
+  { q:"Which attribute opens a link in a new tab?", a:["target=\"_blank\"","newtab","open"], c:0 },
+  { q:"Which tag makes text bold semantically?", a:["<strong>","<b>","<bold>"], c:0 },
+  { q:"What tag is used for unordered lists?", a:["<ul>","<ol>","<list>"], c:0 },
+  { q:"Which tag defines a line break?", a:["<br>","<lb>","<break>"], c:0 },
+  { q:"Which HTML version introduced semantic tags?", a:["HTML5","HTML4","XHTML"], c:0 },
+  { q:"What does alt attribute do?", a:["Image description","Image size","Image link"], c:0 },
+  { q:"Which tag wraps the entire page content?", a:["<body>","<html>","<main>"], c:1 },
+  { q:"Which input type hides characters?", a:["password","hidden","secure"], c:0 },
+  { q:"Which tag is used for forms?", a:["<form>","<input>","<fieldset>"], c:0 },
+  { q:"What does <!DOCTYPE html> do?", a:["Defines document type","Links CSS","Loads JS"], c:0 },
+  { q:"Which tag is best for navigation?", a:["<nav>","<menu>","<section>"], c:0 }
+];
+
+let index = 0;
+let score = 0;
+let answers = [];
+let locked = false;
+
+if(localStorage.getItem("devAppLocked")){
+  document.body.innerHTML = "<h1 style='color:#ef4444'>Application Locked</h1><p>You cannot retake this application.</p>";
+}
+
+document.addEventListener("visibilitychange", () => {
+  if(document.hidden && !locked){
+    lockApplication("Tab switch detected");
+  }
+});
+
+function startTest(){
+  document.getElementById("warningScreen").classList.add("hidden");
+  document.getElementById("testScreen").classList.remove("hidden");
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q = questions[index];
+  document.getElementById("progress").textContent = `Question ${index+1} / ${questions.length}`;
+  let html = `<div class="question"><p><b>${q.q}</b></p><div class="answers">`;
+  q.a.forEach((ans,i)=>{
+    html += `<label><input type="radio" name="ans" value="${i}"> ${ans}</label>`;
+  });
+  html += "</div></div>";
+  document.getElementById("questionBox").innerHTML = html;
+}
+
+function nextQuestion(){
+  const sel = document.querySelector('input[name="ans"]:checked');
+  if(!sel) return alert("Select an answer");
+  const val = parseInt(sel.value);
+  answers.push(val);
+  if(val === questions[index].c) score++;
+
+  index++;
+  if(index >= questions.length){
+    finish();
+  } else {
+    renderQuestion();
+  }
+}
+
+function finish(){
+  locked = true;
+  localStorage.setItem("devAppLocked","true");
+
+  document.getElementById("testScreen").classList.add("hidden");
+  document.getElementById("resultScreen").classList.remove("hidden");
+  document.getElementById("scoreText").textContent = `Score: ${score} / ${questions.length}`;
+
+  sendWebhook("Completed");
+}
+
+function lockApplication(reason){
+  localStorage.setItem("devAppLocked","true");
+  sendWebhook(reason);
+  alert("Application ended: " + reason);
+  location.reload();
+}
+
+function sendWebhook(reason){
+  const payload = {
+    content: null,
+    embeds: [{
+      title: "New Developer Application",
+      color: 15548997,
+      fields: [
+        { name:"Result", value: reason },
+        { name:"Score", value: `${score} / ${questions.length}` },
+        { name:"Answers", value: JSON.stringify(answers) }
+      ]
+    }]
+  };
+
+  fetch(WEBHOOK,{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify(payload)
+  });
+}
+</script>
+
+</body>
+</html>
