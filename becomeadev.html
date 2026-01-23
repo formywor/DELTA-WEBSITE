@@ -11,7 +11,6 @@
 <style>
 :root{
   --bg:#050505;
-  --panel:#0b0b0b;
   --border:rgba(255,255,255,.08);
   --text:#f5f5f5;
   --muted:#a3a3a3;
@@ -36,7 +35,7 @@ body{
 
 .container{
   width:100%;
-  max-width:780px;
+  max-width:840px;
   border:1px solid var(--border);
   border-radius:22px;
   background:rgba(0,0,0,.35);
@@ -61,7 +60,7 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
   padding:14px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.1);
-  font-weight:900;
+  font-weight:950;
   cursor:pointer;
 }
 .btn.red{
@@ -78,7 +77,7 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
   grid-template-columns: 1fr 1fr;
   gap:12px;
 }
-@media (max-width:700px){
+@media (max-width:760px){
   .row{ grid-template-columns:1fr; }
 }
 
@@ -117,6 +116,29 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
   font-size:14px;
 }
 
+.metaBar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.badgeHard{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid rgba(239,68,68,.35);
+  background: rgba(239,68,68,.10);
+  padding:6px 10px;
+  border-radius:999px;
+  color:#fecaca;
+  font-weight:900;
+}
+
 .score{
   font-size:20px;
   font-weight:950;
@@ -146,11 +168,11 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
       <p>
         This is a <b>one-time application</b>.
         <br><br>
-        • If you <b>change tabs, minimize, or leave this page</b>, the application ends and you <b>cannot take it again</b>.
+        • If you <b>change tabs, minimize, or leave this page</b> after starting, the application ends and you <b>cannot take it again</b>.
         <br>
         • Any <b>signs of AI assistance</b>, copying, or outside help may result in a <b>blacklist</b>.
         <br>
-        • Score + answers + basic behavior signals are logged.
+        • Score + answers + timing + basic behavior signals are logged.
       </p>
     </div>
 
@@ -168,7 +190,7 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
     </div>
 
     <p class="small" style="margin-top:10px;">
-      This test has <b>15 HTML questions</b>. Answer honestly.
+      This test has <b>20 HTML questions</b> (3 are <b>really hard</b>).
     </p>
 
     <button class="btn red" onclick="startTest()">Start</button>
@@ -177,6 +199,10 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
   <!-- TEST SCREEN -->
   <div id="testScreen" class="hidden">
     <h2 id="progress"></h2>
+    <div class="metaBar">
+      <div id="hardTag" class="hidden badgeHard">⚠ HARD</div>
+      <div id="timerText">Time: 0s</div>
+    </div>
     <div id="questionBox"></div>
     <button class="btn gray" onclick="nextQuestion()">Next</button>
   </div>
@@ -192,37 +218,57 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
 
 <script>
 const WEBHOOK = "https://discord.com/api/webhooks/1464366500738760887/jP8FA6F1m9-uh-KUnbh92vHH4Fiv28MbalyTAdXFbip4xgr7K5ltvhH3EounmdoRhIW7";
-const LOCK_KEY = "devAppLocked_v2";
-const ATTEMPT_KEY = "devAppAttempt_v2";
+const LOCK_KEY = "devAppLocked_v3";
+const ATTEMPT_KEY = "devAppAttempt_v3";
 
 const questions = [
-  { q:"What does HTML stand for?", a:["Hyper Text Markup Language","High Text Machine Language","Hyper Tool Markup"], c:0 },
-  { q:"Which tag creates a hyperlink?", a:["<a>","<link>","<href>"], c:0 },
-  { q:"Which tag is used to display an image?", a:["<img>","<image>","<pic>"], c:0 },
-  { q:"What does the <head> section usually contain?", a:["Metadata (title, meta, links)","Only visible content","Only images"], c:0 },
-  { q:"Which attribute opens a link in a new tab/window?", a:["target=\"_blank\"","open=\"new\"","rel=\"newtab\""], c:0 },
-  { q:"Which is the semantic tag for important/bold text?", a:["<strong>","<b>","<bold>"], c:0 },
-  { q:"Which tag is used for an unordered list?", a:["<ul>","<ol>","<list>"], c:0 },
-  { q:"Which tag inserts a line break?", a:["<br>","<lb>","<break>"], c:0 },
-  { q:"Which tag is best for a site navigation section?", a:["<nav>","<menu>","<navigate>"], c:0 },
-  { q:"What is the purpose of the alt attribute on <img>?", a:["Provides text description / accessibility","Changes image color","Makes image load faster"], c:0 },
-  { q:"Which tag wraps the visible page content?", a:["<html>","<body>","<main>"], c:1 },
-  { q:"Which input type hides typed characters?", a:["password","hidden","secure"], c:0 },
-  { q:"Which tag is used to create a form?", a:["<form>","<input>","<fieldset>"], c:0 },
-  { q:"What does <!DOCTYPE html> do?", a:["Declares HTML document type (standards mode)","Links CSS file","Loads JavaScript"], c:0 },
-  { q:"Which tag is used for a table row?", a:["<tr>","<td>","<th>"], c:0 }
+  { hard:false, q:"What does HTML stand for?", a:["Hyper Text Markup Language","High Text Machine Language","Hyper Tool Markup Language"], c:0 },
+  { hard:false, q:"Which tag creates a hyperlink?", a:["<a>","<link>","<href>"], c:0 },
+  { hard:false, q:"Which tag is used to display an image?", a:["<img>","<image>","<pic>"], c:0 },
+  { hard:false, q:"What does the <head> section usually contain?", a:["Metadata (title, meta, links)","Only visible content","Only images"], c:0 },
+  { hard:false, q:"Which attribute opens a link in a new tab/window?", a:["target=\"_blank\"","open=\"new\"","rel=\"newtab\""], c:0 },
+  { hard:false, q:"Which is the semantic tag for important text (often bold)?", a:["<strong>","<b>","<bold>"], c:0 },
+  { hard:false, q:"Which tag is used for an unordered list?", a:["<ul>","<ol>","<list>"], c:0 },
+  { hard:false, q:"Which tag inserts a line break?", a:["<br>","<lb>","<break>"], c:0 },
+  { hard:false, q:"Which tag is best for a site navigation section?", a:["<nav>","<menu>","<navigate>"], c:0 },
+  { hard:false, q:"What is the purpose of the alt attribute on <img>?", a:["Provides text description / accessibility","Changes image color","Makes image load faster"], c:0 },
+  { hard:false, q:"Which tag wraps the visible page content?", a:["<html>","<body>","<main>"], c:1 },
+  { hard:false, q:"Which input type hides typed characters?", a:["password","hidden","secure"], c:0 },
+  { hard:false, q:"Which tag is used to create a form?", a:["<form>","<input>","<fieldset>"], c:0 },
+  { hard:false, q:"What does <!DOCTYPE html> do?", a:["Declares HTML document type (standards mode)","Links CSS file","Loads JavaScript"], c:0 },
+  { hard:false, q:"Which tag is used for a table row?", a:["<tr>","<td>","<th>"], c:0 },
+  { hard:false, q:"Which attribute is required for <label> to connect to an input by id?", a:["for","name","target"], c:0 },
+  { hard:false, q:"What is the correct tag for the main page heading?", a:["<h1>","<head>","<title>"], c:0 },
+  { hard:true,  q:"(Hard) Which statement about 'void elements' is correct?", a:["They must not have end tags (e.g., <img>, <br>)","They must always have closing tags","They can contain child elements"], c:0 },
+  { hard:true,  q:"(Hard) In HTML forms, what does the 'name' attribute on an <input> mainly control?", a:["The key used when the form is submitted","The placeholder text","The element's CSS class"], c:0 },
+  { hard:true,  q:"(Hard) Which is true about <script> placement in HTML (without using 'defer'/'async')?", a:["It blocks parsing while it loads/executes","It never blocks parsing","It only blocks CSS, not HTML"], c:0 }
 ];
 
+// ==== state ====
 let index = 0;
 let score = 0;
-let answers = [];
+let answers = []; // per question info object
 let locked = false;
 
 let userDiscordName = "";
 let userDiscordId = "";
+
+let attemptStarted = false;
 let startedAt = null;
+let endedAt = null;
 let endedReason = "Completed";
 
+let tickTimer = null;
+let qStartedAt = null;
+
+// behavior signals
+let visibilityHiddenCount = 0;
+let blurCount = 0;
+
+// prepared randomized answer order per question
+let prepared = []; // [{q, hard, correctOriginalIndex, shuffled:[{text, origIndex}]}]
+
+// ==== UI helpers ====
 function show(id){
   ["warningScreen","testScreen","resultScreen","lockedScreen"].forEach(x=>{
     document.getElementById(x).classList.add("hidden");
@@ -234,21 +280,36 @@ function show(id){
   if(localStorage.getItem(LOCK_KEY)){
     show("lockedScreen");
   }
+  // Pre-build randomized question data once (so it doesn't change mid-test)
+  prepared = questions.map((qq) => {
+    const shuffled = shuffleArray(qq.a.map((txt, i) => ({ text: txt, origIndex: i })));
+    return {
+      q: qq.q,
+      hard: !!qq.hard,
+      correctOriginalIndex: qq.c,
+      shuffled
+    };
+  });
 })();
 
+// ==== tab/leave detection ONLY after they start test (after username/id) ====
 document.addEventListener("visibilitychange", () => {
-  if(document.hidden && !locked && localStorage.getItem(ATTEMPT_KEY) === "started"){
-    lockApplication("Tab switch / page leave detected");
+  if(document.hidden){
+    visibilityHiddenCount++;
+    if(attemptStarted && !locked){
+      lockApplication("Tab switch / page leave detected");
+    }
   }
 });
 
 window.addEventListener("blur", () => {
-  // blur can happen from switching apps or tabs
-  if(!locked && localStorage.getItem(ATTEMPT_KEY) === "started"){
+  blurCount++;
+  if(attemptStarted && !locked){
     lockApplication("Window lost focus (possible tab switch)");
   }
 });
 
+// ==== start ====
 function startTest(){
   if(localStorage.getItem(LOCK_KEY)){
     show("lockedScreen");
@@ -267,59 +328,108 @@ function startTest(){
   startedAt = new Date();
   localStorage.setItem(ATTEMPT_KEY, "started");
 
+  attemptStarted = true;
   show("testScreen");
+
+  index = 0;
+  score = 0;
+  answers = [];
+
+  startGlobalTimer();
   renderQuestion();
 }
 
+// ==== rendering ====
 function renderQuestion(){
-  const q = questions[index];
+  const qq = prepared[index];
 
-  // Safety: prevent blank render
-  if(!q || !q.q || !Array.isArray(q.a) || q.a.length < 2){
-    lockApplication("Question data error");
+  // Ensure always shows
+  if(!qq || !qq.q || !Array.isArray(qq.shuffled) || qq.shuffled.length < 2){
+    lockApplication("Question render error");
     return;
   }
 
-  document.getElementById("progress").textContent = `Question ${index+1} / ${questions.length}`;
+  // per-question start
+  qStartedAt = new Date();
 
-  let html = `<div class="question"><p><b>${escapeHTML(q.q)}</b></p><div class="answers">`;
-  q.a.forEach((ans,i)=>{
+  document.getElementById("progress").textContent = `Question ${index+1} / ${prepared.length}`;
+
+  // hard badge
+  const hardTag = document.getElementById("hardTag");
+  if(qq.hard){
+    hardTag.classList.remove("hidden");
+  } else {
+    hardTag.classList.add("hidden");
+  }
+
+  let html = `<div class="question"><p><b>${escapeHTML(qq.q)}</b></p><div class="answers">`;
+  qq.shuffled.forEach((opt, i) => {
     html += `
       <label>
         <input type="radio" name="ans" value="${i}">
-        ${escapeHTML(ans)}
+        ${escapeHTML(opt.text)}
       </label>`;
   });
-  html += "</div></div>";
+  html += `</div></div>`;
 
   document.getElementById("questionBox").innerHTML = html;
 }
 
+// ==== next ====
 function nextQuestion(){
   const sel = document.querySelector('input[name="ans"]:checked');
   if(!sel) return alert("Select an answer.");
 
-  const val = parseInt(sel.value,10);
-  answers.push(val);
+  const chosenShuffledIndex = parseInt(sel.value, 10);
+  const qq = prepared[index];
 
-  if(val === questions[index].c) score++;
+  if(!qq || !qq.shuffled || !qq.shuffled[chosenShuffledIndex]){
+    lockApplication("Answer capture error");
+    return;
+  }
+
+  const chosen = qq.shuffled[chosenShuffledIndex];
+  const isCorrect = (chosen.origIndex === qq.correctOriginalIndex);
+  if(isCorrect) score++;
+
+  const qEndedAt = new Date();
+  const qTimeMs = qStartedAt ? (qEndedAt - qStartedAt) : null;
+
+  // record lots of info per question
+  answers.push({
+    number: index + 1,
+    hard: qq.hard,
+    question: qq.q,
+    optionsShown: qq.shuffled.map(o => o.text),
+    chosenOptionText: chosen.text,
+    chosenOriginalIndex: chosen.origIndex,
+    correctOptionText: questions[index].a[questions[index].c],
+    correctOriginalIndex: qq.correctOriginalIndex,
+    correct: isCorrect,
+    timeSeconds: qTimeMs !== null ? Math.max(0, Math.round(qTimeMs/1000)) : null
+  });
 
   index++;
-  if(index >= questions.length){
+  if(index >= prepared.length){
     finish();
   } else {
     renderQuestion();
   }
 }
 
+// ==== finish / lock ====
 function finish(){
   locked = true;
   endedReason = "Completed";
+  endedAt = new Date();
+
   localStorage.setItem(LOCK_KEY,"true");
   localStorage.setItem(ATTEMPT_KEY, "ended");
 
+  stopGlobalTimer();
+
   show("resultScreen");
-  document.getElementById("scoreText").textContent = `Score: ${score} / ${questions.length}`;
+  document.getElementById("scoreText").textContent = `Score: ${score} / ${prepared.length}`;
 
   sendWebhook(endedReason);
 }
@@ -327,18 +437,76 @@ function finish(){
 function lockApplication(reason){
   locked = true;
   endedReason = reason;
+  endedAt = new Date();
 
   localStorage.setItem(LOCK_KEY,"true");
   localStorage.setItem(ATTEMPT_KEY, "ended");
 
+  stopGlobalTimer();
+
+  // try to send what we have so far
   sendWebhook(reason);
+
   alert("Application ended: " + reason);
   show("lockedScreen");
 }
 
+// ==== timers ====
+function startGlobalTimer(){
+  const timerEl = document.getElementById("timerText");
+  if(tickTimer) clearInterval(tickTimer);
+  tickTimer = setInterval(() => {
+    if(!startedAt) return;
+    const sec = Math.max(0, Math.round((new Date() - startedAt)/1000));
+    timerEl.textContent = `Time: ${sec}s`;
+  }, 500);
+}
+function stopGlobalTimer(){
+  if(tickTimer) clearInterval(tickTimer);
+  tickTimer = null;
+}
+
+// ==== webhook payload (LOTS of info) ====
 function sendWebhook(reason){
-  const endedAt = new Date();
-  const ms = startedAt ? (endedAt - startedAt) : null;
+  const now = new Date();
+  const end = endedAt || now;
+
+  const durationMs = startedAt ? (end - startedAt) : null;
+  const durationSeconds = durationMs !== null ? Math.max(0, Math.round(durationMs/1000)) : null;
+
+  const env = {
+    url: location.href,
+    referrer: document.referrer || "none",
+    userAgent: navigator.userAgent,
+    language: navigator.language,
+    platform: navigator.platform || "unknown",
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
+    screen: `${screen.width}x${screen.height}`,
+    viewport: `${window.innerWidth}x${window.innerHeight}`
+  };
+
+  const summary = {
+    discordUsername: userDiscordName,
+    discordId: userDiscordId,
+    result: reason,
+    score: `${score} / ${prepared.length}`,
+    startedAt: startedAt ? startedAt.toISOString() : null,
+    endedAt: end ? end.toISOString() : null,
+    durationSeconds,
+    visibilityHiddenCount,
+    blurCount,
+    answeredCount: answers.length
+  };
+
+  // Create a compact detailed log (Discord embed description has 4096 char limit)
+  const detailObj = { summary, env, answers };
+  let detailStr = JSON.stringify(detailObj, null, 2);
+
+  // keep under ~3800 chars to be safe
+  const MAX_DESC = 3800;
+  if(detailStr.length > MAX_DESC){
+    detailStr = detailStr.slice(0, MAX_DESC) + "\n... (truncated)";
+  }
 
   const payload = {
     content: null,
@@ -346,13 +514,14 @@ function sendWebhook(reason){
       title: "New Developer Application",
       color: 15548997,
       fields: [
-        { name:"Discord Username", value: userDiscordName || "N/A", inline: true },
-        { name:"Discord ID", value: userDiscordId || "N/A", inline: true },
-        { name:"Result", value: reason || "N/A" },
-        { name:"Score", value: `${score} / ${questions.length}` , inline: true},
-        { name:"Time (seconds)", value: ms !== null ? String(Math.max(0, Math.round(ms/1000))) : "N/A", inline: true },
-        { name:"Answers (index list)", value: "```" + JSON.stringify(answers) + "```" }
-      ]
+        { name:"Discord Username", value: safeField(userDiscordName), inline: true },
+        { name:"Discord ID", value: safeField(userDiscordId), inline: true },
+        { name:"Result", value: safeField(reason) },
+        { name:"Score", value: `${score} / ${prepared.length}`, inline: true },
+        { name:"Time Taken (sec)", value: durationSeconds !== null ? String(durationSeconds) : "N/A", inline: true },
+        { name:"Behavior", value: `visibilityHidden=${visibilityHiddenCount}, blur=${blurCount}`, inline: false }
+      ],
+      description: "```json\n" + detailStr + "\n```"
     }]
   };
 
@@ -363,6 +532,12 @@ function sendWebhook(reason){
   }).catch(()=>{});
 }
 
+function safeField(s){
+  const t = (s || "N/A").toString();
+  return t.length > 1024 ? t.slice(0, 1021) + "..." : t;
+}
+
+// ==== utils ====
 function escapeHTML(s){
   return String(s)
     .replaceAll("&","&amp;")
@@ -370,6 +545,16 @@ function escapeHTML(s){
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#39;");
+}
+
+function shuffleArray(arr){
+  // Fisher–Yates
+  const a = arr.slice();
+  for(let i=a.length-1; i>0; i--){
+    const j = Math.floor(Math.random() * (i+1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 </script>
 
