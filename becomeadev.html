@@ -36,7 +36,7 @@ body{
 
 .container{
   width:100%;
-  max-width:760px;
+  max-width:780px;
   border:1px solid var(--border);
   border-radius:22px;
   background:rgba(0,0,0,.35);
@@ -46,12 +46,22 @@ body{
 h1,h2{ margin:0 0 10px; }
 p{ color:var(--muted); line-height:1.6; font-size:14px; }
 
+.hidden{ display:none; }
+
+.warning{
+  border:1px solid rgba(239,68,68,.35);
+  background:rgba(239,68,68,.08);
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:16px;
+}
+
 .btn{
   width:100%;
   padding:14px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.1);
-  font-weight:800;
+  font-weight:900;
   cursor:pointer;
 }
 .btn.red{
@@ -63,7 +73,34 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
   color:var(--text);
 }
 
-.hidden{ display:none; }
+.row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+@media (max-width:700px){
+  .row{ grid-template-columns:1fr; }
+}
+
+.field label{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:6px;
+}
+.field input{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.22);
+  color: var(--text);
+  outline:none;
+}
+.field input:focus{
+  border-color: rgba(239,68,68,.35);
+  box-shadow: 0 0 0 3px rgba(239,68,68,.14);
+}
 
 .question{
   margin-top:16px;
@@ -75,90 +112,105 @@ p{ color:var(--muted); line-height:1.6; font-size:14px; }
 
 .answers label{
   display:block;
-  margin-top:8px;
+  margin-top:10px;
   cursor:pointer;
   font-size:14px;
 }
 
-.warning{
-  border:1px solid rgba(239,68,68,.35);
-  background:rgba(239,68,68,.08);
-  padding:14px;
-  border-radius:14px;
-  margin-bottom:16px;
-}
-
 .score{
   font-size:20px;
-  font-weight:900;
+  font-weight:950;
   color:#fecaca;
+}
+.small{
+  font-size:12px;
+  color:var(--muted);
 }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
-<!-- WARNING SCREEN -->
-<div id="warningScreen">
-  <h1>⚠️ Application Warning</h1>
-
-  <div class="warning">
-    <p>
-      This is a <b>one-time developer application</b>.
-      <br><br>
-      • If you <b>change tabs, minimize, or leave this page</b>, the application will end and you <b>cannot retake it</b>.  
-      <br>
-      • Any <b>signs of AI assistance</b>, copying, or external help may result in a <b>blacklist</b>.  
-      <br>
-      • Your results, behavior, and score are logged.
-    </p>
+  <!-- LOCKED SCREEN -->
+  <div id="lockedScreen" class="hidden">
+    <h1 style="color:#ef4444;">Application Locked</h1>
+    <p>You cannot retake this application on this device/browser.</p>
   </div>
 
-  <p>
-    This test contains <b>15 HTML-related questions</b>.
-    Answer honestly and on your own.
-  </p>
+  <!-- WARNING / START SCREEN -->
+  <div id="warningScreen">
+    <h1>⚠️ Developer Application</h1>
 
-  <button class="btn red" onclick="startTest()">Start Application</button>
-</div>
+    <div class="warning">
+      <p>
+        This is a <b>one-time application</b>.
+        <br><br>
+        • If you <b>change tabs, minimize, or leave this page</b>, the application ends and you <b>cannot take it again</b>.
+        <br>
+        • Any <b>signs of AI assistance</b>, copying, or outside help may result in a <b>blacklist</b>.
+        <br>
+        • Score + answers + basic behavior signals are logged.
+      </p>
+    </div>
 
-<!-- TEST SCREEN -->
-<div id="testScreen" class="hidden">
-  <h2 id="progress"></h2>
-  <div id="questionBox"></div>
-  <button class="btn gray" onclick="nextQuestion()">Next</button>
-</div>
+    <p>Enter your info to begin:</p>
 
-<!-- RESULT SCREEN -->
-<div id="resultScreen" class="hidden">
-  <h1>Application Submitted</h1>
-  <p class="score" id="scoreText"></p>
-  <p>Your results have been sent for review.</p>
-</div>
+    <div class="row">
+      <div class="field">
+        <label>Discord Username (example: name or name#0000)</label>
+        <input id="discordUser" placeholder="yourname" maxlength="40" />
+      </div>
+      <div class="field">
+        <label>Discord ID (numbers only)</label>
+        <input id="discordId" placeholder="123456789012345678" inputmode="numeric" maxlength="25" />
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:10px;">
+      This test has <b>15 HTML questions</b>. Answer honestly.
+    </p>
+
+    <button class="btn red" onclick="startTest()">Start</button>
+  </div>
+
+  <!-- TEST SCREEN -->
+  <div id="testScreen" class="hidden">
+    <h2 id="progress"></h2>
+    <div id="questionBox"></div>
+    <button class="btn gray" onclick="nextQuestion()">Next</button>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div id="resultScreen" class="hidden">
+    <h1>Application Submitted</h1>
+    <p class="score" id="scoreText"></p>
+    <p>Your results were sent for review.</p>
+  </div>
 
 </div>
 
 <script>
 const WEBHOOK = "https://discord.com/api/webhooks/1464366500738760887/jP8FA6F1m9-uh-KUnbh92vHH4Fiv28MbalyTAdXFbip4xgr7K5ltvhH3EounmdoRhIW7";
+const LOCK_KEY = "devAppLocked_v2";
+const ATTEMPT_KEY = "devAppAttempt_v2";
 
 const questions = [
   { q:"What does HTML stand for?", a:["Hyper Text Markup Language","High Text Machine Language","Hyper Tool Markup"], c:0 },
   { q:"Which tag creates a hyperlink?", a:["<a>","<link>","<href>"], c:0 },
-  { q:"Which tag is used for images?", a:["<img>","<image>","<pic>"], c:0 },
-  { q:"What does the <head> section contain?", a:["Metadata","Visible content","Scripts only"], c:0 },
-  { q:"Which attribute opens a link in a new tab?", a:["target=\"_blank\"","newtab","open"], c:0 },
-  { q:"Which tag makes text bold semantically?", a:["<strong>","<b>","<bold>"], c:0 },
-  { q:"What tag is used for unordered lists?", a:["<ul>","<ol>","<list>"], c:0 },
-  { q:"Which tag defines a line break?", a:["<br>","<lb>","<break>"], c:0 },
-  { q:"Which HTML version introduced semantic tags?", a:["HTML5","HTML4","XHTML"], c:0 },
-  { q:"What does alt attribute do?", a:["Image description","Image size","Image link"], c:0 },
-  { q:"Which tag wraps the entire page content?", a:["<body>","<html>","<main>"], c:1 },
-  { q:"Which input type hides characters?", a:["password","hidden","secure"], c:0 },
-  { q:"Which tag is used for forms?", a:["<form>","<input>","<fieldset>"], c:0 },
-  { q:"What does <!DOCTYPE html> do?", a:["Defines document type","Links CSS","Loads JS"], c:0 },
-  { q:"Which tag is best for navigation?", a:["<nav>","<menu>","<section>"], c:0 }
+  { q:"Which tag is used to display an image?", a:["<img>","<image>","<pic>"], c:0 },
+  { q:"What does the <head> section usually contain?", a:["Metadata (title, meta, links)","Only visible content","Only images"], c:0 },
+  { q:"Which attribute opens a link in a new tab/window?", a:["target=\"_blank\"","open=\"new\"","rel=\"newtab\""], c:0 },
+  { q:"Which is the semantic tag for important/bold text?", a:["<strong>","<b>","<bold>"], c:0 },
+  { q:"Which tag is used for an unordered list?", a:["<ul>","<ol>","<list>"], c:0 },
+  { q:"Which tag inserts a line break?", a:["<br>","<lb>","<break>"], c:0 },
+  { q:"Which tag is best for a site navigation section?", a:["<nav>","<menu>","<navigate>"], c:0 },
+  { q:"What is the purpose of the alt attribute on <img>?", a:["Provides text description / accessibility","Changes image color","Makes image load faster"], c:0 },
+  { q:"Which tag wraps the visible page content?", a:["<html>","<body>","<main>"], c:1 },
+  { q:"Which input type hides typed characters?", a:["password","hidden","secure"], c:0 },
+  { q:"Which tag is used to create a form?", a:["<form>","<input>","<fieldset>"], c:0 },
+  { q:"What does <!DOCTYPE html> do?", a:["Declares HTML document type (standards mode)","Links CSS file","Loads JavaScript"], c:0 },
+  { q:"Which tag is used for a table row?", a:["<tr>","<td>","<th>"], c:0 }
 ];
 
 let index = 0;
@@ -166,38 +218,90 @@ let score = 0;
 let answers = [];
 let locked = false;
 
-if(localStorage.getItem("devAppLocked")){
-  document.body.innerHTML = "<h1 style='color:#ef4444'>Application Locked</h1><p>You cannot retake this application.</p>";
+let userDiscordName = "";
+let userDiscordId = "";
+let startedAt = null;
+let endedReason = "Completed";
+
+function show(id){
+  ["warningScreen","testScreen","resultScreen","lockedScreen"].forEach(x=>{
+    document.getElementById(x).classList.add("hidden");
+  });
+  document.getElementById(id).classList.remove("hidden");
 }
 
+(function initLock(){
+  if(localStorage.getItem(LOCK_KEY)){
+    show("lockedScreen");
+  }
+})();
+
 document.addEventListener("visibilitychange", () => {
-  if(document.hidden && !locked){
-    lockApplication("Tab switch detected");
+  if(document.hidden && !locked && localStorage.getItem(ATTEMPT_KEY) === "started"){
+    lockApplication("Tab switch / page leave detected");
+  }
+});
+
+window.addEventListener("blur", () => {
+  // blur can happen from switching apps or tabs
+  if(!locked && localStorage.getItem(ATTEMPT_KEY) === "started"){
+    lockApplication("Window lost focus (possible tab switch)");
   }
 });
 
 function startTest(){
-  document.getElementById("warningScreen").classList.add("hidden");
-  document.getElementById("testScreen").classList.remove("hidden");
+  if(localStorage.getItem(LOCK_KEY)){
+    show("lockedScreen");
+    return;
+  }
+
+  const u = document.getElementById("discordUser").value.trim();
+  const id = document.getElementById("discordId").value.trim();
+
+  if(!u || u.length < 2) return alert("Enter your Discord username.");
+  if(!id || id.length < 10 || !/^\d+$/.test(id)) return alert("Enter a valid Discord ID (numbers only).");
+
+  userDiscordName = u;
+  userDiscordId = id;
+
+  startedAt = new Date();
+  localStorage.setItem(ATTEMPT_KEY, "started");
+
+  show("testScreen");
   renderQuestion();
 }
 
 function renderQuestion(){
   const q = questions[index];
+
+  // Safety: prevent blank render
+  if(!q || !q.q || !Array.isArray(q.a) || q.a.length < 2){
+    lockApplication("Question data error");
+    return;
+  }
+
   document.getElementById("progress").textContent = `Question ${index+1} / ${questions.length}`;
-  let html = `<div class="question"><p><b>${q.q}</b></p><div class="answers">`;
+
+  let html = `<div class="question"><p><b>${escapeHTML(q.q)}</b></p><div class="answers">`;
   q.a.forEach((ans,i)=>{
-    html += `<label><input type="radio" name="ans" value="${i}"> ${ans}</label>`;
+    html += `
+      <label>
+        <input type="radio" name="ans" value="${i}">
+        ${escapeHTML(ans)}
+      </label>`;
   });
   html += "</div></div>";
+
   document.getElementById("questionBox").innerHTML = html;
 }
 
 function nextQuestion(){
   const sel = document.querySelector('input[name="ans"]:checked');
-  if(!sel) return alert("Select an answer");
-  const val = parseInt(sel.value);
+  if(!sel) return alert("Select an answer.");
+
+  const val = parseInt(sel.value,10);
   answers.push(val);
+
   if(val === questions[index].c) score++;
 
   index++;
@@ -210,32 +314,44 @@ function nextQuestion(){
 
 function finish(){
   locked = true;
-  localStorage.setItem("devAppLocked","true");
+  endedReason = "Completed";
+  localStorage.setItem(LOCK_KEY,"true");
+  localStorage.setItem(ATTEMPT_KEY, "ended");
 
-  document.getElementById("testScreen").classList.add("hidden");
-  document.getElementById("resultScreen").classList.remove("hidden");
+  show("resultScreen");
   document.getElementById("scoreText").textContent = `Score: ${score} / ${questions.length}`;
 
-  sendWebhook("Completed");
+  sendWebhook(endedReason);
 }
 
 function lockApplication(reason){
-  localStorage.setItem("devAppLocked","true");
+  locked = true;
+  endedReason = reason;
+
+  localStorage.setItem(LOCK_KEY,"true");
+  localStorage.setItem(ATTEMPT_KEY, "ended");
+
   sendWebhook(reason);
   alert("Application ended: " + reason);
-  location.reload();
+  show("lockedScreen");
 }
 
 function sendWebhook(reason){
+  const endedAt = new Date();
+  const ms = startedAt ? (endedAt - startedAt) : null;
+
   const payload = {
     content: null,
     embeds: [{
       title: "New Developer Application",
       color: 15548997,
       fields: [
-        { name:"Result", value: reason },
-        { name:"Score", value: `${score} / ${questions.length}` },
-        { name:"Answers", value: JSON.stringify(answers) }
+        { name:"Discord Username", value: userDiscordName || "N/A", inline: true },
+        { name:"Discord ID", value: userDiscordId || "N/A", inline: true },
+        { name:"Result", value: reason || "N/A" },
+        { name:"Score", value: `${score} / ${questions.length}` , inline: true},
+        { name:"Time (seconds)", value: ms !== null ? String(Math.max(0, Math.round(ms/1000))) : "N/A", inline: true },
+        { name:"Answers (index list)", value: "```" + JSON.stringify(answers) + "```" }
       ]
     }]
   };
@@ -244,7 +360,16 @@ function sendWebhook(reason){
     method:"POST",
     headers:{ "Content-Type":"application/json" },
     body: JSON.stringify(payload)
-  });
+  }).catch(()=>{});
+}
+
+function escapeHTML(s){
+  return String(s)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#39;");
 }
 </script>
 
