@@ -2,372 +2,370 @@
 <html lang="en">
 <head>
   <!-- Website Logo / Favicon -->
-<link rel="icon" type="image/png" href="/logo.png">
-<link rel="apple-touch-icon" href="/logo.png">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
 
-<!-- Google / Search / Rich previews -->
-<meta property="og:image" content="https://downloaddelta.com/logo.png">
-<meta name="twitter:image" content="https://downloaddelta.com/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delta Support — Official Download (iOS & Android) v2.705</title>
+  <meta name="description" content="Delta Support official download page for iOS and Android (v2.705). Direct install, IPA, APK, and ARM32 downloads, plus updates and support.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#000000">
 
-<title>Delta Support — Official Download (iOS & Android) v2.705</title>
-<meta name="description" content="Delta Support official download page for iOS and Android (v2.705). Direct install, IPA, APK, and ARM32 downloads, plus updates and support.">
-<meta name="robots" content="index, follow">
-<meta name="theme-coloxr" content="#000000">
+  <meta property="og:title" content="Delta Support — Official Download v2.705">
+  <meta property="og:description" content="Official downloads for iOS, Android, and macOS, plus updates and support.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://downloaddelta.com/">
+  <meta property="og:image" content="https://downloaddelta.com/logo.png">
 
-<meta property="og:title" content="Delta Support — Official Download v2.705">
-<meta property="og:description" content="Official downloads for iOS and Android, plus updates and support.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://downloaddelta.com/">
-<meta property="og:image" content="https://downloaddelta.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Delta Support — Official Download">
+  <meta name="twitter:description" content="Official downloads for iOS, Android, and macOS, plus updates and support.">
+  <meta name="twitter:image" content="https://downloaddelta.com/logo.png">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Delta Support — Official Download">
-<meta name="twitter:description" content="Official downloads for iOS and Android, plus updates and support.">
-<meta name="twitter:image" content="https://downloaddelta.com/og-image.png">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Delta Support",
-  "operatingSystem": "iOS, Android, macOS",
-  "applicationCategory": "UtilitiesApplication",
-  "softwareVersion": "2.705",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@type": "Organization", "name": "Delta Support" }
-}
-</script>
-
-<style>
-:root{
-  --bg:#050505;
-  --border:rgba(255,255,255,.08);
-  --text:#f5f5f5;
-  --muted:#a3a3a3;
-  --red:#ef4444;
-  --red2:#b91c1c;
-  --shadow: 0 0 55px rgba(0,0,0,.85);
-}
-
-*{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-html,body{ height:100%; }
-body{
-  margin:0;
-  color:var(--text);
-  background:
-    radial-gradient(900px 420px at 20% 0%, rgba(239,68,68,.18), transparent 60%),
-    radial-gradient(700px 350px at 90% 15%, rgba(185,28,28,.12), transparent 60%),
-    radial-gradient(circle at top, #141414, var(--bg));
-  overflow-x:hidden;
-}
-
-.wrap{ max-width:1020px; margin:0 auto; padding:24px 16px 60px; }
-
-.topbar{
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  padding:12px 12px;
-  border:1px solid var(--border);
-  border-radius:18px;
-  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-  box-shadow: 0 0 25px rgba(0,0,0,.35);
-  backdrop-filter: blur(10px);
-}
-
-.brand{ display:flex; align-items:center; gap:12px; min-width: 240px; }
-.emblem{
-  width:42px; height:42px; border-radius:14px;
-  border:1px solid var(--border);
-  background: radial-gradient(circle at 30% 30%, rgba(239,68,68,.40), rgba(0,0,0,.25));
-  display:grid; place-items:center;
-  box-shadow: 0 0 30px rgba(239,68,68,.16);
-}
-.brand h1{ font-size:15px; margin:0; line-height:1.1; letter-spacing:.2px; }
-.brand p{ margin:0; font-size:12px; color:var(--muted); }
-
-.nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
-.pill{
-  text-decoration:none; color:var(--text); font-size:13px;
-  padding:10px 12px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background: rgba(255,255,255,.03);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.pill:hover{
-  transform: translateY(-1px);
-  border-color: rgba(255,255,255,.16);
-  box-shadow: 0 0 22px rgba(239,68,68,.12);
-}
-
-.hero{
-  margin-top:16px;
-  border-radius:22px;
-  border:1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  box-shadow: var(--shadow);
-  animation: rise .85s ease both;
-  overflow:hidden;
-}
-@keyframes rise{ from{ opacity:0; transform: translateY(18px);} to{ opacity:1; transform: translateY(0);} }
-
-.heroInner{ padding:22px; }
-
-.grid{
-  display:grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap:16px;
-}
-@media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
-
-.card{
-  border:1px solid var(--border);
-  border-radius:18px;
-  background: rgba(0,0,0,.18);
-  padding:16px;
-}
-
-.hTitle{
-  margin:0 0 10px;
-  font-size:34px;
-  letter-spacing:.2px;
-}
-.hTitle span{ color: var(--red); }
-.hSub{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.7;
-}
-
-.sectionTitle{
-  margin:0 0 10px;
-  font-size:12px;
-  color:var(--muted);
-  letter-spacing:.18px;
-  text-transform: uppercase;
-}
-
-.btn{
-  display:block;
-  width:100%;
-  text-decoration:none;
-  color:white;
-  font-weight:700;
-  font-size:14px;
-  padding:14px 14px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.10);
-  transition: transform .18s ease, box-shadow .18s ease;
-  user-select:none;
-}
-.btn + .btn{ margin-top:10px; }
-
-.btnRed{
-  background: linear-gradient(135deg, var(--red), var(--red2));
-  box-shadow: 0 0 26px rgba(239,68,68,.35);
-}
-.btnRed:hover{
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 0 44px rgba(239,68,68,.60);
-}
-
-.btnSoft{
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-}
-.btnSoft:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 0 26px rgba(255,255,255,.08);
-}
-
-.grid2{
-  margin-top:16px;
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:16px;
-}
-
-.faqItem{
-  padding:14px;
-  border-radius:16px;
-  border:1px solid var(--border);
-  background: rgba(255,255,255,.02);
-}
-.faqItem + .faqItem{ margin-top:10px; }
-.q{ margin:0 0 6px; font-weight:800; font-size:14px; }
-.a{ margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
-
-.discordBox{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap:12px;
-}
-.discordAsk{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:14px;
-  border-radius:16px;
-  border:1px solid rgba(239,68,68,.25);
-  background: linear-gradient(180deg, rgba(239,68,68,.10), rgba(0,0,0,.12));
-}
-.discordAsk strong{ font-size:14px; }
-.discordAsk span{ display:block; color:var(--muted); font-size:12px; margin-top:2px; line-height:1.5; }
-
-.widgetWrap{
-  border-radius:16px;
-  border:1px solid var(--border);
-  overflow:hidden;
-  background: rgba(0,0,0,.18);
-}
-
-.footer{
-  padding:18px;
-  text-align:center;
-  color:#7a7a7a;
-  font-size:12px;
-}
-a.inline{ color:#fecaca; text-decoration:none; }
-a.inline:hover{ text-decoration:underline; }
-
-.mobileBar{
-  position: sticky;
-  bottom: 10px;
-  margin-top: 18px;
-  display:none;
-  z-index: 10;
-}
-@media (max-width: 720px){
-  .mobileBar{ display:block; }
-  .mobileBarInner{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:10px;
-    padding:10px;
-    border-radius:16px;
-    border:1px solid var(--border);
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 30px rgba(0,0,0,.35);
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Delta Support",
+    "operatingSystem": "iOS, Android, macOS",
+    "applicationCategory": "UtilitiesApplication",
+    "softwareVersion": "2.705",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Delta Support",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://downloaddelta.com/logo.png"
+      }
+    }
   }
-  .mobileBtn{
+  </script>
+
+  <style>
+  :root{
+    --bg:#050505;
+    --border:rgba(255,255,255,.08);
+    --text:#f5f5f5;
+    --muted:#a3a3a3;
+    --red:#ef4444;
+    --red2:#b91c1c;
+    --shadow: 0 0 55px rgba(0,0,0,.85);
+  }
+
+  *{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    color:var(--text);
+    background:
+      radial-gradient(900px 420px at 20% 0%, rgba(239,68,68,.18), transparent 60%),
+      radial-gradient(700px 350px at 90% 15%, rgba(185,28,28,.12), transparent 60%),
+      radial-gradient(circle at top, #141414, var(--bg));
+    overflow-x:hidden;
+  }
+
+  .wrap{ max-width:1020px; margin:0 auto; padding:24px 16px 60px; }
+
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
     padding:12px 12px;
-    border-radius:14px;
-    text-align:center;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    box-shadow: 0 0 25px rgba(0,0,0,.35);
+    backdrop-filter: blur(10px);
+  }
+
+  .brand{ display:flex; align-items:center; gap:12px; min-width: 240px; }
+  .emblem{
+    width:42px; height:42px; border-radius:14px;
+    border:1px solid var(--border);
+    background: radial-gradient(circle at 30% 30%, rgba(239,68,68,.40), rgba(0,0,0,.25));
+    display:grid; place-items:center;
+    box-shadow: 0 0 30px rgba(239,68,68,.16);
+    overflow:hidden;
+  }
+  .emblem img{
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(239,68,68,.35));
+  }
+
+  .brand h1{ font-size:15px; margin:0; line-height:1.1; letter-spacing:.2px; }
+  .brand p{ margin:0; font-size:12px; color:var(--muted); }
+
+  .nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+  .pill{
+    text-decoration:none; color:var(--text); font-size:13px;
+    padding:10px 12px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    background: rgba(255,255,255,.03);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .pill:hover{
+    transform: translateY(-1px);
+    border-color: rgba(255,255,255,.16);
+    box-shadow: 0 0 22px rgba(239,68,68,.12);
+  }
+
+  .hero{
+    margin-top:16px;
+    border-radius:22px;
+    border:1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    box-shadow: var(--shadow);
+    animation: rise .85s ease both;
+    overflow:hidden;
+  }
+  @keyframes rise{ from{ opacity:0; transform: translateY(18px);} to{ opacity:1; transform: translateY(0);} }
+
+  .heroInner{ padding:22px; }
+
+  .grid{
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap:16px;
+  }
+  @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+  .card{
+    border:1px solid var(--border);
+    border-radius:18px;
+    background: rgba(0,0,0,.18);
+    padding:16px;
+  }
+
+  .hTitle{
+    margin:0 0 10px;
+    font-size:34px;
+    letter-spacing:.2px;
+  }
+  .hTitle span{ color: var(--red); }
+  .hSub{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+  }
+
+  .sectionTitle{
+    margin:0 0 10px;
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:.18px;
+    text-transform: uppercase;
+  }
+
+  .btn{
+    display:block;
+    width:100%;
     text-decoration:none;
     color:white;
-    font-weight:800;
+    font-weight:700;
+    font-size:14px;
+    padding:14px 14px;
+    border-radius:14px;
     border:1px solid rgba(255,255,255,.10);
+    transition: transform .18s ease, box-shadow .18s ease;
+    user-select:none;
   }
-  .mobileBtn.red{ background: linear-gradient(135deg, var(--red), var(--red2)); }
-  .mobileBtn.dark{ background: rgba(255,255,255,.06); }
-}
+  .btn + .btn{ margin-top:10px; }
 
-/* ===== OS highlight ===== */
-.osBadge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-top:10px;
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid rgba(239,68,68,.25);
-  background: rgba(239,68,68,.10);
-  color:#fecaca;
-  font-weight:800;
-  font-size:12px;
-}
-.recommendedCard{
-  border-color: rgba(239,68,68,.35) !important;
-  box-shadow: 0 0 30px rgba(239,68,68,.18);
-}
-.recommendedBtn{
-  outline: 2px solid rgba(239,68,68,.55);
-  outline-offset: 2px;
-  box-shadow: 0 0 40px rgba(239,68,68,.25);
-}
+  .btnRed{
+    background: linear-gradient(135deg, var(--red), var(--red2));
+    box-shadow: 0 0 26px rgba(239,68,68,.35);
+  }
+  .btnRed:hover{
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 0 44px rgba(239,68,68,.60);
+  }
 
-/* ===== Popup / Modal ===== */
-.modalOverlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.72);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  z-index: 9999;
-}
-.modal{
-  width: 100%;
-  max-width: 420px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: linear-gradient(180deg, rgba(20,20,20,.95), rgba(10,10,10,.95));
-  box-shadow: 0 0 60px rgba(0,0,0,.85);
-  overflow: hidden;
-  transform: translateY(8px);
-  animation: pop .18s ease forwards;
-}
-@keyframes pop{ to{ transform: translateY(0); } }
-.modalHeader{
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.modalHeader strong{ font-size: 14px; letter-spacing: .2px; }
-.modalBody{
-  padding: 14px 16px 16px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
-}
-.modalActions{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 0 16px 16px;
-}
-.modalBtn{
-  display: inline-block;
-  text-align: center;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.12);
-  text-decoration: none;
-  font-weight: 900;
-  font-size: 13px;
-  cursor: pointer;
-}
-.modalBtn.join{
-  color: white;
-  background: linear-gradient(135deg, var(--red), var(--red2));
-  box-shadow: 0 0 26px rgba(239,68,68,.35);
-}
-.modalBtn.no{
-  color: var(--text);
-  background: rgba(255,255,255,.06);
-}
-</style>
+  .btnSoft{
+    background: rgba(255,255,255,.06);
+    color: var(--text);
+  }
+  .btnSoft:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 0 26px rgba(255,255,255,.08);
+  }
+
+  .grid2{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:16px;
+  }
+
+  .faqItem{
+    padding:14px;
+    border-radius:16px;
+    border:1px solid var(--border);
+    background: rgba(255,255,255,.02);
+  }
+  .faqItem + .faqItem{ margin-top:10px; }
+  .q{ margin:0 0 6px; font-weight:800; font-size:14px; }
+  .a{ margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
+
+  .discordAsk{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px;
+    border-radius:16px;
+    border:1px solid rgba(239,68,68,.25);
+    background: linear-gradient(180deg, rgba(239,68,68,.10), rgba(0,0,0,.12));
+  }
+  .discordAsk strong{ font-size:14px; }
+  .discordAsk span{ display:block; color:var(--muted); font-size:12px; margin-top:2px; line-height:1.5; }
+
+  .footer{
+    padding:18px;
+    text-align:center;
+    color:#7a7a7a;
+    font-size:12px;
+  }
+  a.inline{ color:#fecaca; text-decoration:none; }
+  a.inline:hover{ text-decoration:underline; }
+
+  .mobileBar{
+    position: sticky;
+    bottom: 10px;
+    margin-top: 18px;
+    display:none;
+    z-index: 10;
+  }
+  @media (max-width: 720px){
+    .mobileBar{ display:block; }
+    .mobileBarInner{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      padding:10px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0,0,0,.35);
+    }
+    .mobileBtn{
+      padding:12px 12px;
+      border-radius:14px;
+      text-align:center;
+      text-decoration:none;
+      color:white;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .mobileBtn.red{ background: linear-gradient(135deg, var(--red), var(--red2)); }
+    .mobileBtn.dark{ background: rgba(255,255,255,.06); }
+  }
+
+  /* ===== OS highlight ===== */
+  .osBadge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+    padding:10px 12px;
+    border-radius:999px;
+    border:1px solid rgba(239,68,68,.25);
+    background: rgba(239,68,68,.10);
+    color:#fecaca;
+    font-weight:800;
+    font-size:12px;
+  }
+  .recommendedCard{
+    border-color: rgba(239,68,68,.35) !important;
+    box-shadow: 0 0 30px rgba(239,68,68,.18);
+  }
+  .recommendedBtn{
+    outline: 2px solid rgba(239,68,68,.55);
+    outline-offset: 2px;
+    box-shadow: 0 0 40px rgba(239,68,68,.25);
+  }
+
+  /* ===== Popup / Modal ===== */
+  .modalOverlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.72);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    z-index: 9999;
+  }
+  .modal{
+    width: 100%;
+    max-width: 420px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: linear-gradient(180deg, rgba(20,20,20,.95), rgba(10,10,10,.95));
+    box-shadow: 0 0 60px rgba(0,0,0,.85);
+    overflow: hidden;
+    transform: translateY(8px);
+    animation: pop .18s ease forwards;
+  }
+  @keyframes pop{ to{ transform: translateY(0); } }
+  .modalHeader{
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .modalHeader strong{ font-size: 14px; letter-spacing: .2px; }
+  .modalBody{
+    padding: 14px 16px 16px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .modalActions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 16px 16px;
+  }
+  .modalBtn{
+    display: inline-block;
+    text-align: center;
+    padding: 12px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.12);
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .modalBtn.join{
+    color: white;
+    background: linear-gradient(135deg, var(--red), var(--red2));
+    box-shadow: 0 0 26px rgba(239,68,68,.35);
+  }
+  .modalBtn.no{
+    color: var(--text);
+    background: rgba(255,255,255,.06);
+  }
+  </style>
 </head>
 
 <body>
   <div class="wrap">
     <div class="topbar">
       <div class="brand">
-       <div class="emblem" aria-label="Delta Support emblem">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M12 2L22 20H2L12 2Z" stroke="rgba(245,245,245,.92)" stroke-width="1.6"/>
-    <path d="M12 7.3L17.2 17H6.8L12 7.3Z" fill="rgba(239,68,68,.35)"/>
-  </svg>
-</div>
+        <!-- ✅ NEW LOGO (replaces triangle) -->
+        <div class="emblem" aria-label="Delta Support logo">
+          <img src="/logo.png" alt="Delta Support Logo">
+        </div>
+
         <div>
           <h1>Delta Support</h1>
           <p>Official downloads • updates • help</p>
@@ -394,36 +392,24 @@ a.inline:hover{ text-decoration:underline; }
             <div class="osBadge" id="osBadge" style="display:none;"></div>
           </div>
 
-          <!-- Community -->
+          <!-- Community (embed removed) -->
           <div class="card">
             <div class="sectionTitle">Community</div>
-            <div class="discordBox">
-              <div class="discordAsk">
-                <div>
-                  <strong>Join our Discord server?</strong>
-                  <span>
-                    Welcome to Delta Support Updates. This server is dedicated to providing timely updates, reliable assistance,
-                    and a fair, respectful environment for every member. Our team is committed to supporting the community and ensuring
-                    everyone receives equal treatment and helpful guidance. Join now to stay informed and connected.
-                  </span>
-                </div>
-              </div>
 
-              <a class="btn btnSoft" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">
-                Join Delta Support Updates
-              </a>
-
-              <div class="widgetWrap">
-                <iframe
-                  title="Discord embed preview"
-                  src="https://discord.com/widget?id=1462144185636356325&theme=dark"
-                  width="100%"
-                  height="320"
-                  frameborder="0"
-                  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-                </iframe>
+            <div class="discordAsk">
+              <div>
+                <strong>Join our Discord server?</strong>
+                <span>
+                  Welcome to Delta Support Updates. This server is dedicated to providing timely updates, reliable assistance,
+                  and a fair, respectful environment for every member. Our team is committed to supporting the community and ensuring
+                  everyone receives equal treatment and helpful guidance. Join now to stay informed and connected.
+                </span>
               </div>
             </div>
+
+            <a class="btn btnSoft" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener" style="margin-top:12px;">
+              Join Delta Support Updates
+            </a>
           </div>
         </div>
 
@@ -597,14 +583,12 @@ a.inline:hover{ text-decoration:underline; }
   }
 
   noBtn.addEventListener("click", () => {
-    // if it was a download flow, continue download on "No"
     if(pendingUrl){
       const url = pendingUrl;
       pendingUrl = null;
       closeModal();
       window.location.href = url;
 
-      // show "after download" popup (counts toward 2/day)
       clearTimeout(afterPopupTimer);
       afterPopupTimer = setTimeout(() => {
         openModal("Download started. Join the Discord for updates and support?");
@@ -614,7 +598,6 @@ a.inline:hover{ text-decoration:underline; }
     closeModal();
   });
 
-  // click outside closes (no download)
   overlay.addEventListener("click", (e) => {
     if(e.target === overlay) closeModal();
   });
@@ -622,17 +605,13 @@ a.inline:hover{ text-decoration:underline; }
     if(e.key === "Escape") closeModal();
   });
 
-  // ===== Show popup on page load (counts toward 2/day) =====
   window.addEventListener("load", () => {
     openModal("Join our Discord server for updates and support?");
   });
 
-  // ===== Intercept ALL download buttons: show popup BEFORE download =====
   document.querySelectorAll(".downloadBtn").forEach(btn => {
     btn.addEventListener("click", (e) => {
-      // If popup quota is used up, just download normally
       if(!canShowPopup()) return;
-
       e.preventDefault();
       pendingUrl = btn.href;
       openModal("Join our Discord server before downloading?");
@@ -657,10 +636,6 @@ a.inline:hover{ text-decoration:underline; }
 
   const os = detectOS();
   const badge = document.getElementById("osBadge");
-  const cardIOS = document.getElementById("cardIOS");
-  const cardAndroid = document.getElementById("cardAndroid");
-  const cardMac = document.getElementById("cardMac");
-
   const labelMap = { ios:"iOS detected", android:"Android detected", mac:"macOS detected", other:"Device detected" };
   badge.style.display = "inline-flex";
   badge.textContent = "✓ " + (labelMap[os] || "Device detected");
@@ -675,7 +650,6 @@ a.inline:hover{ text-decoration:underline; }
   if(os === "ios") highlight("cardIOS", "ios");
   if(os === "android") highlight("cardAndroid", "android");
   if(os === "mac") highlight("cardMac", "mac");
-
 })();
 </script>
 </body>
