@@ -84,3 +84,290 @@
       border:1px solid var(--border);
       border-radius:24px;
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      overflow:hidden;
+      animation: rise .7s ease both;
+      position:relative;
+    }
+    @keyframes rise{
+      from{ opacity:0; transform: translateY(18px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 14px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:240px;
+    }
+    .emblem{
+      width:44px; height:44px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: radial-gradient(circle at 30% 30%, rgba(239,68,68,.35), rgba(0,0,0,.25));
+      display:grid; place-items:center;
+      overflow:hidden;
+      box-shadow: 0 0 30px rgba(239,68,68,.14);
+    }
+    .emblem img{
+      width:30px; height:30px; object-fit:contain;
+      filter: drop-shadow(0 0 6px rgba(239,68,68,.35));
+    }
+    .brand h1{ margin:0; font-size:15px; letter-spacing:.2px; }
+    .brand p{ margin:0; font-size:12px; color:var(--muted); }
+
+    .pills{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    .pill{
+      text-decoration:none;
+      color:var(--text);
+      font-size:13px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.16);
+      box-shadow: 0 0 22px rgba(239,68,68,.12);
+    }
+
+    .content{
+      padding:22px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+    }
+    @media (max-width: 900px){
+      .content{ grid-template-columns:1fr; }
+    }
+
+    .panel{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background: rgba(0,0,0,.18);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* Animated "scan line" */
+    .scan{
+      position:absolute;
+      inset:-20% 0 auto 0;
+      height:140px;
+      background: linear-gradient(180deg, transparent, rgba(239,68,68,.14), transparent);
+      animation: scan 2.6s ease-in-out infinite;
+      pointer-events:none;
+      mix-blend-mode: screen;
+    }
+    @keyframes scan{
+      0%{ transform: translateY(-40%); opacity:.0; }
+      20%{ opacity:.9; }
+      50%{ transform: translateY(220%); opacity:.7; }
+      80%{ opacity:.4; }
+      100%{ transform: translateY(260%); opacity:0; }
+    }
+
+    .big404{
+      font-size:74px;
+      line-height:1;
+      margin:0 0 10px;
+      letter-spacing: -1px;
+    }
+    .big404 span{
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 0 30px rgba(239,68,68,.18);
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      text-decoration:none;
+      font-weight:900;
+      font-size:13px;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      user-select:none;
+      width:100%;
+    }
+    .btn.red{
+      color:white;
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      box-shadow: 0 0 26px rgba(239,68,68,.35);
+    }
+    .btn.red:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 0 44px rgba(239,68,68,.55);
+    }
+    .btn.soft{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+    }
+    .btn.soft:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 0 26px rgba(255,255,255,.08);
+    }
+
+    .miniGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    @media (max-width: 520px){
+      .miniGrid{ grid-template-columns:1fr; }
+    }
+
+    .hint{
+      margin-top:10px;
+      color:#8a8a8a;
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    /* little animated "particles" */
+    .particles{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+    }
+    .dot{
+      position:absolute;
+      width:6px;
+      height:6px;
+      border-radius:999px;
+      background: rgba(239,68,68,.55);
+      opacity:.35;
+      animation: float 6s linear infinite;
+      filter: blur(.2px);
+    }
+    @keyframes float{
+      from{ transform: translateY(120vh) translateX(0); }
+      to{ transform: translateY(-20vh) translateX(30px); }
+    }
+
+    /* respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .blob, .scan, .dot, .card{ animation: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob" style="left:-140px; top:-120px;"></div>
+  <div class="blob b2" style="right:-160px; bottom:-140px;"></div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div class="brand">
+          <div class="emblem" aria-label="Delta Support logo">
+            <img src="/logo.png" alt="Delta Support Logo">
+          </div>
+          <div>
+            <h1>Delta Support</h1>
+            <p>Official downloads • updates • help</p>
+          </div>
+        </div>
+
+        <div class="pills">
+          <a class="pill" href="/">Download</a>
+          <a class="pill" href="/deltaupdates.html">Updates</a>
+          <a class="pill" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Discord</a>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="panel">
+          <div class="scan"></div>
+          <h2 class="big404"><span>404</span> — not found</h2>
+          <p class="sub">
+            This page doesn’t exist (or it got moved). If you were looking for downloads,
+            hit the button below and you’ll be back on track.
+          </p>
+
+          <a class="btn red" href="/">Go back to Downloads</a>
+
+          <div class="miniGrid">
+            <a class="btn soft" href="/deltaupdates.html">View Updates</a>
+            <a class="btn soft" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Get Support (Discord)</a>
+          </div>
+
+          <div class="hint">
+            Tip: if you typed the URL, check spelling. If you clicked a link and it’s broken,
+            let staff know and we’ll fix it.
+          </div>
+        </div>
+
+        <div class="panel" style="min-height: 260px;">
+          <div class="particles" id="particles"></div>
+
+          <h3 style="margin:0 0 6px; font-size:14px; letter-spacing:.2px;">Quick tools</h3>
+          <p class="sub" style="margin:0 0 12px;">
+            Use these if you’re trying to find something fast.
+          </p>
+
+          <a class="btn soft" href="/" style="margin-top:0;">Downloads</a>
+          <a class="btn soft" href="/deltaupdates.html">Updates</a>
+          <a class="btn soft" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Discord</a>
+
+          <div class="hint" style="margin-top:12px;">
+            If you keep hitting 404s, refresh your cache or try the main site link.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Create a few floating dots (lightweight particles)
+    (function(){
+      const holder = document.getElementById("particles");
+      if(!holder) return;
+
+      const count = 18;
+      for(let i=0;i<count;i++){
+        const d = document.createElement("div");
+        d.className = "dot";
+        const left = Math.random()*100;
+        const size = 4 + Math.random()*6;
+        const delay = Math.random()*5;
+        const dur = 4 + Math.random()*6;
+        d.style.left = left + "%";
+        d.style.width = size + "px";
+        d.style.height = size + "px";
+        d.style.animationDelay = delay + "s";
+        d.style.animationDuration = dur + "s";
+        d.style.opacity = (0.18 + Math.random()*0.35).toFixed(2);
+        holder.appendChild(d);
+      }
+    })();
+  </script>
+</body>
+</html>
