@@ -2,527 +2,122 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V622S6G7VF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V622S6G7VF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V622S6G7VF');
+  </script>
 
-  gtag('config', 'G-V622S6G7VF');
-</script>
-  <!-- Website Logo / Favicon -->
   <link rel="icon" type="image/png" href="/logo.png">
   <link rel="apple-touch-icon" href="/logo.png">
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Delta Support — Official Download (iOS & Android) v2.705</title>
-  <meta name="description" content="Delta Support official download page for iOS and Android (v2.705). Direct install, IPA, APK, and ARM32 downloads, plus updates and support.">
+  <title>Download Delta — iOS, Android, macOS (v2.705)</title>
+  <meta name="description" content="Download Delta for iOS (IPA / direct install), Android (APK / ARM32), and macOS (DMG). Latest version v2.705 + updates and support.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#000000">
 
-  <meta property="og:title" content="Delta Support — Official Download v2.705">
-  <meta property="og:description" content="Official downloads for iOS, Android, and macOS, plus updates and support.">
+  <meta property="og:title" content="Download Delta — iOS, Android, macOS (v2.705)">
+  <meta property="og:description" content="Delta downloads for iOS, Android, and macOS + update notes and support.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://downloaddelta.com/">
   <meta property="og:image" content="https://downloaddelta.com/logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Delta Support — Official Download">
-  <meta name="twitter:description" content="Official downloads for iOS, Android, and macOS, plus updates and support.">
+  <meta name="twitter:title" content="Download Delta — Official Downloads">
+  <meta name="twitter:description" content="Downloads for iOS, Android, and macOS + updates and support.">
   <meta name="twitter:image" content="https://downloaddelta.com/logo.png">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Delta Support",
-    "operatingSystem": "iOS, Android, macOS",
-    "applicationCategory": "UtilitiesApplication",
-    "softwareVersion": "2.705",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Delta Support",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://downloaddelta.com/logo.png"
-      }
-    }
-  }
-  </script>
-
-  <style>
-  :root{
-    --bg:#050505;
-    --border:rgba(255,255,255,.08);
-    --text:#f5f5f5;
-    --muted:#a3a3a3;
-    --red:#ef4444;
-    --red2:#b91c1c;
-    --shadow: 0 0 55px rgba(0,0,0,.85);
-  }
-
-  *{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-  html,body{ height:100%; }
-  body{
-    margin:0;
-    color:var(--text);
-    background:
-      radial-gradient(900px 420px at 20% 0%, rgba(239,68,68,.18), transparent 60%),
-      radial-gradient(700px 350px at 90% 15%, rgba(185,28,28,.12), transparent 60%),
-      radial-gradient(circle at top, #141414, var(--bg));
-    overflow-x:hidden;
-  }
-
-  .wrap{ max-width:1020px; margin:0 auto; padding:24px 16px 60px; }
-
-  .topbar{
-    display:flex; align-items:center; justify-content:space-between; gap:12px;
-    padding:12px 12px;
-    border:1px solid var(--border);
-    border-radius:18px;
-    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-    box-shadow: 0 0 25px rgba(0,0,0,.35);
-    backdrop-filter: blur(10px);
-  }
-
-  .brand{ display:flex; align-items:center; gap:12px; min-width: 240px; }
-  .emblem{
-    width:42px; height:42px; border-radius:14px;
-    border:1px solid var(--border);
-    background: radial-gradient(circle at 30% 30%, rgba(239,68,68,.40), rgba(0,0,0,.25));
-    display:grid; place-items:center;
-    box-shadow: 0 0 30px rgba(239,68,68,.16);
-    overflow:hidden;
-  }
-  .emblem img{
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 6px rgba(239,68,68,.35));
-  }
-
-  .brand h1{ font-size:15px; margin:0; line-height:1.1; letter-spacing:.2px; }
-  .brand p{ margin:0; font-size:12px; color:var(--muted); }
-
-  .nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
-  .pill{
-    text-decoration:none; color:var(--text); font-size:13px;
-    padding:10px 12px;
-    border:1px solid var(--border);
-    border-radius:999px;
-    background: rgba(255,255,255,.03);
-    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  }
-  .pill:hover{
-    transform: translateY(-1px);
-    border-color: rgba(255,255,255,.16);
-    box-shadow: 0 0 22px rgba(239,68,68,.12);
-  }
-
-  .hero{
-    margin-top:16px;
-    border-radius:22px;
-    border:1px solid var(--border);
-    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    box-shadow: var(--shadow);
-    animation: rise .85s ease both;
-    overflow:hidden;
-  }
-  @keyframes rise{ from{ opacity:0; transform: translateY(18px);} to{ opacity:1; transform: translateY(0);} }
-
-  .heroInner{ padding:22px; }
-
-  .grid{
-    display:grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap:16px;
-  }
-  @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
-
-  .card{
-    border:1px solid var(--border);
-    border-radius:18px;
-    background: rgba(0,0,0,.18);
-    padding:16px;
-  }
-
-  .hTitle{
-    margin:0 0 10px;
-    font-size:34px;
-    letter-spacing:.2px;
-  }
-  .hTitle span{ color: var(--red); }
-  .hSub{
-    margin:0;
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.7;
-  }
-
-  .sectionTitle{
-    margin:0 0 10px;
-    font-size:12px;
-    color:var(--muted);
-    letter-spacing:.18px;
-    text-transform: uppercase;
-  }
-
-  .btn{
-    display:block;
-    width:100%;
-    text-decoration:none;
-    color:white;
-    font-weight:700;
-    font-size:14px;
-    padding:14px 14px;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,.10);
-    transition: transform .18s ease, box-shadow .18s ease;
-    user-select:none;
-  }
-  .btn + .btn{ margin-top:10px; }
-
-  .btnRed{
-    background: linear-gradient(135deg, var(--red), var(--red2));
-    box-shadow: 0 0 26px rgba(239,68,68,.35);
-  }
-  .btnRed:hover{
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 0 44px rgba(239,68,68,.60);
-  }
-
-  .btnSoft{
-    background: rgba(255,255,255,.06);
-    color: var(--text);
-  }
-  .btnSoft:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 0 26px rgba(255,255,255,.08);
-  }
-
-  .grid2{
-    margin-top:16px;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap:16px;
-  }
-
-  .faqItem{
-    padding:14px;
-    border-radius:16px;
-    border:1px solid var(--border);
-    background: rgba(255,255,255,.02);
-  }
-  .faqItem + .faqItem{ margin-top:10px; }
-  .q{ margin:0 0 6px; font-weight:800; font-size:14px; }
-  .a{ margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
-
-  .discordAsk{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    padding:14px;
-    border-radius:16px;
-    border:1px solid rgba(239,68,68,.25);
-    background: linear-gradient(180deg, rgba(239,68,68,.10), rgba(0,0,0,.12));
-  }
-  .discordAsk strong{ font-size:14px; }
-  .discordAsk span{ display:block; color:var(--muted); font-size:12px; margin-top:2px; line-height:1.5; }
-
-  .footer{
-    padding:18px;
-    text-align:center;
-    color:#7a7a7a;
-    font-size:12px;
-  }
-  a.inline{ color:#fecaca; text-decoration:none; }
-  a.inline:hover{ text-decoration:underline; }
-
-  .mobileBar{
-    position: sticky;
-    bottom: 10px;
-    margin-top: 18px;
-    display:none;
-    z-index: 10;
-  }
-  @media (max-width: 720px){
-    .mobileBar{ display:block; }
-    .mobileBarInner{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      padding:10px;
-      border-radius:16px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,.55);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 30px rgba(0,0,0,.35);
-    }
-    .mobileBtn{
-      padding:12px 12px;
-      border-radius:14px;
-      text-align:center;
-      text-decoration:none;
-      color:white;
-      font-weight:800;
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .mobileBtn.red{ background: linear-gradient(135deg, var(--red), var(--red2)); }
-    .mobileBtn.dark{ background: rgba(255,255,255,.06); }
-  }
-
-  /* ===== OS highlight ===== */
-  .osBadge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-top:10px;
-    padding:10px 12px;
-    border-radius:999px;
-    border:1px solid rgba(239,68,68,.25);
-    background: rgba(239,68,68,.10);
-    color:#fecaca;
-    font-weight:800;
-    font-size:12px;
-  }
-  .recommendedCard{
-    border-color: rgba(239,68,68,.35) !important;
-    box-shadow: 0 0 30px rgba(239,68,68,.18);
-  }
-  .recommendedBtn{
-    outline: 2px solid rgba(239,68,68,.55);
-    outline-offset: 2px;
-    box-shadow: 0 0 40px rgba(239,68,68,.25);
-  }
-
-  /* ===== Popup / Modal ===== */
-  .modalOverlay{
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.72);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 18px;
-    z-index: 9999;
-  }
-  .modal{
-    width: 100%;
-    max-width: 420px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,.12);
-    background: linear-gradient(180deg, rgba(20,20,20,.95), rgba(10,10,10,.95));
-    box-shadow: 0 0 60px rgba(0,0,0,.85);
-    overflow: hidden;
-    transform: translateY(8px);
-    animation: pop .18s ease forwards;
-  }
-  @keyframes pop{ to{ transform: translateY(0); } }
-  .modalHeader{
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  .modalHeader strong{ font-size: 14px; letter-spacing: .2px; }
-  .modalBody{
-    padding: 14px 16px 16px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-  }
-  .modalActions{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 0 16px 16px;
-  }
-  .modalBtn{
-    display: inline-block;
-    text-align: center;
-    padding: 12px 12px;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,.12);
-    text-decoration: none;
-    font-weight: 900;
-    font-size: 13px;
-    cursor: pointer;
-  }
-  .modalBtn.join{
-    color: white;
-    background: linear-gradient(135deg, var(--red), var(--red2));
-    box-shadow: 0 0 26px rgba(239,68,68,.35);
-  }
-  .modalBtn.no{
-    color: var(--text);
-    background: rgba(255,255,255,.06);
-  }
-  </style>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
   <div class="wrap">
     <div class="topbar">
       <div class="brand">
-        <!-- ✅ NEW LOGO (replaces triangle) -->
         <div class="emblem" aria-label="Delta Support logo">
           <img src="/logo.png" alt="Delta Support Logo">
         </div>
-
         <div>
-          <h1>Delta Support</h1>
-          <p>Official downloads • updates • help</p>
+          <h1 style="font-size:15px;margin:0;">Delta Support</h1>
+          <p>Downloads • updates • help</p>
         </div>
       </div>
 
       <div class="nav">
-        <a class="pill" href="/">Download</a>
-        <a class="pill" href="/deltaupdates">Updates</a>
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/download-ios/">iOS</a>
+        <a class="pill" href="/download-android/">Android</a>
+        <a class="pill" href="/download-mac/">macOS</a>
+        <a class="pill" href="/updates/">Updates</a>
+        <a class="pill" href="/blog.html">Blog</a>
         <a class="pill" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Discord</a>
       </div>
     </div>
 
     <div class="hero">
       <div class="heroInner">
-
         <div class="grid">
           <div class="card">
-            <h2 class="hTitle">Download <span>Delta</span> and stay updated.</h2>
+            <h2 class="hTitle">Download <span>Delta</span> for iOS, Android, and macOS.</h2>
             <p class="hSub">
-              This is the official Delta Support page for downloads, update notes, and community help.
-              If you want announcements the moment they drop, the Discord is the fastest place to get them.
+              This page helps you find the right download quickly. Choose your platform below for
+              Delta downloads (v2.705), update notes, and support links.
             </p>
             <div class="osBadge" id="osBadge" style="display:none;"></div>
-          </div>
 
-          <!-- Community (embed removed) -->
-          <div class="card">
-            <div class="sectionTitle">Community</div>
-
-            <div class="discordAsk">
-              <div>
-                <strong>Join our Discord server?</strong>
-                <span>
-                  Welcome to Delta Support Updates. This server is dedicated to providing timely updates, reliable assistance,
-                  and a fair, respectful environment for every member. Our team is committed to supporting the community and ensuring
-                  everyone receives equal treatment and helpful guidance. Join now to stay informed and connected.
-                </span>
+            <div class="grid2">
+              <div class="card" style="background:rgba(255,255,255,.02);">
+                <div class="sectionTitle">Quick platform pages</div>
+                <a class="btn btnSoft" href="/download-ios/">Download Delta for iOS</a>
+                <a class="btn btnSoft" href="/download-android/">Download Delta for Android</a>
+                <a class="btn btnSoft" href="/download-mac/">Download Delta for macOS</a>
+                <a class="btn btnSoft" href="/updates/">Delta update notes</a>
               </div>
             </div>
+          </div>
 
-            <a class="btn btnSoft" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener" style="margin-top:12px;">
+          <div class="card">
+            <div class="sectionTitle">Support</div>
+            <p class="hSub" style="margin:0;">
+              Need help or want release announcements? Join the Discord.
+            </p>
+            <a class="btn btnSoft" style="margin-top:12px;" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">
               Join Delta Support Updates
             </a>
-          </div>
-        </div>
 
-        <!-- Downloads -->
-        <div class="grid2">
-          <div class="card" id="cardIOS">
-            <div class="sectionTitle">iOS Downloads • v2.705</div>
-
-            <a class="btn btnRed downloadBtn" data-os="ios"
-               href="itms-services:///?action=download-manifest&url=https://delta.bz/manifest.plist">
-              iOS Direct Install (Recommended)
-            </a>
-
-            <a class="btn btnRed downloadBtn" data-os="ios"
-               href="https://deltaexecutor.filesadda.com/DeltaiOS-2.705.ipa">
-              Download iOS IPA (v2.705)
-            </a>
-          </div>
-
-          <div class="card" id="cardAndroid">
-            <div class="sectionTitle">Android Downloads • v2.705</div>
-
-            <a class="btn btnRed downloadBtn" data-os="android"
-               href="https://deltaexecutor.filesadda.com/Delta-2.705.apk">
-              Android APK (v2.705)
-            </a>
-
-            <a class="btn btnRed downloadBtn" data-os="android"
-               href="https://deltaexecutor.filesadda.com/Delta-2.705.apk">
-              Android ARM32 (v2.705)
-            </a>
-
-            <a class="btn btnRed downloadBtn" data-os="android"
-               href="https://www.mediafire.com/file/zfukogvf9y0pdes/Delta_X_VNG_V2.704.apk/file">
-              Android VNG (v2.704)
-            </a>
-          </div>
-
-          <div class="card" id="cardMac">
-            <div class="sectionTitle">macOS Download</div>
-
-            <a class="btn btnRed downloadBtn" data-os="mac"
-               href="https://www.mediafire.com/file/5phn6kvf9wz26ll/delta.dmg/file">
-              Download for macOS (.dmg)
-            </a>
-          </div>
-        </div>
-
-        <!-- Discord Ask (AFTER DOWNLOADS) -->
-        <div class="grid2">
-          <div class="card">
-            <div class="sectionTitle">Join our Discord server?</div>
-            <p class="hSub" style="margin:0;">
-              Need help, want quick updates, or just want to stay in the loop? Join the Discord and you’ll see announcements as soon as they’re posted.
-            </p>
-            <div style="margin-top:12px;">
-              <a class="btn btnSoft" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">
-                Join Delta Support Updates
-              </a>
+            <div class="sectionTitle" style="margin-top:16px;">FAQ (quick)</div>
+            <div class="faqItem">
+              <p class="q">Where do I download Delta?</p>
+              <p class="a">Pick your device page: <a class="inline" href="/download-ios/">iOS</a>, <a class="inline" href="/download-android/">Android</a>, or <a class="inline" href="/download-mac/">macOS</a>.</p>
             </div>
-          </div>
-
-          <div class="card">
-            <div class="sectionTitle">FAQ</div>
-
             <div class="faqItem">
               <p class="q">Where do I see what changed?</p>
-              <p class="a">Check the <a class="inline" href="/deltaupdates">Updates page</a> for announcements and release notes.</p>
-            </div>
-
-            <div class="faqItem">
-              <p class="q">Where do I get support?</p>
-              <p class="a">The fastest support is in the Discord server.</p>
+              <p class="a">Check the <a class="inline" href="/updates/">Updates</a> page for version notes.</p>
             </div>
           </div>
         </div>
 
         <div class="footer">
-          © 2026 Delta Support • <a class="inline" href="/deltaupdates">Updates</a> •
+          © 2026 Delta Support • <a class="inline" href="/updates/">Updates</a> •
+          <a class="inline" href="/blog.html">Blog</a> •
           <a class="inline" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Discord</a>
         </div>
-
-        <!-- Mobile sticky quick actions -->
-        <div class="mobileBar">
-          <div class="mobileBarInner">
-            <a class="mobileBtn red" href="itms-services:///?action=download-manifest&url=https://delta.bz/manifest.plist">iOS Install</a>
-            <a class="mobileBtn dark" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Discord</a>
-          </div>
-        </div>
-
       </div>
     </div>
-
   </div>
 
-  <!-- ===== Discord Popup Modal (YES / NO) ===== -->
+  <!-- Modal (shared) -->
   <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modalHeader">
         <strong id="modalTitle">Join our Discord server?</strong>
       </div>
-      <div class="modalBody" id="modalBodyText">
-        Join Delta Support Updates for announcements and help.
-      </div>
+      <div class="modalBody" id="modalBodyText">Join Delta Support Updates for announcements and help.</div>
       <div class="modalActions">
         <a class="modalBtn join" id="joinBtn" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Yes</a>
         <button class="modalBtn no" id="noBtn" type="button">No</button>
@@ -530,136 +125,6 @@
     </div>
   </div>
 
-<script>
-(function(){
-  const DISCORD_INVITE = "https://discord.gg/deltaupdates";
-
-  // ===== Popup limit: only twice per day =====
-  const POP_KEY = "ds_popup_v1";
-  function todayKey(){
-    const d = new Date();
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth()+1).padStart(2,"0");
-    const dd = String(d.getDate()).padStart(2,"0");
-    return `${yyyy}-${mm}-${dd}`;
-  }
-  function getPopState(){
-    try{
-      const raw = localStorage.getItem(POP_KEY);
-      if(!raw) return { day: todayKey(), count: 0 };
-      const obj = JSON.parse(raw);
-      if(!obj || obj.day !== todayKey()) return { day: todayKey(), count: 0 };
-      return obj;
-    }catch{
-      return { day: todayKey(), count: 0 };
-    }
-  }
-  function setPopState(state){
-    localStorage.setItem(POP_KEY, JSON.stringify(state));
-  }
-  function canShowPopup(){
-    const st = getPopState();
-    return st.count < 2;
-  }
-  function markPopupShown(){
-    const st = getPopState();
-    st.count = (st.count || 0) + 1;
-    st.day = todayKey();
-    setPopState(st);
-  }
-
-  // ===== Modal controls =====
-  const overlay = document.getElementById("modalOverlay");
-  const bodyText = document.getElementById("modalBodyText");
-  const noBtn = document.getElementById("noBtn");
-  const joinBtn = document.getElementById("joinBtn");
-
-  joinBtn.href = DISCORD_INVITE;
-
-  let pendingUrl = null;
-  let afterPopupTimer = null;
-
-  function openModal(text){
-    if(!canShowPopup()) return;
-    bodyText.textContent = text;
-    overlay.style.display = "flex";
-    overlay.setAttribute("aria-hidden", "false");
-    markPopupShown();
-  }
-  function closeModal(){
-    overlay.style.display = "none";
-    overlay.setAttribute("aria-hidden", "true");
-  }
-
-  noBtn.addEventListener("click", () => {
-    if(pendingUrl){
-      const url = pendingUrl;
-      pendingUrl = null;
-      closeModal();
-      window.location.href = url;
-
-      clearTimeout(afterPopupTimer);
-      afterPopupTimer = setTimeout(() => {
-        openModal("Download started. Join the Discord for updates and support?");
-      }, 900);
-      return;
-    }
-    closeModal();
-  });
-
-  overlay.addEventListener("click", (e) => {
-    if(e.target === overlay) closeModal();
-  });
-  document.addEventListener("keydown", (e) => {
-    if(e.key === "Escape") closeModal();
-  });
-
-  window.addEventListener("load", () => {
-    openModal("Join our Discord server for updates and support?");
-  });
-
-  document.querySelectorAll(".downloadBtn").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      if(!canShowPopup()) return;
-      e.preventDefault();
-      pendingUrl = btn.href;
-      openModal("Join our Discord server before downloading?");
-    });
-  });
-
-  // ===== Auto-detect OS + highlight matching card/buttons =====
-  function detectOS(){
-    const ua = navigator.userAgent || "";
-    const platform = navigator.platform || "";
-    const touchMac = (platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
-    const isIOS = /iPhone|iPad|iPod/i.test(ua) || touchMac;
-    const isAndroid = /Android/i.test(ua);
-    const isMac = /Macintosh|Mac OS X/i.test(ua) && !isIOS;
-
-    if(isIOS) return "ios";
-    if(isAndroid) return "android";
-    if(isMac) return "mac";
-    return "other";
-  }
-
-  const os = detectOS();
-  const badge = document.getElementById("osBadge");
-  const labelMap = { ios:"iOS detected", android:"Android detected", mac:"macOS detected", other:"Device detected" };
-  badge.style.display = "inline-flex";
-  badge.textContent = "✓ " + (labelMap[os] || "Device detected");
-
-  function highlight(sectionId, osKey){
-    const card = document.getElementById(sectionId);
-    if(!card) return;
-    card.classList.add("recommendedCard");
-    card.querySelectorAll('.downloadBtn[data-os="'+osKey+'"]').forEach(b => b.classList.add("recommendedBtn"));
-  }
-
-  if(os === "ios") highlight("cardIOS", "ios");
-  if(os === "android") highlight("cardAndroid", "android");
-  if(os === "mac") highlight("cardMac", "mac");
-})();
-</script>
+  <script src="/site.js"></script>
 </body>
 </html>
