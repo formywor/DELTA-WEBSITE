@@ -1,87 +1,725 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="/logo.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Delta Updates — Release Notes</title>
-  <meta name="description" content="Delta update notes and release information. Track versions like v2.705 and see what changed.">
-  <meta name="robots" content="index, follow">
-  <link rel="stylesheet" href="/style.css">
+
+  <title>Delta Support Updates — Version Notes, Fixes & Announcements</title>
+  <meta name="description" content="Delta Support Updates: version notes, fixes, announcements and download changes for iOS, Android, and macOS.">
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://downloaddelta.com/updates/" />
+
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta name="theme-color" content="#000000">
+
+  <meta property="og:title" content="Delta Support Updates" />
+  <meta property="og:description" content="Version notes, fixes, announcements and download changes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://downloaddelta.com/updates/" />
+  <meta property="og:image" content="https://downloaddelta.com/logo.png" />
+
+  <style>
+    :root{
+      --bg:#050505;
+      --card: rgba(255,255,255,.04);
+      --border: rgba(255,255,255,.10);
+      --text:#f5f5f5;
+      --muted:#a3a3a3;
+      --red:#ef4444;
+      --red2:#b91c1c;
+      --shadow: 0 0 55px rgba(0,0,0,.85);
+    }
+
+    *{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(239,68,68,.18), transparent 60%),
+        radial-gradient(700px 350px at 90% 15%, rgba(185,28,28,.12), transparent 60%),
+        radial-gradient(circle at top, #141414, var(--bg));
+      overflow-x:hidden;
+    }
+
+    .wrap{ max-width: 1040px; margin:0 auto; padding: 22px 16px 70px; }
+
+    /* Top bar */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px 12px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: 0 0 25px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+    }
+
+    .brand{ display:flex; align-items:center; gap:12px; min-width: 240px; }
+    .emblem{
+      width:42px; height:42px; border-radius:14px;
+      border:1px solid var(--border);
+      background: radial-gradient(circle at 30% 30%, rgba(239,68,68,.40), rgba(0,0,0,.25));
+      display:grid; place-items:center;
+      box-shadow: 0 0 30px rgba(239,68,68,.16);
+      overflow:hidden;
+    }
+    .emblem img{
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(239,68,68,.35));
+    }
+
+    .brand h1{ font-size:15px; margin:0; line-height:1.1; letter-spacing:.2px; }
+    .brand p{ margin:0; font-size:12px; color:var(--muted); }
+
+    .nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    .pill{
+      text-decoration:none; color:var(--text); font-size:13px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 0 22px rgba(239,68,68,.14);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:16px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      animation: rise .8s ease both;
+    }
+    @keyframes rise{ from{ opacity:0; transform: translateY(18px);} to{ opacity:1; transform: translateY(0);} }
+    .heroInner{ padding:22px; }
+
+    .titleRow{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .pageTitle{
+      margin:0;
+      font-size:34px;
+      letter-spacing:.2px;
+      line-height:1.1;
+    }
+    .pageTitle span{ color: var(--red); }
+    .subtitle{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+      max-width: 760px;
+    }
+
+    /* Controls */
+    .controls{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1fr 220px;
+      gap:12px;
+    }
+    @media (max-width: 760px){
+      .controls{ grid-template-columns: 1fr; }
+    }
+
+    .input, .select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      outline:none;
+      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+    .input:focus, .select:focus{
+      border-color: rgba(239,68,68,.45);
+      box-shadow: 0 0 0 4px rgba(239,68,68,.08);
+      transform: translateY(-1px);
+    }
+    .select option{ background:#0b0b0b; }
+
+    /* Notice / pinned */
+    .notice{
+      margin-top:16px;
+      padding:14px 14px;
+      border-radius:18px;
+      border:1px solid rgba(239,68,68,.35);
+      background: linear-gradient(180deg, rgba(239,68,68,.12), rgba(0,0,0,.12));
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(239,68,68,.35);
+      background: rgba(239,68,68,.10);
+      color:#fecaca;
+      font-weight:900;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .notice p{
+      margin:0;
+      color: #e7e7e7;
+      font-size:13px;
+      line-height:1.7;
+    }
+    .notice a{ color:#fecaca; text-decoration:none; }
+    .notice a:hover{ text-decoration:underline; }
+
+    /* Update list */
+    .list{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+    }
+
+    .update{
+      border-radius:18px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      overflow:hidden;
+
+      /* reveal animation initial state */
+      opacity:0;
+      transform: translateY(12px);
+      transition: opacity .55s ease, transform .55s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .update.reveal{
+      opacity:1;
+      transform: translateY(0);
+    }
+    .update:hover{
+      border-color: rgba(255,255,255,.16);
+      box-shadow: 0 0 26px rgba(239,68,68,.10);
+    }
+
+    .updateHeader{
+      width:100%;
+      text-align:left;
+      padding:14px 14px;
+      border:0;
+      background: transparent;
+      color: var(--text);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      cursor:pointer;
+    }
+
+    .left{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width: 0;
+    }
+
+    .metaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .ver{
+      font-weight:950;
+      letter-spacing:.2px;
+      font-size:14px;
+    }
+
+    .date{
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: #ddd;
+    }
+    .tag.red{
+      border-color: rgba(239,68,68,.35);
+      background: rgba(239,68,68,.10);
+      color:#fecaca;
+    }
+
+    .title{
+      font-size:14px;
+      color:#eaeaea;
+      margin:0;
+      line-height:1.35;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 860px;
+    }
+
+    .chev{
+      width: 34px; height: 34px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+      transition: transform .22s ease, border-color .18s ease;
+    }
+
+    .update.open .chev{
+      transform: rotate(180deg);
+      border-color: rgba(239,68,68,.35);
+    }
+
+    .updateBody{
+      max-height: 0;
+      overflow:hidden;
+      transition: max-height .35s ease;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .updateInner{
+      padding: 12px 14px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+    .bullets li{ margin: 6px 0; }
+
+    .links{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .smallLink{
+      text-decoration:none;
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .smallLink:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 0 18px rgba(239,68,68,.10);
+    }
+
+    .empty{
+      padding: 18px;
+      border-radius:18px;
+      border:1px dashed rgba(255,255,255,.14);
+      background: rgba(0,0,0,.10);
+      color: var(--muted);
+    }
+
+    .footer{
+      margin-top: 18px;
+      padding: 16px;
+      text-align:center;
+      color:#7a7a7a;
+      font-size:12px;
+    }
+    a.inline{ color:#fecaca; text-decoration:none; }
+    a.inline:hover{ text-decoration:underline; }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    }
+  </style>
 </head>
+
 <body>
   <div class="wrap">
+
     <div class="topbar">
       <div class="brand">
-        <div class="emblem"><img src="/logo.png" alt="Logo"></div>
-        <div><h1 style="font-size:15px;margin:0;">Delta Support</h1><p>updates • release notes</p></div>
+        <div class="emblem" aria-label="Delta Support logo">
+          <img src="/logo.png" alt="Delta Support Logo">
+        </div>
+        <div>
+          <h1>Delta Support</h1>
+          <p>Updates • changes • announcements</p>
+        </div>
       </div>
+
       <div class="nav">
         <a class="pill" href="/">Home</a>
-        <a class="pill" href="/download-ios/">iOS</a>
-        <a class="pill" href="/download-android/">Android</a>
-        <a class="pill" href="/download-mac/">macOS</a>
-        <a class="pill" href="/updates/">Updates</a>
-        <a class="pill" href="/blog">Blog</a>
+        <a class="pill" href="/download-ios">iOS</a>
+        <a class="pill" href="/download-android">Android</a>
+        <a class="pill" href="/download-mac">macOS</a>
+        <a class="pill" href="/updates">Updates</a>
+        <a class="pill" href="/blog.html">Blog</a>
       </div>
     </div>
 
     <div class="hero">
       <div class="heroInner">
-        <div class="card">
-          <h2 class="hTitle"><span>Delta</span> Updates</h2>
-          <p class="hSub">
-            Release notes and announcements. For real-time updates, join the Discord.
-          </p>
-          <a class="btn btnSoft" style="margin-top:12px;" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">
-            Join Discord
-          </a>
+        <div class="titleRow">
+          <div>
+            <h2 class="pageTitle">Delta <span>Updates</span></h2>
+            <p class="subtitle">
+              Version notes, download changes, fixes, and announcements. Use the search + filter to find a version fast.
+            </p>
+          </div>
         </div>
 
-        <div class="grid2">
-          <div class="card">
-            <div class="sectionTitle">Latest</div>
+        <div class="controls" aria-label="updates controls">
+          <input id="search" class="input" type="search" placeholder="Search: v2.705, iOS, macOS, APK, ARM32, Direct Install..." />
+          <select id="filter" class="select" aria-label="filter updates">
+            <option value="all">All</option>
+            <option value="important">Important</option>
+            <option value="ios">iOS</option>
+            <option value="android">Android</option>
+            <option value="mac">macOS</option>
+            <option value="site">Website</option>
+          </select>
+        </div>
 
-            <div class="faqItem">
-              <p class="q">v2.705 — Latest</p>
-              <p class="a">Update notes go here. (Add bullet points of changes, fixes, and supported platforms.)</p>
-            </div>
+        <div class="notice">
+          <div class="badge">Pinned</div>
+          <p>
+            <strong>iOS Direct Install is currently down</strong> due to certificate issues.
+            <strong>IPA installs still work.</strong>
+            We recommend <strong>Esign</strong> (not Ksign) for the smoothest installs.
+            Join the Discord for announcements:
+            <a class="inline" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">discord.gg/deltaupdates</a>
+          </p>
+        </div>
 
-            <div class="faqItem">
-              <p class="q">v2.704</p>
-              <p class="a">Older release notes go here.</p>
-            </div>
-
-          </div>
-
-          <div class="card">
-            <div class="sectionTitle">Downloads</div>
-            <a class="btn btnSoft" href="/download-ios/">Download Delta for iOS</a>
-            <a class="btn btnSoft" href="/download-android/">Download Delta for Android</a>
-            <a class="btn btnSoft" href="/download-mac/">Download Delta for macOS</a>
-          </div>
+        <div class="list" id="list" aria-label="updates list">
+          <!-- Updates are injected by JS -->
         </div>
 
         <div class="footer">
-          © 2026 Delta Support • <a class="inline" href="/blog">Blog</a> •
-          <a class="inline" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Discord</a>
+          © 2026 Delta Support • <a class="inline" href="/">Home</a> •
+          <a class="inline" href="/download-ios">iOS</a> •
+          <a class="inline" href="/download-android">Android</a> •
+          <a class="inline" href="/download-mac">macOS</a> •
+          <a class="inline" href="/blog.html">Blog</a>
         </div>
       </div>
     </div>
+
   </div>
 
-  <!-- Modal (exists but no downloadBtn on this page, so it won’t trigger) -->
-  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modalHeader"><strong id="modalTitle">Join our Discord server?</strong></div>
-      <div class="modalBody" id="modalBodyText">Join Delta Support Updates for announcements and help.</div>
-      <div class="modalActions">
-        <a class="modalBtn join" id="joinBtn" href="https://discord.gg/deltaupdates" target="_blank" rel="noopener">Yes</a>
-        <button class="modalBtn no" id="noBtn" type="button">No</button>
-      </div>
-    </div>
-  </div>
+  <script>
+  (function(){
+    // ======= Edit these whenever you release changes =======
+    const updates = [
+      {
+        version: "v2.705",
+        date: "January 26, 2026",
+        category: ["important", "site"],
+        title: "Website restructure: separate platform pages + better navigation",
+        details: [
+          "Added dedicated pages for iOS, Android, and macOS downloads.",
+          "Navigation updated across the entire site for faster access.",
+          "Internal linking improved so Google can crawl updates faster."
+        ],
+        links: [
+          ["Home", "/"],
+          ["Download iOS", "/download-ios"],
+          ["Download Android", "/download-android"],
+          ["Download macOS", "/download-mac"],
+          ["Blog / Guides", "/blog.html"]
+        ]
+      },
+      {
+        version: "Pinned Notice",
+        date: "January 26, 2026",
+        category: ["important", "ios"],
+        title: "iOS Direct Install down (IPA still works) — use Esign, not Ksign",
+        details: [
+          "Direct Install is down due to certificate issues.",
+          "IPA installs are still available.",
+          "We recommend Esign for the most stable install experience."
+        ],
+        links: [
+          ["Download iOS", "/download-ios"],
+          ["Updates", "/updates"],
+          ["Discord", "https://discord.gg/deltaupdates"]
+        ]
+      },
+      {
+        version: "Site",
+        date: "January 26, 2026",
+        category: ["site"],
+        title: "Faster crawling: sitemap + robots configured for improved indexing",
+        details: [
+          "Added sitemap.xml and robots.txt alignment.",
+          "Cleaner URL structure for long-term stability.",
+          "Reduced duplicate page confusion by focusing on /updates/."
+        ],
+        links: [
+          ["Sitemap", "/sitemap.xml"],
+          ["Robots", "/robots.txt"]
+        ]
+      },
+      {
+        version: "Downloads",
+        date: "January 26, 2026",
+        category: ["android"],
+        title: "Android download section cleaned up (APK / ARM32 / VNG listed clearly)",
+        details: [
+          "Android downloads are now grouped and labeled by device type.",
+          "ARM32 and VNG entries are separated to avoid wrong installs."
+        ],
+        links: [
+          ["Download Android", "/download-android"]
+        ]
+      },
+      {
+        version: "macOS",
+        date: "January 26, 2026",
+        category: ["mac"],
+        title: "macOS DMG page updated + short install guide",
+        details: [
+          "macOS download has its own page now.",
+          "Added quick steps for install + first-run prompts."
+        ],
+        links: [
+          ["Download macOS", "/download-mac"]
+        ]
+      },
 
-  <script src="/site.js"></script>
+      // More entries (fills the page, helps SEO, feels “alive”)
+      {
+        version: "UI",
+        date: "January 25, 2026",
+        category: ["site"],
+        title: "UI polish: spacing, readability, and mobile tap targets improved",
+        details: [
+          "Buttons are easier to tap on mobile.",
+          "Text spacing improved for long reading.",
+          "Navigation kept consistent across pages."
+        ],
+        links: [
+          ["Home", "/"]
+        ]
+      },
+      {
+        version: "Guides",
+        date: "January 24, 2026",
+        category: ["site"],
+        title: "Blog page launched: detailed install info + links to each platform",
+        details: [
+          "Added a long-form guide page for common install questions.",
+          "Includes links to iOS/Android/macOS pages and updates."
+        ],
+        links: [
+          ["Blog / Guides", "/blog.html"]
+        ]
+      },
+      {
+        version: "iOS",
+        date: "January 23, 2026",
+        category: ["ios"],
+        title: "iOS page clarified: Direct Install vs IPA + recommended tools",
+        details: [
+          "Clear labels to avoid confusion.",
+          "Recommendations added to reduce failed installs."
+        ],
+        links: [
+          ["Download iOS", "/download-ios"]
+        ]
+      },
+      {
+        version: "Android",
+        date: "January 22, 2026",
+        category: ["android"],
+        title: "Android page: added compatibility notes for ARM32 devices",
+        details: [
+          "Added quick note so users pick the correct download the first time.",
+          "Reduced repeated questions in support."
+        ],
+        links: [
+          ["Download Android", "/download-android"]
+        ]
+      },
+      {
+        version: "Performance",
+        date: "January 21, 2026",
+        category: ["site"],
+        title: "Performance cleanup: smaller scripts + smoother loading",
+        details: [
+          "Reduced unnecessary render-blocking behavior.",
+          "Kept the pages lightweight for faster load times."
+        ],
+        links: [
+          ["Home", "/"]
+        ]
+      }
+    ];
+
+    // ======= Render =======
+    const list = document.getElementById("list");
+    const search = document.getElementById("search");
+    const filter = document.getElementById("filter");
+
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function hasCategory(item, val){
+      if(val === "all") return true;
+      if(val === "important") return item.category.includes("important");
+      return item.category.includes(val);
+    }
+
+    function matchesQuery(item, q){
+      if(!q) return true;
+      const blob = [
+        item.version,
+        item.date,
+        item.title,
+        ...(item.details || []),
+        ...(item.category || [])
+      ].join(" ").toLowerCase();
+      return blob.includes(q);
+    }
+
+    function tagLabel(cat){
+      const map = { important:"Important", ios:"iOS", android:"Android", mac:"macOS", site:"Website" };
+      return map[cat] || cat;
+    }
+
+    function render(){
+      const q = (search.value || "").trim().toLowerCase();
+      const f = filter.value;
+
+      const filtered = updates.filter(u => hasCategory(u, f) && matchesQuery(u, q));
+
+      if(!filtered.length){
+        list.innerHTML = `<div class="empty">No updates match your search. Try “v2.705”, “iOS”, “macOS”, “APK”, or “Direct Install”.</div>`;
+        return;
+      }
+
+      list.innerHTML = filtered.map((u, idx) => {
+        const tags = (u.category || [])
+          .filter(c => c !== "important")
+          .slice(0, 2);
+
+        const showImportant = (u.category || []).includes("important");
+
+        return `
+          <div class="update" data-idx="${idx}">
+            <button class="updateHeader" type="button" aria-expanded="false">
+              <div class="left">
+                <div class="metaRow">
+                  <div class="ver">${escapeHtml(u.version)}</div>
+                  <div class="date">${escapeHtml(u.date)}</div>
+                  ${showImportant ? `<div class="tag red">Important</div>` : ``}
+                  ${tags.map(t => `<div class="tag">${escapeHtml(tagLabel(t))}</div>`).join("")}
+                </div>
+                <p class="title">${escapeHtml(u.title)}</p>
+              </div>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </button>
+            <div class="updateBody" role="region">
+              <div class="updateInner">
+                <ul class="bullets">
+                  ${(u.details || []).map(d => `<li>${escapeHtml(d)}</li>`).join("")}
+                </ul>
+                ${u.links && u.links.length ? `
+                  <div class="links">
+                    ${u.links.map(([label, href]) => {
+                      const safeHref = href.startsWith("http") ? href : href;
+                      const isExternal = safeHref.startsWith("http");
+                      return `<a class="smallLink" href="${safeHref}" ${isExternal ? `target="_blank" rel="noopener"` : ``}>${escapeHtml(label)}</a>`;
+                    }).join("")}
+                  </div>
+                ` : ``}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      // Attach accordion behavior
+      document.querySelectorAll(".update").forEach(card => {
+        const header = card.querySelector(".updateHeader");
+        const body = card.querySelector(".updateBody");
+
+        header.addEventListener("click", () => {
+          const isOpen = card.classList.toggle("open");
+          header.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+          if(isOpen){
+            // set max-height to allow smooth animation
+            body.style.maxHeight = body.scrollHeight + "px";
+          }else{
+            body.style.maxHeight = "0px";
+          }
+        });
+      });
+
+      // Reveal on scroll
+      setupReveal();
+    }
+
+    // ======= Reveal animation on scroll =======
+    let io = null;
+    function setupReveal(){
+      if(io) io.disconnect();
+
+      const cards = document.querySelectorAll(".update");
+      io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            e.target.classList.add("reveal");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      cards.forEach(c => io.observe(c));
+    }
+
+    // Live filters
+    search.addEventListener("input", render);
+    filter.addEventListener("change", render);
+
+    // First render
+    render();
+  })();
+  </script>
 </body>
 </html>
