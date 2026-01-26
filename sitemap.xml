@@ -1,25 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <!-- Home -->
   <url>
     <loc>https://downloaddelta.com/</loc>
-    <lastmod>2026-01-23</lastmod>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- Platform pages (folders with index.html) -->
   <url>
-    <loc>https://downloaddelta.com/deltaupdates.html</loc>
-    <lastmod>2026-01-23</lastmod>
+    <loc>https://downloaddelta.com/download-ios/</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://downloaddelta.com/becomeadev.html</loc>
-    <lastmod>2026-01-23</lastmod>
+    <loc>https://downloaddelta.com/download-android/</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://downloaddelta.com/download-mac/</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Updates (folder) -->
+  <url>
+    <loc>https://downloaddelta.com/updates/</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog (root file) -->
+  <url>
+    <loc>https://downloaddelta.com/blog.html</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Legacy / alternate updates page (root file in your tree) -->
+  <url>
+    <loc>https://downloaddelta.com/deltaupdates.html</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 404 page (optional: usually NOT needed in sitemap, but included since it's in your tree) -->
+  <url>
+    <loc>https://downloaddelta.com/404.html</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
 </urlset>
