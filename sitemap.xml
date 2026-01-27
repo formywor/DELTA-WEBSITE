@@ -64,4 +64,10 @@
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
+  <url>
+  <loc>https://downloaddelta.com/download.html</loc>
+  <lastmod>2026-01-27</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.8</priority>
+</url>
 </urlset>
