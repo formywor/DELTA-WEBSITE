@@ -1,5 +1,5 @@
 (function(){
-  const DISCORD_INVITE = "https://discord.gg/deltaupdates";
+  const DISCORD_INVITE = "https://discord.gg/4s9KjQexbS";
 
   // Modal elements (same on every page)
   const overlay = document.getElementById("modalOverlay");
