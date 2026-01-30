@@ -43,7 +43,7 @@
 
   <!-- Blog (root file) -->
   <url>
-    <loc>https://downloaddelta.com/blog.html</loc>
+    <loc>https://downloaddelta.com/blog</loc>
     <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -51,7 +51,7 @@
 
   <!-- Legacy / alternate updates page (root file in your tree) -->
   <url>
-    <loc>https://downloaddelta.com/deltaupdates.html</loc>
+    <loc>https://downloaddelta.com/deltaupdates</loc>
     <lastmod>2026-01-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -59,13 +59,13 @@
 
   <!-- 404 page (optional: usually NOT needed in sitemap, but included since it's in your tree) -->
   <url>
-    <loc>https://downloaddelta.com/404.html</loc>
+    <loc>https://downloaddelta.com/404</loc>
     <lastmod>2026-01-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-  <loc>https://downloaddelta.com/download.html</loc>
+  <loc>https://downloaddelta.com/download</loc>
   <lastmod>2026-01-27</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.8</priority>
