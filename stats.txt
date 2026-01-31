@@ -1,3 +1,3 @@
 directinstall=up|
-ipainstall=down|Apple signing temporarily unavailable
-version=1.0.1
+ipainstall=up|Apple signing temporarily unavailable
+version=2.0.1
