@@ -1,3 +1,3 @@
 directinstall=up|
 ipainstall=up|Apple signing temporarily unavailable
-version=2.0.1
+version=1.0.0
