@@ -3,120 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Delta Status</title>
+    <title>Delta Status | Download</title>
     <style>
         :root {
-            --primary-color: #007AFF;
-            --bg-color: #0b0b0b;
+            --primary: #007AFF;
+            --primary-glow: rgba(0, 122, 255, 0.5);
+            --bg: #000000;
             --card-bg: #1c1c1e;
-            --text-color: #ffffff;
+            --text: #ffffff;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Entrance Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 var(--primary-glow); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 122, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); }
         }
 
         .container {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 400px;
-            width: 90%;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .app-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 22%;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 120px;
+            height: 120px;
+            border-radius: 24%;
+            margin-bottom: 25px;
+            background: linear-gradient(145deg, #1e1e1e, #111);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
         }
 
-        h1 { margin: 10px 0; font-size: 24px; }
-        p { color: #8e8e93; font-size: 16px; margin-bottom: 30px; }
+        .app-icon:hover {
+            transform: scale(1.05);
+        }
 
-        .btn {
-            background-color: var(--primary-color);
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .version {
+            color: #8e8e93;
+            font-size: 14px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .download-btn {
+            background: var(--primary);
             color: white;
-            padding: 16px 32px;
-            border-radius: 14px;
+            padding: 18px 45px;
+            border-radius: 16px;
             text-decoration: none;
             font-weight: 600;
             font-size: 18px;
             display: inline-block;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
-        .btn:active {
-            transform: scale(0.95);
-            background-color: #005ecb;
+        .download-btn:hover {
+            background: #005ecb;
+            transform: translateY(-2px);
         }
 
-        .counter-container {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #636366;
-            font-variant-numeric: tabular-nums;
+        .download-btn:active {
+            transform: translateY(1px);
         }
 
-        .trust-box {
+        .counter {
             margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #38383a;
-            font-size: 13px;
-            text-align: left;
-            color: #aeaeb2;
+            font-size: 15px;
+            color: #636366;
+            font-weight: 400;
+        }
+
+        #count {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Subtle Background Glow */
+        .bg-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <img src="https://downloaddelta.com/download-ios/image512.png" alt="App Icon" class="app-icon">
-    
-    <h1>Delta Status</h1>
-    <p>Version 1.0 (1)</p>
+    <div class="bg-glow"></div>
 
-    <a href="itms-services://?action=download-manifest&url=https://downloaddelta.com/download-ios/manifest.plist" 
-       class="btn" id="downloadBtn">
-        Download Now
-    </a>
+    <div class="container">
+        <img src="https://downloaddelta.com/download-ios/image512.png" alt="Delta Status" class="app-icon">
+        
+        <h1>Delta Status</h1>
+        <div class="version">Build v1.0 • Ad Hoc</div>
 
-    <div class="counter-container">
-        Total Downloads: <span id="count">0</span>
+        <a href="itms-services://?action=download-manifest&url=https://downloaddelta.com/download-ios/manifest.plist" 
+           class="download-btn" id="downloadBtn">
+            Download Now
+        </a>
+
+        <div class="counter">
+            <span id="count">0</span> people have joined
+        </div>
     </div>
 
-    <div class="trust-box">
-        <b>After installing:</b><br>
-        1. Open <b>Settings</b> > <b>General</b><br>
-        2. Tap <b>VPN & Device Management</b><br>
-        3. Tap <b>Dived Yacoub</b> > <b>Trust</b>
-    </div>
-</div>
+    <script>
+        // 1. REPLACE WITH YOUR FIREBASE DATABASE URL
+        const FIREBASE_URL = "https://YOUR-PROJECT-NAME-default-rtdb.firebaseio.com/clicks.json";
 
-<script>
-    const downloadBtn = document.getElementById('downloadBtn');
-    const countDisplay = document.getElementById('count');
-    
-    // Check local storage for existing count
-    let count = localStorage.getItem('downloadCount') || 0;
-    countDisplay.innerText = count;
+        const downloadBtn = document.getElementById('downloadBtn');
+        const countDisplay = document.getElementById('count');
 
-    downloadBtn.addEventListener('click', () => {
-        count++;
-        countDisplay.innerText = count;
-        localStorage.setItem('downloadCount', count);
-    });
-</script>
+        // Fetch Global Count
+        async function updateDisplay() {
+            try {
+                const response = await fetch(FIREBASE_URL);
+                const data = await response.json();
+                countDisplay.innerText = (data || 0).toLocaleString();
+            } catch (e) { console.log("Check Firebase URL"); }
+        }
+
+        // Increment Global Count
+        downloadBtn.addEventListener('click', async () => {
+            let current = parseInt(countDisplay.innerText.replace(/,/g, '')) || 0;
+            let next = current + 1;
+            countDisplay.innerText = next.toLocaleString();
+
+            await fetch(FIREBASE_URL, {
+                method: 'PUT',
+                body: JSON.stringify(next)
+            });
+        });
+
+        updateDisplay();
+    </script>
 
 </body>
 </html>
