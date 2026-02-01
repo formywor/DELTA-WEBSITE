@@ -1,0 +1,268 @@
+<!-- support.html
+     Delta Status — Support page
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Delta Status — Support</title>
+  <meta name="description" content="Support for Delta Status" />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#a1a1aa;
+      --accent:#60a5fa;
+      --line:#1f2937;
+      --ok:#34d399;
+      --bad:#f87171;
+      --warn:#fbbf24;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:linear-gradient(180deg, #0b0f17 0%, #0b1220 60%, #070a10 100%);
+      line-height:1.6;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding:44px 16px 18px;
+      border-bottom:1px solid var(--line);
+      background:radial-gradient(900px 400px at 20% 0%, rgba(96,165,250,.20), transparent 60%),
+                 radial-gradient(900px 400px at 80% 20%, rgba(251,191,36,.14), transparent 60%);
+    }
+    .wrap{max-width:980px; margin:0 auto; padding:0 16px}
+    h1{margin:0; font-size:28px}
+    .sub{margin-top:8px; color:var(--muted)}
+    .grid{display:grid; grid-template-columns: 1fr 1fr; gap:16px; padding:22px 0 42px}
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .card{
+      background:rgba(17,24,39,.78);
+      border:1px solid rgba(31,41,55,.9);
+      border-radius:16px;
+      padding:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .btnrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px;
+      border:1px solid rgba(96,165,250,.35);
+      background:rgba(96,165,250,.12);
+      color:var(--text);
+      font-weight:600;
+      min-width:180px;
+    }
+    .btn.secondary{
+      border-color:rgba(31,41,55,.9);
+      background:rgba(15,23,42,.55);
+      font-weight:600;
+      min-width:180px;
+    }
+    .btn:hover{filter:brightness(1.05); text-decoration:none}
+    h2{margin:0 0 10px; font-size:18px}
+    h3{margin:14px 0 6px; font-size:15px}
+    ul{margin:10px 0 10px 20px}
+    li{margin:6px 0}
+    .pill{
+      display:inline-flex; padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(31,41,55,.9);
+      background:rgba(15,23,42,.55);
+      color:var(--muted); font-size:12px;
+      margin-right:8px;
+    }
+    .pill.ok{border-color:rgba(52,211,153,.35); background:rgba(52,211,153,.10); color:var(--text)}
+    .pill.warn{border-color:rgba(251,191,36,.35); background:rgba(251,191,36,.10); color:var(--text)}
+    .pill.bad{border-color:rgba(248,113,113,.35); background:rgba(248,113,113,.10); color:var(--text)}
+    .hr{height:1px; background:var(--line); margin:14px 0}
+    footer{
+      border-top:1px solid var(--line);
+      padding:20px 16px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .small{color:var(--muted); font-size:13px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    .faq details{
+      border:1px solid rgba(31,41,55,.9);
+      border-radius:14px;
+      padding:10px 12px;
+      background:rgba(15,23,42,.45);
+      margin:10px 0;
+    }
+    .faq summary{cursor:pointer; font-weight:700}
+    .faq p{margin:8px 0 0; color:var(--muted)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Delta Status — Support</h1>
+    <div class="sub">
+      Need help with the Delta Status app? Use the options below, check troubleshooting, or join the community.
+    </div>
+    <div style="margin-top:12px">
+      <span class="pill ok">Status Updates</span>
+      <span class="pill warn">Version Locks</span>
+      <span class="pill">Notifications</span>
+      <span class="pill">Background Refresh</span>
+    </div>
+    <div class="btnrow">
+      <a class="btn" href="https://discord.gg/4s9KjQexbS" target="_blank" rel="noopener">Join Discord</a>
+      <a class="btn secondary" href="https://downloaddelta.com/ios-download" target="_blank" rel="noopener">Get Delta for iOS</a>
+      <a class="btn secondary" href="https://downloaddelta.com/stats.txt" target="_blank" rel="noopener">View Status File</a>
+      <a class="btn secondary" href="statusTOS.html">Terms & Privacy</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+
+    <section class="card">
+      <h2>Quick Help</h2>
+      <p class="small">
+        Delta Status reads the service status from <span class="mono">downloaddelta.com/stats.txt</span> and shows whether
+        Direct Install and IPA Install are UP or DOWN.
+      </p>
+
+      <div class="hr"></div>
+
+      <h3>Troubleshooting</h3>
+      <ul>
+        <li><strong>Status won’t load:</strong> Check your internet connection, then try refresh again.</li>
+        <li><strong>Server reachable = No:</strong> The status endpoint may be temporarily unavailable.</li>
+        <li><strong>Notifications not working:</strong> Ensure notifications are allowed in iOS Settings for Delta Status.</li>
+        <li><strong>Background refresh:</strong> iOS decides timing—your device may refresh more or less often.</li>
+        <li><strong>Version mismatch / update required:</strong> Join Discord to get the latest supported version.</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h3>What to send support (if you need help fast)</h3>
+      <ul>
+        <li>Delta Status app version</li>
+        <li>Server version shown in the app</li>
+        <li>What you expected to happen vs what happened</li>
+        <li>Screenshot of the Status screen and Toolkit diagnostics</li>
+      </ul>
+
+      <p class="small">
+        Tip: The Toolkit page shows device/app info that helps us troubleshoot quickly.
+      </p>
+    </section>
+
+    <section class="card faq">
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>What does “Last Online” mean?</summary>
+        <p>
+          “Last Online” is the last time Delta Status saw the service as UP on your device. If you just installed the app,
+          it may show “Unknown” until the app checks status a few times.
+        </p>
+      </details>
+
+      <details>
+        <summary>Why does the app show UNKNOWN?</summary>
+        <p>
+          UNKNOWN usually means the app couldn’t fetch the status file or the file format wasn’t readable at that moment.
+          Try again later or check your connection.
+        </p>
+      </details>
+
+      <details>
+        <summary>Why do background updates feel inconsistent?</summary>
+        <p>
+          iOS schedules background refresh based on battery, usage patterns, network conditions, and system policy.
+          The app requests background refresh, but iOS decides when it runs.
+        </p>
+      </details>
+
+      <details>
+        <summary>Where do I get the latest update?</summary>
+        <p>
+          If you see “Update Required,” join the Discord and follow official update announcements. The app may require the
+          newest supported version to keep status parsing accurate.
+        </p>
+      </details>
+
+      <details>
+        <summary>Does Delta Status collect personal data?</summary>
+        <p>
+          Delta Status is designed to collect as little as possible. Basic network requests to load the status file may be
+          logged by standard hosting/CDN systems. See the combined Terms & Privacy page for full details.
+        </p>
+      </details>
+
+      <div class="hr"></div>
+
+      <h3>Contact</h3>
+      <p class="small">
+        For fastest response, open a ticket or message in Discord. If you also want email support, add your address here:
+        <span class="mono">support@yourdomain.com</span>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Support Links</h2>
+      <ul>
+        <li><a href="https://discord.gg/4s9KjQexbS" target="_blank" rel="noopener">Discord Support Server</a></li>
+        <li><a href="https://downloaddelta.com/ios-download" target="_blank" rel="noopener">Get Delta for iOS</a></li>
+        <li><a href="https://downloaddelta.com/downloadstats" target="_blank" rel="noopener">Delta Status Download Page</a></li>
+        <li><a href="https://downloaddelta.com/stats.txt" target="_blank" rel="noopener">Status Data (stats.txt)</a></li>
+        <li><a href="statusTOS.html">Terms of Service & Privacy Policy</a></li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h3>Status meanings</h3>
+      <ul>
+        <li><span class="pill ok">UP</span> Service is available.</li>
+        <li><span class="pill bad">DOWN</span> Service is unavailable; reason may be shown.</li>
+        <li><span class="pill">UNKNOWN</span> App could not confirm status at the moment.</li>
+      </ul>
+
+      <p class="small">
+        If you run a members-only system, add your membership instructions here (e.g., “Join Discord and follow the
+        verification steps to access private downloads.”).
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Community Guidelines</h2>
+      <p class="small">
+        Keep support spaces helpful and respectful. Don’t share private information publicly. If you see abuse or scams,
+        report it to moderators.
+      </p>
+
+      <div class="hr"></div>
+
+      <h3>Common fixes</h3>
+      <ul>
+        <li>Restart the app after enabling notifications in iOS Settings.</li>
+        <li>Update to the newest version if you see an update warning.</li>
+        <li>Try switching networks (Wi-Fi ↔ cellular) if status won’t load.</li>
+        <li>If the status endpoint is down, wait and try again later.</li>
+      </ul>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    © <span id="y"></span> Delta Status • Support
+  </div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</footer>
+</body>
+</html>

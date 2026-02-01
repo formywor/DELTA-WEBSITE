@@ -1,0 +1,513 @@
+<!-- statusTOS.html
+     Delta Status — Terms of Use + Privacy Policy (combined)
+     NOTE: This is a template, not legal advice. You should review with a qualified attorney
+     and customize company name, jurisdiction, contact details, and any real data practices.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Delta Status — Terms of Service & Privacy Policy</title>
+  <meta name="description" content="Delta Status Terms of Service and Privacy Policy" />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#a1a1aa;
+      --accent:#60a5fa;
+      --line:#1f2937;
+      --ok:#34d399;
+      --bad:#f87171;
+      --warn:#fbbf24;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:linear-gradient(180deg, #0b0f17 0%, #0b1220 60%, #070a10 100%);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding:48px 16px 18px;
+      border-bottom:1px solid var(--line);
+      background:radial-gradient(900px 400px at 20% 0%, rgba(96,165,250,.20), transparent 60%),
+                 radial-gradient(900px 400px at 80% 20%, rgba(52,211,153,.14), transparent 60%);
+    }
+    .wrap{max-width:1040px; margin:0 auto; padding:0 16px}
+    .title{display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between}
+    h1{margin:0; font-size:28px; letter-spacing:.2px}
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px; border:1px solid rgba(96,165,250,.35);
+      background:rgba(96,165,250,.10);
+      border-radius:999px; color:var(--text); font-size:13px
+    }
+    .meta{margin-top:10px; color:var(--muted); font-size:14px}
+    .grid{
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap:18px;
+      padding:22px 0 42px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+      .toc{position:relative; top:auto}
+    }
+    .card{
+      background:rgba(17,24,39,.78);
+      border:1px solid rgba(31,41,55,.9);
+      border-radius:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .toc{position:sticky; top:14px; padding:16px}
+    .toc h2{margin:0 0 10px; font-size:15px; color:var(--text)}
+    .toc a{display:block; padding:6px 0; color:var(--muted); font-size:14px}
+    .toc a:hover{color:var(--text)}
+    main.card{padding:18px 18px 26px}
+    h2{margin:26px 0 10px; font-size:20px}
+    h3{margin:18px 0 6px; font-size:16px; color:var(--text)}
+    p{margin:10px 0}
+    ul{margin:10px 0 10px 20px}
+    li{margin:6px 0}
+    code, pre{font-family:var(--mono)}
+    .callout{
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(251,191,36,.25);
+      background:rgba(251,191,36,.08);
+      color:var(--text);
+      margin:14px 0;
+    }
+    .fine{color:var(--muted); font-size:13px}
+    .hr{height:1px; background:var(--line); margin:22px 0}
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+    .pill{
+      font-size:12px; color:var(--text);
+      padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(31,41,55,.9);
+      background:rgba(15,23,42,.55);
+    }
+    .pill.ok{border-color:rgba(52,211,153,.35); background:rgba(52,211,153,.10)}
+    .pill.bad{border-color:rgba(248,113,113,.35); background:rgba(248,113,113,.10)}
+    .pill.warn{border-color:rgba(251,191,36,.35); background:rgba(251,191,36,.10)}
+    footer{
+      border-top:1px solid var(--line);
+      padding:20px 16px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .kbd{
+      font-family:var(--mono); font-size:12px;
+      padding:2px 6px; border:1px solid rgba(31,41,55,.9);
+      border-radius:6px; background:rgba(15,23,42,.55);
+      color:var(--text);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="title">
+      <h1>Delta Status — Terms of Service & Privacy Policy</h1>
+      <div class="badge" title="Combined Terms + Privacy">
+        <span>📄</span>
+        <span>Combined Policy Document</span>
+      </div>
+    </div>
+    <div class="meta">
+      Effective Date: <strong>[Month Day, Year]</strong> • Last Updated: <strong>[Month Day, Year]</strong><br />
+      Publisher / Operator: <strong>[Your Company/Team Name]</strong> (“we”, “us”, “our”)
+    </div>
+    <div class="pillrow" aria-label="Quick highlights">
+      <span class="pill ok">Status Checks</span>
+      <span class="pill warn">Background Refresh (iOS-controlled)</span>
+      <span class="pill">Notifications (opt-in)</span>
+      <span class="pill">No account required</span>
+      <span class="pill">Members-only access (if applicable)</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+    <nav class="card toc" aria-label="Table of contents">
+      <h2>Contents</h2>
+      <a href="#intro">1. Introduction</a>
+      <a href="#acceptance">2. Acceptance of Terms</a>
+      <a href="#eligibility">3. Eligibility & Age</a>
+      <a href="#service">4. The Service</a>
+      <a href="#status-data">5. Status Data & Accuracy</a>
+      <a href="#notifications">6. Notifications</a>
+      <a href="#tools-page">7. Tools Page (Third-Party Content)</a>
+      <a href="#acceptable-use">8. Acceptable Use</a>
+      <a href="#ip">9. Intellectual Property</a>
+      <a href="#availability">10. Availability, Changes, Termination</a>
+      <a href="#disclaimers">11. Disclaimers</a>
+      <a href="#liability">12. Limitation of Liability</a>
+      <a href="#indemnity">13. Indemnity</a>
+      <a href="#privacy">14. Privacy Policy (Overview)</a>
+      <a href="#data-we-collect">15. Data We Collect</a>
+      <a href="#how-we-use">16. How We Use Data</a>
+      <a href="#sharing">17. Sharing & Third Parties</a>
+      <a href="#retention">18. Data Retention</a>
+      <a href="#security">19. Security</a>
+      <a href="#choices">20. Your Choices & Controls</a>
+      <a href="#international">21. International Users</a>
+      <a href="#legal">22. Governing Law & Disputes</a>
+      <a href="#contact">23. Contact</a>
+      <a href="#changes">24. Changes to This Document</a>
+    </nav>
+
+    <main class="card">
+      <section id="intro">
+        <h2>1. Introduction</h2>
+        <p>
+          This document contains (a) the <strong>Terms of Service</strong> (“Terms”) and (b) the
+          <strong>Privacy Policy</strong> (“Privacy Policy”) for <strong>Delta Status</strong> (the “App”)
+          and any related website pages we operate (the “Site”), including status pages and support pages.
+        </p>
+        <p>
+          Delta Status provides service availability updates for Delta Executor iOS distribution channels
+          (for example, “Direct Install” and “IPA Install”) by reading a published status file and presenting
+          the results to users.
+        </p>
+        <div class="callout">
+          <strong>Important:</strong> This is a template and does not replace legal advice.
+          You should customize placeholders like <span class="kbd">[Your Company/Team Name]</span>,
+          <span class="kbd">[Jurisdiction]</span>, and your contact email.
+        </div>
+      </section>
+
+      <section id="acceptance">
+        <h2>2. Acceptance of Terms</h2>
+        <p>
+          By downloading, installing, accessing, or using the App or Site, you agree to these Terms and our Privacy Policy.
+          If you do not agree, do not use the App or Site.
+        </p>
+        <p>
+          If you are using the App on behalf of an organization, you represent that you have authority to bind that
+          organization to these Terms.
+        </p>
+      </section>
+
+      <section id="eligibility">
+        <h2>3. Eligibility & Age</h2>
+        <p>
+          You must be legally permitted to use the App in your location. If you are under the age where parental/guardian
+          consent is required for digital services in your region, you may use the App only with appropriate permission.
+        </p>
+        <p class="fine">
+          If your service is intended only for “private members,” you should describe eligibility requirements clearly on your Site.
+        </p>
+      </section>
+
+      <section id="service">
+        <h2>4. The Service</h2>
+        <p>
+          The App’s primary function is to display availability signals for specific services (e.g., Direct Install and IPA Install).
+          The App may:
+        </p>
+        <ul>
+          <li>Fetch and parse a plaintext status file (for example, <code>stats.txt</code>) published on our domain.</li>
+          <li>Display current availability (UP/DOWN/UNKNOWN) and show a reason only when a service is DOWN.</li>
+          <li>Notify you when status changes occur, if you enable notifications.</li>
+          <li>Attempt background refresh using iOS capabilities where supported and permitted by the operating system.</li>
+        </ul>
+        <p>
+          You understand that the App does not control Apple’s systems, device settings, or third-party service availability.
+          Availability information is informational only.
+        </p>
+      </section>
+
+      <section id="status-data">
+        <h2>5. Status Data & Accuracy</h2>
+        <h3>5.1 Source of Status Information</h3>
+        <p>
+          The App reads status information from a file or endpoint we publish. The status values may be delayed, incomplete,
+          or temporarily inaccurate due to network issues, caching, platform behavior, server outages, or other factors.
+        </p>
+
+        <h3>5.2 No Guarantees</h3>
+        <p>
+          We do not guarantee accuracy, completeness, or timeliness. Status indicators may be “UNKNOWN” if data cannot be fetched.
+          You agree not to rely on the App as your sole source of truth for critical decisions.
+        </p>
+
+        <h3>5.3 Version Control</h3>
+        <p>
+          The App may enforce a minimum supported version and require you to update before continued use. This helps ensure
+          compatibility, security, and accurate status parsing.
+        </p>
+      </section>
+
+      <section id="notifications">
+        <h2>6. Notifications</h2>
+        <p>
+          If you opt in, the App may send local notifications when service status changes (e.g., UP → DOWN or DOWN → UP).
+          Notification timing and delivery are managed by iOS and can vary.
+        </p>
+        <p>
+          You can disable notifications at any time in iOS Settings or within the App (if the App offers controls).
+        </p>
+      </section>
+
+      <section id="tools-page">
+        <h2>7. Tools Page (Third-Party Content)</h2>
+        <p>
+          The App may include a “Tools” page that embeds or links to third-party websites or services.
+          Third-party sites are not owned or controlled by us.
+        </p>
+        <ul>
+          <li>We do not endorse, guarantee, or warrant third-party content.</li>
+          <li>Third parties may have their own terms and privacy practices.</li>
+          <li>You use third-party services at your own discretion and risk.</li>
+        </ul>
+        <p class="fine">
+          If you embed a third-party website (e.g., via in-app browser), consider adding additional disclosures and ensuring
+          your usage complies with the third party’s terms and applicable laws.
+        </p>
+      </section>
+
+      <section id="acceptable-use">
+        <h2>8. Acceptable Use</h2>
+        <p>You agree that you will not:</p>
+        <ul>
+          <li>Use the App or Site for unlawful, harmful, or abusive purposes.</li>
+          <li>Attempt to disrupt, overload, or reverse engineer the App, Site, or related systems.</li>
+          <li>Probe, scan, or test vulnerabilities without authorization.</li>
+          <li>Use automated scraping or excessive requests that degrade our service.</li>
+          <li>Misrepresent affiliation with Delta Status or impersonate others.</li>
+        </ul>
+        <p>
+          We may limit access or block usage that appears abusive, automated, or otherwise harmful.
+        </p>
+      </section>
+
+      <section id="ip">
+        <h2>9. Intellectual Property</h2>
+        <p>
+          The App, Site design, logos, and content are owned by us or our licensors and are protected by applicable laws.
+          You receive a limited, non-exclusive, non-transferable license to use the App for personal, lawful purposes.
+        </p>
+        <p>
+          You may not copy, modify, distribute, sell, or lease any part of the App or our content unless we give written permission.
+        </p>
+      </section>
+
+      <section id="availability">
+        <h2>10. Availability, Changes, Termination</h2>
+        <h3>10.1 Availability</h3>
+        <p>
+          We may suspend or discontinue any part of the App or Site at any time, for any reason, including maintenance or security.
+        </p>
+        <h3>10.2 Updates</h3>
+        <p>
+          We may deploy updates that add, remove, or change features. Some updates may be required for continued use.
+        </p>
+        <h3>10.3 Termination</h3>
+        <p>
+          We may terminate or restrict your access if we reasonably believe you violated these Terms, created risk, or engaged
+          in misuse.
+        </p>
+      </section>
+
+      <section id="disclaimers">
+        <h2>11. Disclaimers</h2>
+        <p>
+          THE APP AND SITE ARE PROVIDED “AS IS” AND “AS AVAILABLE.” TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL
+          WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+        </p>
+        <p>
+          We do not warrant that the App will be uninterrupted, error-free, or secure. We do not warrant that the status
+          information will be accurate or current.
+        </p>
+      </section>
+
+      <section id="liability">
+        <h2>12. Limitation of Liability</h2>
+        <p>
+          TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL WE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+          CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR GOODWILL, ARISING FROM OR RELATED TO YOUR USE
+          OF THE APP OR SITE.
+        </p>
+        <p>
+          Our total liability for any claim relating to the App or Site will not exceed the amount you paid us for the App
+          in the 12 months before the event giving rise to the claim, or $10 if you paid nothing, whichever is greater,
+          unless applicable law requires otherwise.
+        </p>
+      </section>
+
+      <section id="indemnity">
+        <h2>13. Indemnity</h2>
+        <p>
+          You agree to indemnify and hold harmless us and our team members from and against any claims, liabilities,
+          damages, losses, and expenses (including reasonable attorney fees) arising out of your use of the App or Site
+          or your violation of these Terms.
+        </p>
+      </section>
+
+      <div class="hr"></div>
+
+      <section id="privacy">
+        <h2>14. Privacy Policy (Overview)</h2>
+        <p>
+          This Privacy Policy describes how we collect, use, and share information when you use Delta Status.
+          We aim to collect as little as possible while still operating the App.
+        </p>
+        <div class="callout">
+          <strong>Plain-language summary:</strong> The App checks a status file and shows results. Notifications are optional.
+          Background refresh depends on iOS. We don’t need you to create an account to use basic status viewing.
+        </div>
+      </section>
+
+      <section id="data-we-collect">
+        <h2>15. Data We Collect</h2>
+        <h3>15.1 Information You Provide</h3>
+        <ul>
+          <li><strong>Support messages (optional):</strong> If you contact support (email/Discord), you provide whatever info you choose to share.</li>
+        </ul>
+
+        <h3>15.2 Information Collected Automatically</h3>
+        <p>
+          Depending on your implementation and hosting configuration, our servers may receive basic request information when
+          the App fetches the status file. This may include:
+        </p>
+        <ul>
+          <li><strong>IP address</strong>, approximate location derived from IP (city/region level), and request timestamps</li>
+          <li><strong>Device and app details</strong> (e.g., user agent, app version) if transmitted by your network stack</li>
+          <li><strong>Diagnostics</strong> such as error codes or request logs on the server side</li>
+        </ul>
+        <p class="fine">
+          If you use a CDN (content delivery network) or DDoS protection, that provider may also log requests.
+        </p>
+
+        <h3>15.3 Local-Only Data (Stored on Your Device)</h3>
+        <p>The App may store limited data locally on your device, such as:</p>
+        <ul>
+          <li>Status history (to calculate uptime, streaks, and “last online” values)</li>
+          <li>Your notification preference (enabled/disabled)</li>
+          <li>Last known service status values (to detect changes)</li>
+        </ul>
+
+        <h3>15.4 Notifications</h3>
+        <p>
+          If you enable notifications, the App will request permission from iOS. Notifications are delivered by the operating system.
+          We do not receive a copy of your notification content unless you share it with us.
+        </p>
+      </section>
+
+      <section id="how-we-use">
+        <h2>16. How We Use Data</h2>
+        <ul>
+          <li>To provide the core status-checking function and display results.</li>
+          <li>To detect and notify you of status changes (if enabled).</li>
+          <li>To maintain basic security and reliability (rate limiting, abuse prevention).</li>
+          <li>To troubleshoot issues and respond to support requests.</li>
+          <li>To improve performance and user experience (where applicable).</li>
+        </ul>
+      </section>
+
+      <section id="sharing">
+        <h2>17. Sharing & Third Parties</h2>
+        <p>
+          We do not sell your personal information. We may share data in limited cases:
+        </p>
+        <ul>
+          <li><strong>Service providers:</strong> hosting/CDN/security providers that process requests to deliver the status file.</li>
+          <li><strong>Legal:</strong> if required by law or to protect rights, safety, and security.</li>
+          <li><strong>Third-party sites:</strong> if you use the Tools page, you interact with third-party websites under their policies.</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2>18. Data Retention</h2>
+        <p>
+          We keep data only as long as needed for the purposes described above. Server logs (if any) may be retained for
+          a limited period for security and debugging. Local app data can be removed by uninstalling the App or using
+          any in-app reset tools provided.
+        </p>
+      </section>
+
+      <section id="security">
+        <h2>19. Security</h2>
+        <p>
+          We use reasonable administrative, technical, and organizational measures to protect information.
+          However, no system can be guaranteed 100% secure.
+        </p>
+        <p>
+          You are responsible for maintaining the security of your device and for any actions taken on your device.
+        </p>
+      </section>
+
+      <section id="choices">
+        <h2>20. Your Choices & Controls</h2>
+        <ul>
+          <li><strong>Notifications:</strong> enable/disable in iOS Settings or in-app controls.</li>
+          <li><strong>Background refresh:</strong> iOS controls when and whether background refresh occurs.</li>
+          <li><strong>Local data:</strong> clear app history/reset tools (if available), or uninstall the app.</li>
+          <li><strong>Support:</strong> choose what to share when contacting support.</li>
+        </ul>
+      </section>
+
+      <section id="international">
+        <h2>21. International Users</h2>
+        <p>
+          If you access the App from outside the country where our servers are located, your information may be processed
+          in that country. You consent to such processing consistent with this Privacy Policy, subject to applicable law.
+        </p>
+      </section>
+
+      <section id="legal">
+        <h2>22. Governing Law & Disputes</h2>
+        <p>
+          These Terms are governed by the laws of <strong>[Jurisdiction]</strong>, excluding conflict of laws rules.
+          Any disputes will be resolved in the courts located in <strong>[Venue]</strong>, unless applicable law provides otherwise.
+        </p>
+        <p class="fine">
+          Optional: Add arbitration/alternative dispute resolution terms if appropriate and reviewed by counsel.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>23. Contact</h2>
+        <p>
+          Questions about these Terms or the Privacy Policy? Contact us:
+        </p>
+        <ul>
+          <li>Email: <strong>[support@yourdomain.com]</strong></li>
+          <li>Discord: <strong>https://discord.gg/4s9KjQexbS</strong></li>
+          <li>Website: <strong>https://downloaddelta.com</strong></li>
+        </ul>
+      </section>
+
+      <section id="changes">
+        <h2>24. Changes to This Document</h2>
+        <p>
+          We may update these Terms and Privacy Policy from time to time. We will revise the “Last Updated” date at the top.
+          Your continued use of the App after changes become effective means you accept the updated terms.
+        </p>
+        <p class="fine">
+          If you need a more formal change-notice process (e.g., for members), describe it here.
+        </p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="y"></span> Delta Status • <span class="fine">Template document — customize placeholders before publishing.</span></div>
+  </div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</footer>
+</body>
+</html>
