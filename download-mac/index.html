@@ -21,12 +21,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Download Delta for macOS — Mac Install Guide</title>
-  <meta name="description" content="Download Delta for macOS with official build links, setup steps, troubleshooting, FAQs, and update notes." />
+  <meta name="description" content="Download Delta for macOS with the official build link and setup steps. Includes troubleshooting and updates." />
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#000000">
 
   <link rel="canonical" href="https://downloaddelta.com/download-mac/" />
-
   <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -34,9 +33,7 @@
   <div class="wrap">
     <header class="topbar">
       <div class="brand">
-        <div class="emblem">
-          <img src="/logo.png" alt="Delta Support Logo">
-        </div>
+        <div class="emblem"><img src="/logo.png" alt="Delta Support Logo"></div>
         <div>
           <div class="brandTitle">Delta Support</div>
           <div class="brandSub">Downloads • updates • help</div>
@@ -58,22 +55,21 @@
     <section class="card">
       <h1 class="hTitle">Download <span>Delta</span> for macOS</h1>
       <p class="hSub">
-        Use the official macOS build link below. After downloading, follow the setup steps so macOS permissions don’t block it.
+        Download the official macOS build below. If macOS blocks the app, follow the setup steps on this page.
       </p>
 
       <div class="grid2">
         <div class="card soft">
-          <div class="sectionTitle">macOS download</div>
-          <p class="hSub" style="margin-top:0;">
-            Replace the file name below with your real macOS build if it’s different.
-          </p>
+          <div class="sectionTitle">macOS Download</div>
 
-          <!-- EDIT to match your real file -->
-          <a class="btn downloadBtn" href="./Delta-mac.dmg" download>Download macOS build</a>
+          <!-- Replace this with your REAL link -->
+          <a class="btn downloadBtn" data-download
+             href="https://file.deltaaxecutor.com/delta.dmg">Download macOS Build</a>
+
           <a class="btn btnSoft" href="/updates/">Read latest updates</a>
 
           <div class="note">
-            If you ship a .zip or .pkg instead of .dmg, rename the link accordingly.
+            Before every download, we’ll ask if you want to join our Discord server. The download continues either way.
           </div>
         </div>
 
@@ -81,17 +77,17 @@
           <div class="sectionTitle">Setup checklist</div>
           <ul class="list">
             <li>Download the macOS build</li>
-            <li>Open it and drag the app to Applications (if prompted)</li>
+            <li>Open it and move the app to Applications (if prompted)</li>
             <li>If macOS blocks it, allow it in Privacy & Security</li>
             <li>Restart the app after allowing permissions</li>
-            <li>Check <a href="/support">Support</a> if issues continue</li>
+            <li>If problems continue, check <a href="/support">Support</a></li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="card">
-      <div class="sectionTitle">How to open if macOS blocks it</div>
+      <div class="sectionTitle">If macOS blocks the app</div>
       <div class="grid3">
         <div class="card soft">
           <div class="sectionTitle">Step 1</div>
@@ -99,30 +95,18 @@
         </div>
         <div class="card soft">
           <div class="sectionTitle">Step 2</div>
-          <p class="hSub">Find the blocked app message and choose Allow / Open Anyway.</p>
+          <p class="hSub">Find the blocked app warning and choose Allow / Open Anyway.</p>
         </div>
         <div class="card soft">
           <div class="sectionTitle">Step 3</div>
-          <p class="hSub">Re-open Delta. If it still fails, use <a href="/support">Support</a>.</p>
+          <p class="hSub">Re-open Delta. If needed, use <a href="/support">Support</a>.</p>
         </div>
       </div>
-    </section>
 
-    <section class="card">
-      <div class="sectionTitle">FAQ</div>
-
-      <details class="faq" open>
-        <summary>Which Mac versions are supported?</summary>
-        <p class="hSub">
-          If you have a minimum macOS requirement, list it here. Otherwise, keep your Mac updated for best compatibility.
-        </p>
-      </details>
-
-      <details class="faq">
+      <details class="faq" open style="margin-top:12px;">
         <summary>The download opens but the app won’t run</summary>
         <p class="hSub">
-          Check Privacy & Security settings and allow the app if it’s blocked. Then restart it.
-          If it continues, check <a href="/updates/">Updates</a> and <a href="/support">Support</a>.
+          Check Privacy & Security and allow the app, then restart it. If it still fails, read <a href="/updates/">Updates</a>.
         </p>
       </details>
     </section>
@@ -133,18 +117,88 @@
         <div>
           <a class="btn btnSoft" href="/download/">Download hub</a>
           <a class="btn btnSoft" href="/updates/">Updates</a>
-          <a class="btn btnSoft" href="/support">Support</a>
+          <a class="btn btnSoft" href="/download-ios/">iOS</a>
+          <a class="btn btnSoft" href="/download-android/">Android</a>
         </div>
         <div>
           <a class="btn btnSoft" href="/blog">Blog</a>
-          <a class="btn btnSoft" href="/about/">About</a>
-          <a class="btn btnSoft" href="/privacy/">Privacy</a>
-          <a class="btn btnSoft" href="/terms/">Terms</a>
+          <a class="btn btnSoft" href="/support">Support</a>
         </div>
       </div>
     </section>
   </div>
 
+  <!-- Discord Prompt Modal -->
+  <div id="modalOverlay" class="modalOverlay" aria-hidden="true" style="display:none;">
+    <div class="modalCard" role="dialog" aria-modal="true" aria-label="Discord prompt">
+      <h3>Would you like to join our Discord server?</h3>
+      <p class="hSub" style="margin-top:8px;">
+        Join for updates, announcements, and support. Your download will still continue either way.
+      </p>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px;flex-wrap:wrap;">
+        <button id="noBtn" class="btn btnSoft" type="button">No</button>
+        <button id="yesBtn" class="btn" type="button">Yes</button>
+      </div>
+    </div>
+  </div>
+
   <script src="/site.js"></script>
+
+  <script>
+    (function(){
+      const DISCORD_URL = "https://discord.gg/"; // <-- replace with your real invite
+      const overlay = document.getElementById("modalOverlay");
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+      let pendingHref = null;
+
+      function openModal(href){
+        pendingHref = href;
+        overlay.style.display = "flex";
+        overlay.setAttribute("aria-hidden", "false");
+      }
+      function closeModal(){
+        overlay.style.display = "none";
+        overlay.setAttribute("aria-hidden", "true");
+      }
+      function continueToDownload(){
+        if (!pendingHref) return;
+        window.location.href = pendingHref;
+        pendingHref = null;
+      }
+
+      document.addEventListener("click", function(e){
+        const a = e.target.closest("a[data-download]");
+        if (!a) return;
+        e.preventDefault();
+        openModal(a.href);
+      });
+
+      yesBtn.addEventListener("click", function(){
+        window.open(DISCORD_URL, "_blank", "noopener");
+        closeModal();
+        setTimeout(continueToDownload, 150);
+      });
+
+      noBtn.addEventListener("click", function(){
+        closeModal();
+        continueToDownload();
+      });
+
+      overlay.addEventListener("click", function(e){
+        if (e.target === overlay){
+          closeModal();
+          continueToDownload();
+        }
+      });
+
+      document.addEventListener("keydown", function(e){
+        if (e.key === "Escape" && overlay.style.display === "flex"){
+          closeModal();
+          continueToDownload();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
