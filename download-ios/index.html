@@ -20,16 +20,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Download Delta for iOS — Official iPhone/iPad Install</title>
-  <meta name="description" content="Download Delta for iOS with official install options, status tools, troubleshooting, FAQs, and update links." />
+  <title>Download Delta for iOS — IPA + Direct Install</title>
+  <meta name="description" content="Download Delta for iOS using IPA (sideload) or Direct Install. Includes trusted steps, FAQs, and support links." />
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#000000">
 
-  <!-- IMPORTANT: change domain if needed -->
   <link rel="canonical" href="https://downloaddelta.com/download-ios/" />
 
-  <meta property="og:title" content="Download Delta for iOS — Official Install">
-  <meta property="og:description" content="Official iOS install options, status, troubleshooting, and update notes.">
+  <meta property="og:title" content="Download Delta for iOS — IPA + Direct Install">
+  <meta property="og:description" content="Official iOS downloads: IPA sideload or Direct Install 1/2, with setup steps and troubleshooting.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://downloaddelta.com/download-ios/">
   <meta property="og:image" content="https://downloaddelta.com/logo.png">
@@ -68,108 +67,127 @@
     <section class="card">
       <h1 class="hTitle">Download <span>Delta</span> for iOS</h1>
       <p class="hSub">
-        This page is the official iOS download hub. Use the install options below and follow the steps.
-        If an option is temporarily unavailable, check the status tools and Updates.
+        Choose one method below: <b>IPA (sideload)</b> or <b>Direct Install</b>.
+        If one direct install link is down, try the other one.
       </p>
 
       <div class="grid2">
         <div class="card soft">
-          <div class="sectionTitle">Install options</div>
-          <p class="hSub" style="margin-top:0;">
-            Choose the install method you use. (If you already have one that works, stick with it.)
-          </p>
+          <div class="sectionTitle">iOS Downloads</div>
 
-          <!-- Keep your existing iOS buttons/links here if you already have them -->
-          <a class="btn downloadBtn" href="./DeltaStatus.ipa" download>Download iOS IPA</a>
-          <a class="btn btnSoft" href="./manifest.plist" download>Download manifest.plist</a>
-          <a class="btn btnSoft" href="./stats.html">Open iOS Status / Stats</a>
+          <!-- IMPORTANT: Replace these 3 links if your filenames are different -->
+          <a class="btn downloadBtn" href="https://deltaexecutor.filesadda.com/Delta-iOS-v2.710.ipa">Download iOS IPA</a>
+
+          <a class="btn btnSoft downloadBtn" href="https://deltaexecutor.filesadda.com/Delta-DirectInstall-1">Direct Install 1</a>
+          <a class="btn btnSoft downloadBtn" href="https://deltaexecutor.filesadda.com/Delta-DirectInstall-2">Direct Install 2</a>
 
           <div class="note">
-            Tip: If your install method fails suddenly, it’s usually temporary. Check <a href="/updates/">Updates</a>
-            and <a href="/support">Support</a> before re-trying repeatedly.
+            If downloads fail or load slowly, try another browser or network and then retry.
+            For version notes, open <a href="/updates/">Updates</a>.
           </div>
         </div>
 
         <div class="card soft">
-          <div class="sectionTitle">Quick checklist</div>
+          <div class="sectionTitle">Which option should I use?</div>
           <ul class="list">
-            <li>Use a compatible iOS install method for your device</li>
-            <li>Make sure your storage has enough free space</li>
-            <li>If an install fails, retry later (temporary blocks happen)</li>
-            <li>After installing, restart the device for best results</li>
-            <li>Check <a href="/updates/">Updates</a> after new releases</li>
+            <li><b>IPA (Sideload)</b> = you install it using a signer app (ESign / KSign / other signer).</li>
+            <li><b>Direct Install</b> = install from Safari, then you may need to trust the app.</li>
+            <li>If Direct Install 1 doesn’t work, try Direct Install 2.</li>
+            <li>If you updated, check <a href="/updates/">Updates</a> after installing.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- GUIDE -->
+    <!-- IPA GUIDE -->
     <section class="card">
-      <div class="sectionTitle">How to install (general guide)</div>
+      <div class="sectionTitle">How to install using the IPA (Sideload)</div>
       <p class="hSub" style="margin-top:0;">
-        iOS installs can vary depending on your setup. The safest approach is to use the option you trust and
-        follow the prompts carefully. If you’re new, use the Status page to confirm availability.
+        The IPA method requires a signer app such as <b>ESign</b>, <b>KSign</b>, or any other iOS signer.
+        <b>Signer setup is not our department</b> — but here’s the basic workflow so you know what to do:
       </p>
 
       <div class="grid3">
         <div class="card soft">
           <div class="sectionTitle">Step 1</div>
-          <p class="hSub">Download the correct iOS file from the buttons above.</p>
+          <p class="hSub">Tap <b>Download iOS IPA</b> and save the file.</p>
         </div>
+
         <div class="card soft">
           <div class="sectionTitle">Step 2</div>
-          <p class="hSub">Follow your install method prompts (allow permissions if prompted).</p>
+          <p class="hSub">Open your signer app (ESign / KSign / other) and import the IPA.</p>
         </div>
+
         <div class="card soft">
           <div class="sectionTitle">Step 3</div>
-          <p class="hSub">If it fails, check Status + Updates, then try again later.</p>
+          <p class="hSub">Use the signer app to install. If something fails, check <a href="/support">Support</a>.</p>
         </div>
       </div>
+
+      <details class="faq" style="margin-top:12px;" open>
+        <summary>Why use the IPA method?</summary>
+        <p class="hSub">
+          IPA sideloading is useful when direct install is unavailable. It also gives you a consistent install flow
+          if you already use a signer app.
+        </p>
+      </details>
     </section>
 
-    <!-- TROUBLESHOOT -->
+    <!-- DIRECT INSTALL GUIDE -->
     <section class="card">
-      <div class="sectionTitle">Troubleshooting</div>
+      <div class="sectionTitle">How to install using Direct Install</div>
+      <p class="hSub" style="margin-top:0;">
+        Direct install is the simplest: tap Direct Install 1 or 2 and follow the install prompts.
+        After installing, iOS may say the developer is untrusted — that’s normal for direct installs.
+      </p>
 
-      <details class="faq" open>
-        <summary>Install option not working right now</summary>
+      <div class="grid3">
+        <div class="card soft">
+          <div class="sectionTitle">Step 1</div>
+          <p class="hSub">Tap <b>Direct Install 1</b>. If it doesn’t work, use <b>Direct Install 2</b>.</p>
+        </div>
+
+        <div class="card soft">
+          <div class="sectionTitle">Step 2</div>
+          <p class="hSub">Accept the install popup. Wait for the app icon to appear.</p>
+        </div>
+
+        <div class="card soft">
+          <div class="sectionTitle">Step 3</div>
+          <p class="hSub">If it says “Untrusted Developer”, trust the app (steps below).</p>
+        </div>
+      </div>
+
+      <details class="faq" style="margin-top:12px;" open>
+        <summary>How to trust the app after Direct Install</summary>
         <p class="hSub">
-          If an install option is temporarily unavailable, check <a href="./stats.html">iOS Status</a>
-          and <a href="/updates/">Updates</a>. Try again later instead of downloading repeatedly.
+          Go to <b>Settings → General → VPN & Device Management</b>, then find the profile / enterprise app and tap
+          <b>Trust</b>. After trusting, reopen the app.
         </p>
       </details>
 
       <details class="faq">
-        <summary>Download is slow or fails</summary>
+        <summary>Direct Install button is grey or does nothing</summary>
         <p class="hSub">
-          Try another browser, switch between Wi-Fi and mobile data, and avoid multiple parallel downloads.
-          If it still fails, check <a href="/support">Support</a>.
-        </p>
-      </details>
-
-      <details class="faq">
-        <summary>App installs but won’t open</summary>
-        <p class="hSub">
-          Restart your device and check <a href="/updates/">Updates</a> for any known notes.
-          If the issue continues, use <a href="/support">Support</a>.
+          Try the other direct link, refresh Safari, switch Wi-Fi/mobile data, then retry.
+          If it still doesn’t work, use the <b>IPA</b> method.
         </p>
       </details>
     </section>
 
-    <!-- INTERNAL LINKS -->
+    <!-- MORE LINKS -->
     <section class="card">
       <div class="sectionTitle">More helpful pages</div>
       <div class="grid2">
         <div>
           <a class="btn btnSoft" href="/download/">Download hub</a>
           <a class="btn btnSoft" href="/updates/">Updates</a>
-          <a class="btn btnSoft" href="/support">Support</a>
+          <a class="btn btnSoft" href="/download-android/">Android</a>
+          <a class="btn btnSoft" href="/download-mac/">macOS</a>
         </div>
         <div>
           <a class="btn btnSoft" href="/blog">Blog</a>
-          <a class="btn btnSoft" href="/about/">About</a>
-          <a class="btn btnSoft" href="/privacy/">Privacy</a>
-          <a class="btn btnSoft" href="/terms/">Terms</a>
+          <a class="btn btnSoft" href="/support">Support</a>
         </div>
       </div>
     </section>

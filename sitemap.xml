@@ -8,12 +8,11 @@
   <url><loc>https://downloaddelta.com/download-mac/</loc></url>
 
   <url><loc>https://downloaddelta.com/updates/</loc></url>
+
+  <!-- These match your current internal links -->
   <url><loc>https://downloaddelta.com/blog</loc></url>
   <url><loc>https://downloaddelta.com/support</loc></url>
 
-  <url><loc>https://downloaddelta.com/about/</loc></url>
-  <url><loc>https://downloaddelta.com/privacy/</loc></url>
-  <url><loc>https://downloaddelta.com/terms/</loc></url>
-
   <url><loc>https://downloaddelta.com/robots.txt</loc></url>
+  <url><loc>https://downloaddelta.com/sitemap.xml</loc></url>
 </urlset>
