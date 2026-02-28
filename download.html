@@ -1,11 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2566003301154558"
+     crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=/download/" />
-  <link rel="canonical" href="https://downloaddelta.com/download/" />
-  <meta name="robots" content="noindex, follow" />
-  <title>Redirecting…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Download (V2) — iOS, Android & macOS | Delta Support</title>
+  <meta name="description" content="Download (V2) for iOS, Android, and macOS. Safe step-by-step install instructions for IPA, APK, and DMG. Includes troubleshooting, update notes, and links to platform pages." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://downloaddelta.com/download" />
+
+  <meta property="og:title" content="Download (V2) — iOS, Android & macOS" />
+  <meta property="og:description" content="Download (V2) for iOS, Android, and macOS with step-by-step instructions and troubleshooting." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://downloaddelta.com/download" />
+  <meta property="og:image" content="https://downloaddelta.com/logo.png" />
+
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta name="theme-color" content="#000000" />
+
+  <style>
+    :root{
+      --bg:#050505;
+      --card: rgba(255,255,255,.04);
+      --border: rgba(255,255,255,.10);
+      --text:#f5f5f5;
+      --muted:#a3a3a3;
+      --red:#ef4444;
+      --red2:#b91c1c;
+      --shadow: 0 0 55px rgba(0,0,0,.85);
+    }
+
+    *{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(239,68,68,.18), transparent 60%),
+        radial-gradient(700px 350px at 90% 15%, rgba(185,28,28,.12), transparent 60%),
+        radial-gradient(circle at top, #141414, var(--bg));
+      overflow-x:hidden;
+    }
+
+    .wrap{ max-width: 1080px; margin:0 auto; padding: 22px 16px 70px; }
+
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px 12px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: 0 0 25px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+    }
+
+    .brand{ display:flex; align-items:center; gap:12px; min-width: 240px; }
+    .emblem{
+      width:42px; height:42px; border-radius:14px;
+      border:1px solid var(--border);
+      background: radial-gradient(circle at 30% 30%, rgba(239,68,68,.40), rgba(0,0,0,.25));
+      display:grid; place-items:center;
+      box-shadow: 0 0 30px rgba(239,68,68,.16);
+      overflow:hidden;
+    }
+    .emblem img{
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(239,68,68,.35));
+    }
+    .brand h1{ font-size:15px; margin:0; line-height:1.1; letter-spacing:.2px; }
+    .brand p{ margin:0; font-size:12px; color:var(--muted); }
+
+    .nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    .pill{
+      text-decoration:none; color:var(--text); font-size:13px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 0 22px rgba(239,68,68,.14);
+    }
+
+    .hero{
+      margin-top:16px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      animation: rise .8s ease both;
+    }
+    @keyframes rise{ from{ opacity:0; transform: translateY(18px);} to{ opacity:1; transform: translateY(0);} }
+    .heroInner{ padding:22px; }
+
+    .title{
+      margin:0;
+      font-size:34px;
+      letter-spacing:.2px;
+      line-height:1.12;
+    }
+    .title span{ color: var(--red); }
+    .subtitle{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+      max-width: 880px;
+    }
+
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background: rgba(0,0,0,.18);
+      padding:16px;
+    }
+
+    .kicker{
+      font-size:12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .18px;
+      margin: 0 0 10px;
+    }
+    .h2{ margin:0 0 10px; font-size:18px; letter-spacing:.2px; }
+    .p{ margin:0; color:#cfcfcf; font-size:13px; line-height:1.7; }
+    .p + .p{ margin-top:10px; }
+
+    .btn{
+      display:block;
+      width:100%;
+      text-decoration:none;
+      color:white;
+      font-weight:800;
+      font-size:14px;
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      user-select:none;
+      text-align:center;
+      margin-top: 12px;
+    }
+    .btnRed{
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      box-shadow: 0 0 26px rgba(239,68,68,.30);
+    }
+    .btnRed:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 0 44px rgba(239,68,68,.55);
+    }
+    .btnSoft{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+    .btnSoft:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 0 26px rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .toc{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .chip{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      text-decoration:none;
+      color: var(--text);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .chip:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 0 18px rgba(239,68,68,.10);
+    }
+
+    .section{
+      margin-top: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:18px;
+      background: rgba(0,0,0,.12);
+      overflow:hidden;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .section.reveal{ opacity:1; transform: translateY(0); }
+
+    .sectionHeader{
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .sectionHeader strong{ font-size:14px; letter-spacing:.2px; }
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color:#e6e6e6;
+      white-space:nowrap;
+    }
+    .tag.red{
+      border-color: rgba(239,68,68,.35);
+      background: rgba(239,68,68,.10);
+      color:#fecaca;
+    }
+
+    .sectionBody{ padding: 14px 16px 16px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .bullets{ margin: 10px 0 0; padding-left: 18px; }
+    .bullets li{ margin: 6px 0; color:#cfcfcf; }
+
+    .note{
+      margin-top: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(239,68,68,.25);
+      background: rgba(239,68,68,.08);
+      color:#f1f1f1;
+    }
+
+    .footer{
+      margin-top: 18px;
+      padding: 16px;
+      text-align:center;
+      color:#7a7a7a;
+      font-size:12px;
+    }
+    a.inline{ color:#fecaca; text-decoration:none; }
+    a.inline:hover{ text-decoration:underline; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; }
+      .section{ opacity:1; transform:none; }
+    }
+  </style>
 </head>
-<body></body>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="emblem" aria-label="Delta Support logo">
+          <img src="/logo.png" alt="Delta Support Logo">
+        </div>
+        <div>
+          <h1>Delta Support</h1>
+          <p>Download (V2) • install help • updates</p>
+        </div>
+      </div>
+
+      <div class="nav">
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/download-ios">iOS</a>
+        <a class="pill" href="/download-android">Android</a>
+        <a class="pill" href="/download-mac">macOS</a>
+        <a class="pill" href="/updates">Updates</a>
+        <a class="pill" href="/blog">Blog</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="heroInner">
+        <h2 class="title">Download <span>(V2)</span> — iOS, Android & macOS</h2>
+        <p class="subtitle">
+          This page is a long-form download + install guide designed to help users find the right file quickly.
+          If you already know your device, use the platform pages below. If you want step-by-step instructions,
+          scroll down to the platform sections.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="kicker">Quick downloads</div>
+            <div class="h2">Choose your platform</div>
+            <p class="p">
+              These pages are organized by device and are the fastest way to download the correct file.
+            </p>
+            <a class="btn btnRed" href="/download-ios">Download for iOS</a>
+            <a class="btn btnRed" href="/download-android">Download for Android</a>
+            <a class="btn btnRed" href="/download-mac">Download for macOS</a>
+            <a class="btn btnSoft" href="/updates">What changed? (Updates)</a>
+          </div>
+
+          <div class="card">
+            <div class="kicker">What this page includes</div>
+            <div class="h2">Long guide for search + users</div>
+            <p class="p">
+              This download guide covers mobile downloads, desktop downloads, install steps, common issues,
+              and how to verify you have the latest version.
+            </p>
+            <div class="toc" aria-label="table of contents">
+              <a class="chip" href="#ios">iOS download & install</a>
+              <a class="chip" href="#android">Android download & install</a>
+              <a class="chip" href="#mac">macOS download & install</a>
+              <a class="chip" href="#troubleshooting">Troubleshooting</a>
+              <a class="chip" href="#updates">Staying updated</a>
+              <a class="chip" href="#safety">Safety checks</a>
+            </div>
+
+            <div class="note">
+              <strong>Tip:</strong> If you’re looking for release notes and announcements, go to
+              <a class="inline" href="/updates">/updates</a>. If you want longer explanations, use
+              <a class="inline" href="/blog">/blog</a>.
+            </div>
+          </div>
+        </div>
+
+        <!-- iOS -->
+        <div class="section" id="ios">
+          <div class="sectionHeader">
+            <strong>iOS Download & Install (V2)</strong>
+            <span class="tag red">Mobile</span>
+          </div>
+          <div class="sectionBody">
+            <p class="p">
+              If you’re on iPhone or iPad, you’ll typically see two types of downloads:
+              <strong>Direct Install</strong> and <strong>IPA</strong>. If Direct Install is unavailable,
+              the IPA method is the fallback.
+            </p>
+
+            <ul class="bullets">
+              <li><strong>Direct Install:</strong> Quick install method when available.</li>
+              <li><strong>IPA:</strong> A downloadable file that can be installed using a supported signing method.</li>
+              <li><strong>Recommended:</strong> If you are installing an IPA, use a stable tool your community supports (example: Esign).</li>
+            </ul>
+
+            <p class="p">
+              Go to the iOS page for the newest links and the current status:
+              <a class="inline" href="/download-ios">https://downloaddelta.com/download-ios</a>
+            </p>
+
+            <div class="note">
+              <strong>Status note:</strong> If something is down, check <a class="inline" href="/updates">Updates</a> first.
+              That page is where you post the latest changes and availability notices.
+            </div>
+          </div>
+        </div>
+
+        <!-- Android -->
+        <div class="section" id="android">
+          <div class="sectionHeader">
+            <strong>Android Download & Install (V2)</strong>
+            <span class="tag">Mobile</span>
+          </div>
+          <div class="sectionBody">
+            <p class="p">
+              Android downloads are usually provided as an <strong>APK</strong>.
+              Some devices may need a specific build such as <strong>ARM32</strong>.
+              Always choose the correct file for your device to avoid install errors.
+            </p>
+
+            <ul class="bullets">
+              <li><strong>APK:</strong> Standard Android install file.</li>
+              <li><strong>ARM32:</strong> For older or specific 32-bit devices.</li>
+              <li><strong>Variants:</strong> If you offer region variants, label them clearly to prevent wrong installs.</li>
+            </ul>
+
+            <p class="p"><strong>Install steps:</strong></p>
+            <ul class="bullets">
+              <li>Download the APK from the Android page.</li>
+              <li>If your device blocks installs, enable “Install unknown apps” for your browser/file manager.</li>
+              <li>Open the downloaded file and follow the prompts.</li>
+              <li>If it fails, try the correct variant (example: ARM32) and retry.</li>
+            </ul>
+
+            <p class="p">
+              Get the newest Android links here:
+              <a class="inline" href="/download-android">https://downloaddelta.com/download-android</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- macOS -->
+        <div class="section" id="mac">
+          <div class="sectionHeader">
+            <strong>macOS Download & Install (V2)</strong>
+            <span class="tag">Desktop</span>
+          </div>
+          <div class="sectionBody">
+            <p class="p">
+              macOS downloads are usually distributed as a <strong>DMG</strong>.
+              After downloading, you typically drag the app into the Applications folder.
+            </p>
+
+            <p class="p"><strong>Install steps:</strong></p>
+            <ul class="bullets">
+              <li>Download the DMG from the macOS page.</li>
+              <li>Open the DMG and drag the app into <strong>Applications</strong>.</li>
+              <li>Open the app from Applications.</li>
+              <li>If macOS warns you, use System Settings → Privacy & Security to allow opening (if applicable).</li>
+            </ul>
+
+            <p class="p">
+              Get the newest macOS link here:
+              <a class="inline" href="/download-mac">https://downloaddelta.com/download-mac</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="section" id="troubleshooting">
+          <div class="sectionHeader">
+            <strong>Troubleshooting (V2)</strong>
+            <span class="tag">Help</span>
+          </div>
+          <div class="sectionBody">
+            <p class="p">
+              If a download won’t start or an install fails, use this checklist before opening a support ticket.
+              It saves you time and helps your support team answer faster.
+            </p>
+
+            <ul class="bullets">
+              <li><strong>Check Updates:</strong> Confirm the file isn’t temporarily unavailable: <a class="inline" href="/updates">/updates</a></li>
+              <li><strong>Try another browser:</strong> Some mobile browsers block downloads.</li>
+              <li><strong>Confirm storage:</strong> Low storage can cause failed installs.</li>
+              <li><strong>Use the correct file:</strong> Android ARM32 vs normal APK matters.</li>
+              <li><strong>Clear cache:</strong> If links seem “stuck,” clear browser cache and reload.</li>
+            </ul>
+
+            <p class="p">
+              If you still need help, join the community:
+              <a class="inline" href="https://discord.gg/" target="_blank" rel="noopener">discord.gg/deltaupdates</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Updates -->
+        <div class="section" id="updates">
+          <div class="sectionHeader">
+            <strong>Staying Updated (V2)</strong>
+            <span class="tag">Updates</span>
+          </div>
+          <div class="sectionBody">
+            <p class="p">
+              The Updates page is where you post version changes, availability notices, and site improvements.
+              If users ask “what changed?” send them there first.
+            </p>
+            <ul class="bullets">
+              <li>Release notes and change logs</li>
+              <li>Availability status (example: Direct Install down)</li>
+              <li>New platform additions and site changes</li>
+            </ul>
+            <a class="btn btnSoft" href="/updates">Open Updates Page</a>
+          </div>
+        </div>
+
+        <!-- Safety -->
+        <div class="section" id="safety">
+          <div class="sectionHeader">
+            <strong>Safety Checks (V2)</strong>
+            <span class="tag">Best Practices</span>
+          </div>
+          <div class="sectionBody">
+            <p class="p">
+              For any download page, it’s smart to help users verify they’re installing the correct file and not a reupload.
+              If you can, provide checksums and keep links consistent.
+            </p>
+            <ul class="bullets">
+              <li><strong>Use official pages:</strong> Download from your platform pages, not random reposts.</li>
+              <li><strong>Keep versions consistent:</strong> If you update a version, update it everywhere (home + updates).</li>
+              <li><strong>Keep a clean structure:</strong> It helps users and improves crawlability.</li>
+            </ul>
+
+            <div class="note">
+              Want a longer article format? Use <a class="inline" href="/blog">Blog</a> and post detailed guides there.
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          © 2026 Delta Support • <a class="inline" href="/">Home</a> •
+          <a class="inline" href="/download-ios">iOS</a> •
+          <a class="inline" href="/download-android">Android</a> •
+          <a class="inline" href="/download-mac">macOS</a> •
+          <a class="inline" href="/updates">Updates</a> •
+          <a class="inline" href="/blog">Blog</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    (function(){
+      // reveal sections on scroll
+      const sections = document.querySelectorAll(".section");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            e.target.classList.add("reveal");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      sections.forEach(s => io.observe(s));
+    })();
+  </script>
+</body>
 </html>
