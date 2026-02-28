@@ -1,202 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2566003301154558"
      crossorigin="anonymous"></script>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V622S6G7VF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-V622S6G7VF');
-</script>
+  <!-- Google Analytics (gtag) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V622S6G7VF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V622S6G7VF');
+  </script>
+
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Delta Download Guide — iOS, Android & macOS (v2.705)</title>
-  <meta name="description" content="Learn how to download and install Delta on iOS, Android, and macOS. Official Delta Support guide with IPA, APK, and DMG downloads for v2.705.">
+  <title>Delta Blog — Guides, Announcements, Install Help</title>
+  <meta name="description" content="Delta blog: installation help, troubleshooting, update explainers, and official announcements. Use this page for guides and useful links." />
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#000000">
 
-  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="canonical" href="https://downloaddelta.com/blog/" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Delta Download & Installation Guide (v2.705)">
-  <meta property="og:description" content="Step-by-step guide to download and install Delta on iOS, Android, and macOS.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://downloaddelta.com/blog">
+  <meta property="og:title" content="Delta Blog — Guides and Announcements">
+  <meta property="og:description" content="Install help, updates explained, troubleshooting, and official notes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://downloaddelta.com/blog/">
   <meta property="og:image" content="https://downloaddelta.com/logo.png">
 
-  <style>
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:#050505;
-      color:#f5f5f5;
-      line-height:1.7;
-    }
-    .wrap{
-      max-width:860px;
-      margin:0 auto;
-      padding:28px 18px 80px;
-    }
-    h1{
-      font-size:36px;
-      margin-bottom:10px;
-    }
-    h2{
-      margin-top:36px;
-      font-size:26px;
-    }
-    h3{
-      margin-top:24px;
-      font-size:20px;
-    }
-    p{
-      color:#cfcfcf;
-      font-size:15px;
-    }
-    a{
-      color:#fecaca;
-      text-decoration:none;
-    }
-    a:hover{ text-decoration:underline; }
-
-    .nav{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:24px;
-    }
-    .nav a{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      font-size:13px;
-    }
-
-    .card{
-      margin-top:22px;
-      padding:18px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
-    }
-
-    .footer{
-      margin-top:50px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.1);
-      font-size:12px;
-      color:#8a8a8a;
-      text-align:center;
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
   <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="emblem">
+          <img src="/logo.png" alt="Delta Support Logo">
+        </div>
+        <div>
+          <div class="brandTitle">Delta Support</div>
+          <div class="brandSub">Downloads • updates • help</div>
+        </div>
+      </div>
 
-    <div class="nav">
-      <a href="/">Home</a>
-      <a href="/download-ios">Download iOS</a>
-      <a href="/download-android">Download Android</a>
-      <a href="/download-mac">Download macOS</a>
-      <a href="/updates">Updates</a>
-    </div>
+      <nav class="nav">
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/download/">Download</a>
+        <a class="pill" href="/download-ios/">iOS</a>
+        <a class="pill" href="/download-android/">Android</a>
+        <a class="pill" href="/download-mac/">macOS</a>
+        <a class="pill" href="/updates/">Updates</a>
+        <a class="pill active" href="/blog/">Blog</a>
+        <a class="pill" href="/support/">Support</a>
+      </nav>
+    </header>
 
-    <h1>Delta Download & Installation Guide (v2.705)</h1>
+    <!-- HERO -->
+    <section class="card">
+      <h1 class="hTitle">Delta <span>Blog</span></h1>
+      <p class="hSub">
+        Welcome to the Delta Blog. This page is built to rank well by being genuinely useful: it links to downloads,
+        explains updates, and answers common questions. Over time, you can add real post pages (example structure below).
+      </p>
 
-    <p>
-      This guide explains how to download and install Delta on supported platforms.
-      Below you’ll find instructions for iOS, Android, and macOS, along with links
-      to the official Delta Support download pages.
-    </p>
+      <div class="grid3">
+        <div class="card soft">
+          <div class="sectionTitle">Download hub</div>
+          <p class="hSub" style="margin-top:0;">The best place to start if you need the correct build.</p>
+          <a class="btn btnSoft" href="/download/">Open Download</a>
+        </div>
+        <div class="card soft">
+          <div class="sectionTitle">Latest updates</div>
+          <p class="hSub" style="margin-top:0;">Changelog + NEW badges for recent versions.</p>
+          <a class="btn btnSoft" href="/updates/">Open Updates</a>
+        </div>
+        <div class="card soft">
+          <div class="sectionTitle">Troubleshooting</div>
+          <p class="hSub" style="margin-top:0;">Quick fixes for downloads, installs, and errors.</p>
+          <a class="btn btnSoft" href="/support/">Open Support</a>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>What is Delta?</h2>
-      <p>
-        Delta is a multi-platform application available for iOS, Android, and macOS.
-        The Delta Support website provides download links, update announcements,
-        and community resources to help users stay up to date with the latest versions.
+    <!-- BIG INFO (SEO-friendly content) -->
+    <section class="card">
+      <div class="sectionTitle">What the blog is for</div>
+      <p class="hSub" style="margin-top:0;">
+        Search engines rank pages that solve real problems. The blog is where you post guides that match what users type
+        into Google, then link them back to the download and update pages. This creates a strong “topic cluster” around Delta.
       </p>
-    </div>
 
-    <div class="card">
-      <h2>How to Download Delta on iOS</h2>
-      <p>
-        Delta for iOS is available through direct install and IPA download.
-        The recommended method is direct install, which allows supported devices
-        to install Delta without additional tools.
-      </p>
-      <p>
-        For advanced users, the IPA file can be downloaded and installed using
-        a compatible sideloading method.
-      </p>
-      <p>
-        👉 <a href="/download-ios">Download Delta for iOS</a>
-      </p>
-    </div>
+      <div class="grid2">
+        <div class="card soft">
+          <div class="sectionTitle">High-value guide topics</div>
+          <ul class="list">
+            <li>How to download Delta safely (official links only)</li>
+            <li>Android install steps + permission tips</li>
+            <li>iOS install overview + status checks</li>
+            <li>macOS install steps + “blocked app” fix</li>
+            <li>Update notes explained: what changed and what to do</li>
+          </ul>
+        </div>
 
-    <div class="card">
-      <h2>How to Download Delta on Android</h2>
-      <p>
-        Android users can download Delta using the APK file. Some devices may
-        also require the ARM32 variant depending on hardware compatibility.
-      </p>
-      <p>
-        After downloading the APK, ensure that your device allows installations
-        from unknown sources, then proceed with the installation.
-      </p>
-      <p>
-        👉 <a href="/download-android">Download Delta for Android</a>
-      </p>
-    </div>
+        <div class="card soft">
+          <div class="sectionTitle">How to write posts that rank</div>
+          <ul class="list">
+            <li>Use clear headings (H2/H3) and short paragraphs</li>
+            <li>Include step-by-step lists that people can follow</li>
+            <li>Add FAQ answers at the bottom</li>
+            <li>Link back to <a href="/download/">Download</a> and <a href="/updates/">Updates</a></li>
+            <li>Keep content updated when versions change</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>How to Download Delta on macOS</h2>
-      <p>
-        Delta for macOS is distributed as a DMG file. Once downloaded,
-        open the DMG and drag the application into your Applications folder.
+    <!-- EXAMPLE POSTS (hub style) -->
+    <section class="card">
+      <div class="sectionTitle">Featured guides</div>
+      <p class="hSub" style="margin-top:0;">
+        These “featured guides” are hub-style sections you can keep on this blog page until you create separate post pages.
       </p>
-      <p>
-        macOS may show a security prompt when opening the app for the first time.
-        Confirm the prompt to continue installation.
-      </p>
-      <p>
-        👉 <a href="/download-mac">Download Delta for macOS</a>
-      </p>
-    </div>
 
-    <div class="card">
-      <h2>Delta Version 2.705</h2>
-      <p>
-        Version 2.705 includes performance improvements and compatibility updates.
-        For detailed release notes and announcements, visit the Updates page.
-      </p>
-      <p>
-        👉 <a href="/updates">View Delta Updates</a>
-      </p>
-    </div>
+      <article class="card soft">
+        <div class="sectionTitle">Guide: Where to download Delta</div>
+        <p class="hSub" style="margin-top:0;">
+          The safest way to get Delta is to use the official download hub and pick your platform page:
+          <a href="/download-ios/">iOS</a>, <a href="/download-android/">Android</a>, or <a href="/download-mac/">macOS</a>.
+          This prevents installing the wrong file or using outdated links.
+        </p>
+        <ul class="list tight">
+          <li>Start at <a href="/download/">/download/</a></li>
+          <li>Choose your platform</li>
+          <li>Follow the install steps on that page</li>
+          <li>After installing, check <a href="/updates/">Updates</a> for the newest notes</li>
+        </ul>
+        <div style="margin-top:8px;">
+          <a class="btn btnSoft" href="/download/">Open Download hub</a>
+        </div>
+      </article>
 
-    <div class="card">
-      <h2>Need Help or Updates?</h2>
-      <p>
-        Join the Delta Support community to receive update announcements
-        and assistance from other users.
-      </p>
-      <p>
-        👉 <a href="https://discord.gg/" target="_blank" rel="noopener">
-          Join Delta Support Discord
-        </a>
-      </p>
-    </div>
+      <article class="card soft">
+        <div class="sectionTitle">Guide: What to do after updating</div>
+        <p class="hSub" style="margin-top:0;">
+          After updating, skim the changelog to understand what changed and whether there are any important steps.
+          If something behaves differently, check Support for fixes.
+        </p>
+        <ul class="list tight">
+          <li>Open <a href="/updates/">Updates</a> and find your version</li>
+          <li>Read the notes for changes</li>
+          <li>If a feature moved or changed, that’s usually explained there</li>
+          <li>If there’s an issue, open <a href="/support/">Support</a></li>
+        </ul>
+        <div style="margin-top:8px;">
+          <a class="btn btnSoft" href="/updates/">Open Updates</a>
+          <a class="btn btnSoft" href="/support/">Open Support</a>
+        </div>
+      </article>
 
-    <div class="footer">
-      © 2026 Delta Support • This guide is maintained for informational purposes
-    </div>
+      <article class="card soft">
+        <div class="sectionTitle">Guide: Fixing download problems</div>
+        <p class="hSub" style="margin-top:0;">
+          If downloads don’t start or are slow, most fixes are simple: try another browser, refresh, and temporarily disable
+          strict blockers. If your network is unstable, switch Wi-Fi/mobile data.
+        </p>
+        <ul class="list tight">
+          <li>Try a different browser</li>
+          <li>Refresh and retry once</li>
+          <li>Disable strict blockers temporarily</li>
+          <li>If needed, switch networks</li>
+        </ul>
+        <div style="margin-top:8px;">
+          <a class="btn btnSoft" href="/support/">More troubleshooting</a>
+        </div>
+      </article>
+    </section>
 
+    <!-- FAQ -->
+    <section class="card">
+      <div class="sectionTitle">Blog FAQ</div>
+
+      <details class="faq" open>
+        <summary>Do I need the blog to rank?</summary>
+        <p class="hSub">
+          You can rank with just the main pages, but a blog helps you cover more searches and build authority.
+          Each guide can target a specific question and link back to the download hub.
+        </p>
+      </details>
+
+      <details class="faq">
+        <summary>How often should I add posts?</summary>
+        <p class="hSub">
+          Consistency matters more than volume. Even 1–2 useful posts per month can help, as long as they are real
+          guides and not filler.
+        </p>
+      </details>
+
+      <details class="faq">
+        <summary>Where should posts link?</summary>
+        <p class="hSub">
+          Most posts should link to <a href="/download/">Download</a>, <a href="/updates/">Updates</a>, and <a href="/support/">Support</a>.
+          That makes your site structure stronger and helps Google understand what your most important pages are.
+        </p>
+      </details>
+    </section>
+
+    <!-- Legal -->
+    <section class="card">
+      <div class="sectionTitle">Legal & info</div>
+      <a class="btn btnSoft" href="/about/">About</a>
+      <a class="btn btnSoft" href="/privacy/">Privacy</a>
+      <a class="btn btnSoft" href="/terms/">Terms</a>
+    </section>
   </div>
+
+  <script src="/site.js"></script>
 </body>
 </html>

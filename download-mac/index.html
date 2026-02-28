@@ -1,107 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://quge5.com/88/tag.min.js" data-zone="207053" async data-cfasync="false"></script>
+  <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2566003301154558"
      crossorigin="anonymous"></script>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V622S6G7VF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-V622S6G7VF');
-</script>
+  <!-- Google Analytics (gtag) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V622S6G7VF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V622S6G7VF');
+  </script>
+
   <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download Delta for macOS — DMG (v2.705)</title>
-  <meta name="description" content="Download Delta for macOS: DMG download + basic install steps, updates, and support links.">
+
+  <title>Download Delta for macOS — Mac Install Guide</title>
+  <meta name="description" content="Download Delta for macOS with official build links, setup steps, troubleshooting, FAQs, and update notes." />
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#000000">
+
+  <link rel="canonical" href="https://downloaddelta.com/download-mac/" />
+
   <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
   <div class="wrap">
-    <div class="topbar">
+    <header class="topbar">
       <div class="brand">
-        <div class="emblem"><img src="/logo.png" alt="Logo"></div>
-        <div><h1 style="font-size:15px;margin:0;">Delta Support</h1><p>macOS download • updates • help</p></div>
+        <div class="emblem">
+          <img src="/logo.png" alt="Delta Support Logo">
+        </div>
+        <div>
+          <div class="brandTitle">Delta Support</div>
+          <div class="brandSub">Downloads • updates • help</div>
+        </div>
       </div>
-      <div class="nav">
+
+      <nav class="nav">
         <a class="pill" href="/">Home</a>
+        <a class="pill" href="/download/">Download</a>
         <a class="pill" href="/download-ios/">iOS</a>
         <a class="pill" href="/download-android/">Android</a>
-        <a class="pill" href="/download-mac/">macOS</a>
+        <a class="pill active" href="/download-mac/">macOS</a>
         <a class="pill" href="/updates/">Updates</a>
-        <a class="pill" href="/blog">Blog</a>
-      </div>
-    </div>
+        <a class="pill" href="/blog/">Blog</a>
+        <a class="pill" href="/support/">Support</a>
+      </nav>
+    </header>
 
-    <div class="hero">
-      <div class="heroInner">
-        <div class="grid">
-          <div class="card">
-            <h2 class="hTitle">Download <span>Delta</span> for macOS</h2>
-            <p class="hSub">
-              Use the DMG download below. For release notes and announcements, check Updates or join the Discord.
-            </p>
-            <div class="osBadge" id="osBadge" style="display:none;"></div>
-          </div>
+    <section class="card">
+      <h1 class="hTitle">Download <span>Delta</span> for macOS</h1>
+      <p class="hSub">
+        Use the official macOS build link below. After downloading, follow the setup steps so macOS permissions don’t block it.
+      </p>
 
-          <div class="card">
-            <div class="sectionTitle">macOS Download</div>
+      <div class="grid2">
+        <div class="card soft">
+          <div class="sectionTitle">macOS download</div>
+          <p class="hSub" style="margin-top:0;">
+            Replace the file name below with your real macOS build if it’s different.
+          </p>
 
-            <a class="btn btnRed downloadBtn" href="https://www.mediafire.com/file/5phn6kvf9wz26ll/delta.dmg/file">
-              Download for macOS (.dmg)
-            </a>
+          <!-- EDIT to match your real file -->
+          <a class="btn downloadBtn" href="./Delta-mac.dmg" download>Download macOS build</a>
+          <a class="btn btnSoft" href="/updates/">Read latest updates</a>
 
-            <a class="btn btnSoft" style="margin-top:10px;" href="https://discord.gg/" target="_blank" rel="noopener">
-              Join Discord for updates
-            </a>
-          </div>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <div class="sectionTitle">Basic install steps</div>
-            <div class="faqItem">
-              <p class="q">How do I install the DMG?</p>
-              <p class="a">
-                Open the DMG, then drag the app into your Applications folder. If macOS warns you about an app from the internet,
-                use the normal “Open” prompt from Finder.
-              </p>
-            </div>
-            <div class="faqItem">
-              <p class="q">Where do I see updates?</p>
-              <p class="a">Go to <a class="inline" href="/updates/">Updates</a> for version notes.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="sectionTitle">More downloads</div>
-            <a class="btn btnSoft" href="/download-ios/">Download Delta for iOS</a>
-            <a class="btn btnSoft" href="/download-android/">Download Delta for Android</a>
+          <div class="note">
+            If you ship a .zip or .pkg instead of .dmg, rename the link accordingly.
           </div>
         </div>
 
-        <div class="footer">
-          © 2026 Delta Support • <a class="inline" href="/updates/">Updates</a> • <a class="inline" href="/blog">Blog</a>
+        <div class="card soft">
+          <div class="sectionTitle">Setup checklist</div>
+          <ul class="list">
+            <li>Download the macOS build</li>
+            <li>Open it and drag the app to Applications (if prompted)</li>
+            <li>If macOS blocks it, allow it in Privacy & Security</li>
+            <li>Restart the app after allowing permissions</li>
+            <li>Check <a href="/support/">Support</a> if issues continue</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Modal -->
-  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modalHeader"><strong id="modalTitle">Join our Discord server?</strong></div>
-      <div class="modalBody" id="modalBodyText">Join Delta Support Updates for announcements and help.</div>
-      <div class="modalActions">
-        <a class="modalBtn join" id="joinBtn" href="https://discord.gg/" target="_blank" rel="noopener">Yes</a>
-        <button class="modalBtn no" id="noBtn" type="button">No</button>
+    <section class="card">
+      <div class="sectionTitle">How to open if macOS blocks it</div>
+      <div class="grid3">
+        <div class="card soft">
+          <div class="sectionTitle">Step 1</div>
+          <p class="hSub">Open System Settings → Privacy & Security.</p>
+        </div>
+        <div class="card soft">
+          <div class="sectionTitle">Step 2</div>
+          <p class="hSub">Find the blocked app message and choose Allow / Open Anyway.</p>
+        </div>
+        <div class="card soft">
+          <div class="sectionTitle">Step 3</div>
+          <p class="hSub">Re-open Delta. If it still fails, use <a href="/support/">Support</a>.</p>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="card">
+      <div class="sectionTitle">FAQ</div>
+
+      <details class="faq" open>
+        <summary>Which Mac versions are supported?</summary>
+        <p class="hSub">
+          If you have a minimum macOS requirement, list it here. Otherwise, keep your Mac updated for best compatibility.
+        </p>
+      </details>
+
+      <details class="faq">
+        <summary>The download opens but the app won’t run</summary>
+        <p class="hSub">
+          Check Privacy & Security settings and allow the app if it’s blocked. Then restart it.
+          If it continues, check <a href="/updates/">Updates</a> and <a href="/support/">Support</a>.
+        </p>
+      </details>
+    </section>
+
+    <section class="card">
+      <div class="sectionTitle">More helpful pages</div>
+      <div class="grid2">
+        <div>
+          <a class="btn btnSoft" href="/download/">Download hub</a>
+          <a class="btn btnSoft" href="/updates/">Updates</a>
+          <a class="btn btnSoft" href="/support/">Support</a>
+        </div>
+        <div>
+          <a class="btn btnSoft" href="/blog/">Blog</a>
+          <a class="btn btnSoft" href="/about/">About</a>
+          <a class="btn btnSoft" href="/privacy/">Privacy</a>
+          <a class="btn btnSoft" href="/terms/">Terms</a>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script src="/site.js"></script>

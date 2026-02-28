@@ -1,73 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
->
-  <!-- Home -->
-  <url>
-    <loc>https://downloaddelta.com/</loc>
-    <lastmod>2026-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://downloaddelta.com/</loc></url>
 
-  <!-- Platform pages (folders with index.html) -->
-  <url>
-    <loc>https://downloaddelta.com/download-ios/</loc>
-    <lastmod>2026-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <url><loc>https://downloaddelta.com/download/</loc></url>
+  <url><loc>https://downloaddelta.com/download-ios/</loc></url>
+  <url><loc>https://downloaddelta.com/download-android/</loc></url>
+  <url><loc>https://downloaddelta.com/download-mac/</loc></url>
 
-  <url>
-    <loc>https://downloaddelta.com/download-android/</loc>
-    <lastmod>2026-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <url><loc>https://downloaddelta.com/updates/</loc></url>
+  <url><loc>https://downloaddelta.com/blog/</loc></url>
+  <url><loc>https://downloaddelta.com/support/</loc></url>
 
-  <url>
-    <loc>https://downloaddelta.com/download-mac/</loc>
-    <lastmod>2026-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <url><loc>https://downloaddelta.com/about/</loc></url>
+  <url><loc>https://downloaddelta.com/privacy/</loc></url>
+  <url><loc>https://downloaddelta.com/terms/</loc></url>
 
-  <!-- Updates (folder) -->
-  <url>
-    <loc>https://downloaddelta.com/updates/</loc>
-    <lastmod>2026-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Blog (root file) -->
-  <url>
-    <loc>https://downloaddelta.com/blog</loc>
-    <lastmod>2026-01-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Legacy / alternate updates page (root file in your tree) -->
-  <url>
-    <loc>https://downloaddelta.com/deltaupdates</loc>
-    <lastmod>2026-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- 404 page (optional: usually NOT needed in sitemap, but included since it's in your tree) -->
-  <url>
-    <loc>https://downloaddelta.com/404</loc>
-    <lastmod>2026-01-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  <url>
-  <loc>https://downloaddelta.com/download</loc>
-  <lastmod>2026-01-27</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.8</priority>
-</url>
+  <url><loc>https://downloaddelta.com/robots.txt</loc></url>
 </urlset>

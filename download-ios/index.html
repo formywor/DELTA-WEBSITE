@@ -1,140 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2566003301154558"
      crossorigin="anonymous"></script>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V622S6G7VF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-V622S6G7VF');
-</script>
+  <!-- Google Analytics (gtag) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V622S6G7VF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V622S6G7VF');
+  </script>
+
   <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download Delta Executor for iOS — IPA & Direct Install v2.705</title>
-  <meta name="description" content="Download Delta for iOS: direct install and IPA download for v2.705. Updates and support links included.">
+
+  <title>Download Delta for iOS — Official iPhone/iPad Install</title>
+  <meta name="description" content="Download Delta for iOS with official install options, status tools, troubleshooting, FAQs, and update links." />
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#000000">
 
-  <link rel="canonical" href="https://delta-executor.com/download-ios/">
+  <!-- IMPORTANT: change domain if needed -->
+  <link rel="canonical" href="https://downloaddelta.com/download-ios/" />
 
-  <meta name="keywords" content="Delta Executor iOS, download Delta Executor for iOS, Delta iOS download, Delta iPhone download, Delta iPad download, Delta Support iOS, Delta iOS direct install, Delta iOS IPA, Delta iOS installer">
-
+  <meta property="og:title" content="Download Delta for iOS — Official Install">
+  <meta property="og:description" content="Official iOS install options, status, troubleshooting, and update notes.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Download Delta for iOS — IPA and Direct Install v2.705">
-  <meta property="og:description" content="Download Delta for iOS: direct install and IPA download for v2.705. Updates and support links included.">
-  <meta property="og:url" content="https://delta-executor.com/download-ios/">
-  <meta property="og:image" content="https://delta-executor.com/logo.png">
+  <meta property="og:url" content="https://downloaddelta.com/download-ios/">
+  <meta property="og:image" content="https://downloaddelta.com/logo.png">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Download Delta for iOS — IPA & Direct Install (v2.705)">
-  <meta name="twitter:description" content="Download Delta for iOS: direct install and IPA download for v2.705. Updates and support links included.">
-  <meta name="twitter:image" content="https://delta-executor.com/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
   <div class="wrap">
-    <div class="topbar">
+    <header class="topbar">
       <div class="brand">
-        <div class="emblem"><img src="/logo.png" alt="Logo"></div>
-        <div><h1 style="font-size:15px;margin:0;">Delta Support</h1><p>iOS downloads • updates • help</p></div>
+        <div class="emblem">
+          <img src="/logo.png" alt="Delta Support Logo">
+        </div>
+        <div>
+          <div class="brandTitle">Delta Support</div>
+          <div class="brandSub">Downloads • updates • help</div>
+        </div>
       </div>
-      <div class="nav">
+
+      <nav class="nav">
         <a class="pill" href="/">Home</a>
-        <a class="pill" href="/download-ios/">iOS</a>
+        <a class="pill" href="/download/">Download</a>
+        <a class="pill active" href="/download-ios/">iOS</a>
         <a class="pill" href="/download-android/">Android</a>
         <a class="pill" href="/download-mac/">macOS</a>
         <a class="pill" href="/updates/">Updates</a>
-        <a class="pill" href="/blog">Blog</a>
-      </div>
-    </div>
+        <a class="pill" href="/blog/">Blog</a>
+        <a class="pill" href="/support/">Support</a>
+      </nav>
+    </header>
 
-    <div class="hero">
-      <div class="heroInner">
-        <div class="grid">
-          <div class="card">
-            <h2 class="hTitle">Download <span>Delta</span> for iOS (v2.705)</h2>
-            <p class="hSub">
-              Choose direct install or download the IPA. For announcements and support, join the Discord.
-            </p>
-            <div class="osBadge" id="osBadge" style="display:none;"></div>
-          </div>
+    <!-- HERO -->
+    <section class="card">
+      <h1 class="hTitle">Download <span>Delta</span> for iOS</h1>
+      <p class="hSub">
+        This page is the official iOS download hub. Use the install options below and follow the steps.
+        If an option is temporarily unavailable, check the status tools and Updates.
+      </p>
 
-          <div class="card">
-            <div class="sectionTitle">Downloads</div>
+      <div class="grid2">
+        <div class="card soft">
+          <div class="sectionTitle">Install options</div>
+          <p class="hSub" style="margin-top:0;">
+            Choose the install method you use. (If you already have one that works, stick with it.)
+          </p>
 
-            <a class="btn btnRed downloadBtn" href="itms-services:///?action=download-manifest&url=https://delta.bz/manifest.plist">
-              iOS Direct Install (Recommended)
-            </a>
+          <!-- Keep your existing iOS buttons/links here if you already have them -->
+          <a class="btn downloadBtn" href="./DeltaStatus.ipa" download>Download iOS IPA</a>
+          <a class="btn btnSoft" href="./manifest.plist" download>Download manifest.plist</a>
+          <a class="btn btnSoft" href="./stats.html">Open iOS Status / Stats</a>
 
-            <a class="btn btnRed downloadBtn" href="https://deltaexecutor.filesadda.com/DeltaiOS-2.705.ipa">
-              Download iOS IPA (v2.705)
-            </a>
-
-            <a class="btn btnSoft" style="margin-top:10px;" href="https://discord.gg/" target="_blank" rel="noopener">
-              Join Discord for updates
-            </a>
-          </div>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <div class="sectionTitle">FAQ</div>
-            <div class="faqItem">
-              <p class="q">What is the latest iOS version?</p>
-              <p class="a">Current listed version here is v2.705. Check <a class="inline" href="/updates/">Updates</a> for release notes.</p>
-            </div>
-            <div class="faqItem">
-              <p class="q">Where do I get help?</p>
-              <p class="a">Support and announcements are posted in the Discord server.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="sectionTitle">More downloads</div>
-            <a class="btn btnSoft" href="/download-android/">Download Delta for Android</a>
-            <a class="btn btnSoft" href="/download-mac/">Download Delta for macOS</a>
+          <div class="note">
+            Tip: If your install method fails suddenly, it’s usually temporary. Check <a href="/updates/">Updates</a>
+            and <a href="/support/">Support</a> before re-trying repeatedly.
           </div>
         </div>
 
-        <div class="footer">
-          © 2026 Delta Support • <a class="inline" href="/updates/">Updates</a> • <a class="inline" href="/blog">Blog</a>
+        <div class="card soft">
+          <div class="sectionTitle">Quick checklist</div>
+          <ul class="list">
+            <li>Use a compatible iOS install method for your device</li>
+            <li>Make sure your storage has enough free space</li>
+            <li>If an install fails, retry later (temporary blocks happen)</li>
+            <li>After installing, restart the device for best results</li>
+            <li>Check <a href="/updates/">Updates</a> after new releases</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Modal -->
-  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modalHeader"><strong id="modalTitle">Join our Discord server?</strong></div>
-      <div class="modalBody" id="modalBodyText">Join Delta Support Updates for announcements and help.</div>
-      <div class="modalActions">
-        <a class="modalBtn join" id="joinBtn" href="https://discord.gg/" target="_blank" rel="noopener">Yes</a>
-        <button class="modalBtn no" id="noBtn" type="button">No</button>
+    <!-- GUIDE -->
+    <section class="card">
+      <div class="sectionTitle">How to install (general guide)</div>
+      <p class="hSub" style="margin-top:0;">
+        iOS installs can vary depending on your setup. The safest approach is to use the option you trust and
+        follow the prompts carefully. If you’re new, use the Status page to confirm availability.
+      </p>
+
+      <div class="grid3">
+        <div class="card soft">
+          <div class="sectionTitle">Step 1</div>
+          <p class="hSub">Download the correct iOS file from the buttons above.</p>
+        </div>
+        <div class="card soft">
+          <div class="sectionTitle">Step 2</div>
+          <p class="hSub">Follow your install method prompts (allow permissions if prompted).</p>
+        </div>
+        <div class="card soft">
+          <div class="sectionTitle">Step 3</div>
+          <p class="hSub">If it fails, check Status + Updates, then try again later.</p>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- TROUBLESHOOT -->
+    <section class="card">
+      <div class="sectionTitle">Troubleshooting</div>
+
+      <details class="faq" open>
+        <summary>Install option not working right now</summary>
+        <p class="hSub">
+          If an install option is temporarily unavailable, check <a href="./stats.html">iOS Status</a>
+          and <a href="/updates/">Updates</a>. Try again later instead of downloading repeatedly.
+        </p>
+      </details>
+
+      <details class="faq">
+        <summary>Download is slow or fails</summary>
+        <p class="hSub">
+          Try another browser, switch between Wi-Fi and mobile data, and avoid multiple parallel downloads.
+          If it still fails, check <a href="/support/">Support</a>.
+        </p>
+      </details>
+
+      <details class="faq">
+        <summary>App installs but won’t open</summary>
+        <p class="hSub">
+          Restart your device and check <a href="/updates/">Updates</a> for any known notes.
+          If the issue continues, use <a href="/support/">Support</a>.
+        </p>
+      </details>
+    </section>
+
+    <!-- INTERNAL LINKS -->
+    <section class="card">
+      <div class="sectionTitle">More helpful pages</div>
+      <div class="grid2">
+        <div>
+          <a class="btn btnSoft" href="/download/">Download hub</a>
+          <a class="btn btnSoft" href="/updates/">Updates</a>
+          <a class="btn btnSoft" href="/support/">Support</a>
+        </div>
+        <div>
+          <a class="btn btnSoft" href="/blog/">Blog</a>
+          <a class="btn btnSoft" href="/about/">About</a>
+          <a class="btn btnSoft" href="/privacy/">Privacy</a>
+          <a class="btn btnSoft" href="/terms/">Terms</a>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script src="/site.js"></script>
-
-  <script>
-    (function () {
-      var sponsorUrl = "https://otieu.com/4/10544523";
-      var downloadBtns = document.querySelectorAll(".downloadBtn");
-
-      downloadBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          setTimeout(function () {
-            window.open(sponsorUrl, "_blank", "noopener,noreferrer");
-          }, 300);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
