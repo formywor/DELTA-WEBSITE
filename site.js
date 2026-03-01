@@ -1,5 +1,5 @@
 (function(){
-  const DISCORD_INVITE = "https://discord.gg/";
+  const DISCORD_INVITE = "https://discord.gg/wRTgGCmvb9";
 
   // Modal elements (same on every page)
   const overlay = document.getElementById("modalOverlay");
